@@ -1,5 +1,6 @@
 
 import './App.css'
+import { ArchitectureDetail } from './ArchitectureDetail'
 
 const capabilities = [
   {
@@ -222,6 +223,8 @@ function App() {
             ))}
           </div>
         </section>
+
+        <ArchitectureDetail />
 
         <section className="content-section engineering-section" id="engineering">
           <div className="section-heading">
