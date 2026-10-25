@@ -56,7 +56,7 @@ const systems = [
     name: 'Delivery',
     device: 'GitHub & Cloudflare',
     detail: 'Version control · Deployment',
-    status: 'IN PROGRESS',
+    status: 'IN USE',
   },
 ]
 
@@ -74,6 +74,7 @@ function App() {
         <nav className="main-nav" aria-label="Main navigation">
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
+          <a href="#delivery">Deployment</a>
           <a href="#approach">AI &amp; approach</a>
         </nav>
 
@@ -226,10 +227,65 @@ function App() {
 
         <ArchitectureDetail />
 
+        <section className="content-section" id="delivery">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">02 / DEPLOYMENT</span>
+              <h2>Two projects. Two live destinations.</h2>
+            </div>
+            <p>
+              The application and this portfolio are deployed independently
+              from separate GitHub repositories to Cloudflare Pages. Custom
+              domains use CNAME records managed through MyHost DNS, keeping
+              the existing email configuration in place.
+            </p>
+          </div>
+
+          <div className="architecture-cards">
+            <article className="architecture-card">
+              <div className="card-topline">
+                <span className="card-index">01</span>
+                <span className="system-status status-active">LIVE · HTTPS</span>
+              </div>
+              <h3>QualityPeople application</h3>
+              <p className="card-device">qualitypeople-app</p>
+              <p className="card-description">
+                <a href="https://www.qualitypeople.ie" target="_blank" rel="noreferrer">
+                  www.qualitypeople.ie ↗
+                </a>
+                <br />
+                GitHub source → Cloudflare Pages deployment
+              </p>
+            </article>
+            <article className="architecture-card">
+              <div className="card-topline">
+                <span className="card-index">02</span>
+                <span className="system-status status-active">LIVE · HTTPS</span>
+              </div>
+              <h3>Engineering portfolio</h3>
+              <p className="card-device">qualitypeople-portfolio</p>
+              <p className="card-description">
+                <a href="https://www.howibuilt.qualitypeople.ie" target="_blank" rel="noreferrer">
+                  www.howibuilt.qualitypeople.ie ↗
+                </a>
+                <br />
+                Separate GitHub source → separate Cloudflare Pages deployment
+              </p>
+            </article>
+          </div>
+          <p>
+            <strong>What this demonstrates:</strong> independent deployments,
+            external DNS configuration, custom-domain validation and HTTPS.
+            The SIT environment and fuller release approval workflow remain
+            separate engineering goals; they are not implied by these live
+            public sites.
+          </p>
+        </section>
+
         <section className="content-section engineering-section" id="engineering">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">02 / QUALITY ENGINEERING</span>
+              <span className="eyebrow">03 / QUALITY ENGINEERING</span>
               <h2>Quality is built into the workflow.</h2>
             </div>
             <p>
@@ -258,7 +314,7 @@ function App() {
 
         <section className="approach-section" id="approach">
           <div className="approach-copy">
-            <span className="eyebrow">03 / AI WITH ACCOUNTABILITY</span>
+            <span className="eyebrow">04 / AI WITH ACCOUNTABILITY</span>
             <h2>AI can help build it. Evidence must prove it.</h2>
             <p>
               AI-assisted development is part of the experiment, not a
