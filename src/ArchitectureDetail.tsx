@@ -18,16 +18,16 @@ const stages = [
   {
     number: '03',
     title: 'Version & gate',
-    system: 'GitHub',
-    detail: 'Keep changes reviewable and use repeatable workflow checks before a release is approved.',
-    status: 'IN PROGRESS',
+    system: 'GitHub Actions',
+    detail: 'Run repeatable quality gates, retain test evidence, and validate the exact release candidate before approval.',
+    status: 'IN USE',
   },
   {
     number: '04',
     title: 'Deploy & test',
-    system: 'Cloudflare + Linux QA',
-    detail: 'Target flow: deploy a validated build to a test environment, then run API, browser and performance regression.',
-    status: 'PLANNED',
+    system: 'Cloudflare Pages + GitHub Actions',
+    detail: 'CI, SIT deployment, Playwright regression against the deployed SIT build, and controlled production release are implemented and have completed successfully end to end. A separate Linux QA host and scheduled JMeter performance testing remain planned.',
+    status: 'PARTLY IMPLEMENTED',
   },
 ]
 
@@ -35,22 +35,22 @@ const qualityGates = [
   {
     label: 'LOCAL',
     title: 'Fast feedback',
-    description: 'Type checking, linting and focused component or unit tests while developing.',
+    description: 'Type checking, linting, builds and focused component tests run locally and in CI.',
   },
   {
     label: 'CI',
     title: 'Repeatable checks',
-    description: 'Run the agreed quality gates on changes and retain results as evidence.',
+    description: 'GitHub Actions runs type checks, linting, production builds, component tests and local Pages Function/D1 integration tests. Docker provides a repeatable Playwright test environment.',
   },
   {
     label: 'SIT',
-    title: 'System regression',
-    description: 'Target: API and Playwright end-to-end tests, test data, and manual exploratory acceptance.',
+    title: 'Deployed system regression',
+    description: 'Implemented and end-to-end verified: deploy the validated commit to Cloudflare Pages SIT, check the deployed commit identity, and run Playwright regression against that deployed build. Controlled production release follows separate approval.',
   },
   {
-    label: 'NIGHTLY',
-    title: 'Performance trend',
-    description: 'Target: scheduled Apache JMeter runs, with AI helping summarise results for human review.',
+    label: 'PERFORMANCE',
+    title: 'Load and trend analysis',
+    description: 'Planned: scheduled Apache JMeter scenarios, repeatable baselines and retained results, followed by AI-assisted analysis for human review.',
   },
 ]
 
@@ -63,18 +63,19 @@ export function ArchitectureDetail() {
           <h2>From a code change to test evidence.</h2>
         </div>
         <p>
-          The design separates the workstation, build capability, source control,
-          deployment and QA responsibilities. Some steps are already in use;
-          others are the target architecture, not claims of completed delivery.
+          The delivery path is partly implemented and partly planned. The
+          application already has working CI, deployed SIT regression and a
+          controlled production release. The separate Linux QA host and
+          performance-testing layer are the remaining infrastructure goals.
         </p>
       </div>
 
-      <div className="flow-grid" aria-label="Target development and delivery flow">
+      <div className="flow-grid" aria-label="Development and delivery flow">
         {stages.map((stage, index) => (
           <article className="flow-card" key={stage.number}>
             <div className="flow-card-top">
               <span className="card-index">{stage.number}</span>
-              <span className={`flow-status ${stage.status === 'IN USE' ? 'flow-status-active' : ''}`}>
+              <span className={`flow-status ${['IN USE', 'PARTLY IMPLEMENTED'].includes(stage.status) ? 'flow-status-active' : ''}`}>
                 {stage.status}
               </span>
             </div>
@@ -93,20 +94,20 @@ export function ArchitectureDetail() {
           <span className="eyebrow">ENVIRONMENT STRATEGY</span>
           <h3>Keep environments purposeful.</h3>
           <p>
-            Local development should stay quick. CI should make checks repeatable.
-            A System Integration Testing (SIT) environment should validate the
-            deployed application, not just the developer's machine. Production
-            release remains a separate approval decision.
+            Local development stays quick. CI makes checks repeatable. The SIT
+            environment validates the deployed application, not just the
+            developer's machine. Production release is a separate approval
+            decision, and the complete path has been exercised successfully.
           </p>
         </article>
         <article className="architecture-note">
           <span className="eyebrow">CONTAINERS & PERFORMANCE</span>
-          <h3>Make QA reproducible.</h3>
+          <h3>Extend reproducibility to performance testing.</h3>
           <p>
-            The planned Linux QA host can run containerised services and test
-            tooling without loading every workload onto the 16 GB M4. Docker
-            containers, JMeter schedules and retained result files will be added
-            incrementally and labelled clearly as they become real.
+            Docker is already used in CI to package and run the Playwright
+            browser-test environment. A separate Linux QA host, scheduled
+            JMeter runs, retained performance results and AI-assisted analysis
+            are planned next steps, not yet operational capabilities.
           </p>
         </article>
       </div>
