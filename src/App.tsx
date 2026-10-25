@@ -297,23 +297,33 @@ function App() {
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">04</span>
-                <span className="system-status status-active">WORKFLOW DEFINED</span>
+                <span className="system-status status-active">END-TO-END VERIFIED</span>
               </div>
               <h3>Release candidate validation</h3>
               <p className="card-description">
-                A controlled workflow checks the candidate commit and retained
-                CI/SIT evidence before offering a production deployment that
-                requires explicit approval. Successful end-to-end release
-                operation is verified separately from workflow configuration.
+                The controlled release workflow validates the exact candidate
+                against successful CI and matching deployed-SIT regression
+                evidence, requires explicit production confirmation, and
+                deploys the approved commit. The full path has now completed
+                successfully in GitHub Actions.
               </p>
             </article>
           </div>
           <p>
-            <strong>Evidence matters:</strong> these capabilities are present
-            in the repository and workflow definitions. We are now validating
-            the full journey through actual workflow runs and test evidence;
-            configuration alone is not presented as proof that every release
-            path has succeeded.
+            <strong>Verified end to end:</strong> on 25 October 2026, CI,
+            SIT deployment, Playwright regression against the matching deployed
+            preview, and controlled production deployment all succeeded for
+            commit <code>3892d2882d7e9c3dc12f6d301bcd1a68c82b6660</code>.
+            The production workflow's three jobs — explicit release approval,
+            exact-candidate validation, and deployment — all passed. This is
+            evidence from actual runs, not just workflow configuration.
+            <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192743234" target="_blank" rel="noreferrer"> CI</a>
+            {' · '}
+            <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192889307" target="_blank" rel="noreferrer"> SIT</a>
+            {' · '}
+            <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192935797" target="_blank" rel="noreferrer"> deployed Playwright</a>
+            {' · '}
+            <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40193089925" target="_blank" rel="noreferrer"> production release</a>.
           </p>
         </section>
 
