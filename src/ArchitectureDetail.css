@@ -1,0 +1,167 @@
+.architecture-detail-section {
+  padding: 20px 8% 95px;
+  border-bottom: 1px solid var(--border);
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.flow-card {
+  position: relative;
+  min-width: 0;
+  padding: 21px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface);
+}
+
+.flow-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.flow-status {
+  padding: 5px 6px;
+  border-radius: 4px;
+  background: #94a3b812;
+  color: var(--text-muted);
+  font-size: 7px;
+  font-weight: 750;
+  letter-spacing: 0.5px;
+}
+
+.flow-status-active {
+  background: #b7f56a13;
+  color: var(--accent);
+}
+
+.flow-stage {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.flow-card h3,
+.architecture-note h3,
+.quality-gates-heading h3 {
+  margin: 0;
+  color: var(--text-heading);
+  font-size: 15px;
+  letter-spacing: -0.3px;
+}
+
+.flow-card > p,
+.architecture-note > p,
+.quality-gate > p {
+  margin: 11px 0 0;
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.flow-connector {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: -14px;
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--background);
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.architecture-support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.architecture-note {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--background);
+}
+
+.architecture-note h3 {
+  margin-top: 12px;
+  font-size: 17px;
+}
+
+.quality-gates {
+  margin-top: 44px;
+}
+
+.quality-gates-heading {
+  margin-bottom: 18px;
+}
+
+.quality-gates-heading h3 {
+  margin-top: 9px;
+  font-size: 20px;
+}
+
+.quality-gates-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.quality-gate {
+  padding: 19px;
+  border-top: 2px solid var(--accent);
+  background: var(--surface);
+}
+
+.gate-label {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.quality-gate h4 {
+  margin: 12px 0 0;
+  color: var(--text-heading);
+  font-size: 13px;
+}
+
+@media (max-width: 1050px) {
+  .flow-grid,
+  .quality-gates-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flow-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .architecture-detail-section {
+    padding: 10px 6% 65px;
+  }
+
+  .flow-grid,
+  .architecture-support-grid,
+  .quality-gates-grid {
+    grid-template-columns: 1fr;
+  }
+}
