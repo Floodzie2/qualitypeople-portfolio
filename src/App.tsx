@@ -1,6 +1,7 @@
 
 import './App.css'
 import { ArchitectureDetail } from './ArchitectureDetail'
+import { ManualTestingChecklist } from './ManualTestingChecklist'
 
 const capabilities = [
   {
@@ -74,6 +75,7 @@ function App() {
         <nav className="main-nav" aria-label="Main navigation">
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
+          <a href="#manual-sit">Manual SIT</a>
           <a href="#delivery">Deployment</a>
           <a href="#approach">AI &amp; approach</a>
         </nav>
@@ -226,6 +228,7 @@ function App() {
         </section>
 
         <ArchitectureDetail />
+        <ManualTestingChecklist />
 
         <section className="content-section" id="delivery">
           <div className="section-heading">
