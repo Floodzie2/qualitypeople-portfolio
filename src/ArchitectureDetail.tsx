@@ -1,36 +1,5 @@
 import './ArchitectureDetail.css'
 
-const stages = [
-  {
-    number: '01',
-    title: 'Develop',
-    system: 'MacBook Pro',
-    detail: 'Edit in VS Code over Remote SSH. The laptop is the interface; the M4 does the project work.',
-    status: 'IN USE',
-  },
-  {
-    number: '02',
-    title: 'Build & verify',
-    system: 'M4 Mac mini',
-    detail: 'Run Node.js, TypeScript, local checks and builds in the project workspace.',
-    status: 'IN USE',
-  },
-  {
-    number: '03',
-    title: 'Version & gate',
-    system: 'GitHub Actions',
-    detail: 'Run repeatable quality gates, retain test evidence, and validate the exact release candidate before approval.',
-    status: 'IN USE',
-  },
-  {
-    number: '04',
-    title: 'Deploy & test',
-    system: 'Cloudflare Pages + GitHub Actions',
-    detail: 'CI, SIT deployment, Playwright regression against the deployed SIT build, and controlled production release are implemented and have completed successfully end to end. A separate Linux QA host and scheduled JMeter performance testing remain planned.',
-    status: 'PARTLY IMPLEMENTED',
-  },
-]
-
 const qualityGates = [
   {
     label: 'LOCAL',
@@ -63,30 +32,66 @@ export function ArchitectureDetail() {
           <h2>From a code change to test evidence.</h2>
         </div>
         <p>
-          The delivery path is partly implemented and partly planned. The
-          application already has working CI, deployed SIT regression and a
-          controlled production release. The separate Linux QA host and
-          performance-testing layer are the remaining infrastructure goals.
+          The core delivery path is implemented and has been exercised end to
+          end. The diagram separates automated quality gates from the planned
+          Linux QA host and performance-testing extension.
         </p>
       </div>
 
-      <div className="flow-grid" aria-label="Development and delivery flow">
-        {stages.map((stage, index) => (
-          <article className="flow-card" key={stage.number}>
-            <div className="flow-card-top">
-              <span className="card-index">{stage.number}</span>
-              <span className={`flow-status ${['IN USE', 'PARTLY IMPLEMENTED'].includes(stage.status) ? 'flow-status-active' : ''}`}>
-                {stage.status}
-              </span>
-            </div>
-            <span className="flow-stage">{stage.title}</span>
-            <h3>{stage.system}</h3>
-            <p>{stage.detail}</p>
-            {index < stages.length - 1 && (
-              <span className="flow-connector" aria-hidden="true">→</span>
-            )}
-          </article>
-        ))}
+      <div className="delivery-flow" aria-label="End-to-end delivery flow">
+        <div className="delivery-node">
+          <span className="delivery-node-number">01 / DEVELOP</span>
+          <h3>MacBook Pro + M4 Mac mini</h3>
+          <p>VS Code over Remote SSH, edit code, run local checks and build.</p>
+          <span className="delivery-state">IN USE</span>
+        </div>
+        <div className="delivery-arrow" aria-hidden="true">↓</div>
+        <div className="delivery-node">
+          <span className="delivery-node-number">02 / COMMIT &amp; VERIFY</span>
+          <h3>GitHub Actions CI</h3>
+          <p>Typecheck · lint · build · component tests · Pages Function/D1 integration · Docker/Playwright.</p>
+          <span className="delivery-state">IMPLEMENTED</span>
+        </div>
+
+        <div className="delivery-branches">
+          <div className="delivery-branch delivery-branch-fail">
+            <span className="branch-label">IF CHECKS FAIL</span>
+            <h4>Stop and investigate</h4>
+            <p>Review the failure, fix the change and run the gates again.</p>
+          </div>
+          <div className="delivery-branch delivery-branch-pass">
+            <span className="branch-label">IF CHECKS PASS</span>
+            <h4>Deploy the validated commit</h4>
+            <p>Continue to the dedicated Cloudflare Pages SIT environment.</p>
+          </div>
+        </div>
+
+        <div className="delivery-arrow" aria-hidden="true">↓</div>
+        <div className="delivery-node">
+          <span className="delivery-node-number">03 / SIT REGRESSION</span>
+          <h3>Verify the deployed build</h3>
+          <p>Check the deployed commit SHA, then run Playwright regression against the deployed SIT site.</p>
+          <span className="delivery-state">IMPLEMENTED &amp; VERIFIED</span>
+        </div>
+        <div className="delivery-arrow" aria-hidden="true">↓</div>
+        <div className="delivery-node delivery-node-release">
+          <span className="delivery-node-number">04 / RELEASE</span>
+          <h3>Controlled production deployment</h3>
+          <p>Separate approval gate before releasing the validated version to production.</p>
+          <span className="delivery-state">IMPLEMENTED</span>
+        </div>
+
+        <div className="delivery-future">
+          <div className="future-heading">
+            <span className="branch-label">PLANNED EXTENSION</span>
+            <h3>Expand the QA capability</h3>
+          </div>
+          <div className="future-items">
+            <div><strong>Linux QA host</strong><span>Separate execution environment</span></div>
+            <div><strong>Apache JMeter</strong><span>Scheduled load tests and baselines</span></div>
+            <div><strong>AI-assisted analysis</strong><span>Interpret results for human review</span></div>
+          </div>
+        </div>
       </div>
 
       <div className="architecture-support-grid">
@@ -94,18 +99,17 @@ export function ArchitectureDetail() {
           <span className="eyebrow">ENVIRONMENT STRATEGY</span>
           <h3>Keep environments purposeful.</h3>
           <p>
-            Local development stays quick. CI makes checks repeatable. The SIT
-            environment validates the deployed application, not just the
-            developer's machine. Production release is a separate approval
-            decision, and the complete path has been exercised successfully.
+            Local development stays quick. CI makes checks repeatable. SIT
+            validates the deployed application, not just the developer's
+            machine. Production release remains a separate approval decision.
           </p>
         </article>
         <article className="architecture-note">
-          <span className="eyebrow">CONTAINERS & PERFORMANCE</span>
-          <h3>Extend reproducibility to performance testing.</h3>
+          <span className="eyebrow">CONTAINERS &amp; PERFORMANCE</span>
+          <h3>Build on the existing Docker workflow.</h3>
           <p>
             Docker is already used in CI to package and run the Playwright
-            browser-test environment. A separate Linux QA host, scheduled
+            browser-test environment. The separate Linux QA host, scheduled
             JMeter runs, retained performance results and AI-assisted analysis
             are planned next steps, not yet operational capabilities.
           </p>
