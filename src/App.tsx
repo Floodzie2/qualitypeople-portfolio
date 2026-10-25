@@ -274,11 +274,46 @@ function App() {
             </article>
           </div>
           <p>
-            <strong>What this demonstrates:</strong> independent deployments,
-            external DNS configuration, custom-domain validation and HTTPS.
-            The SIT environment and fuller release approval workflow remain
-            separate engineering goals; they are not implied by these live
-            public sites.
+            <strong>Deployment is more than publishing a website.</strong> The
+            application repository also defines a CI-to-SIT delivery path:
+            successful CI commits are deployed to a dedicated Cloudflare Pages
+            SIT project, and the deployed build is checked against the expected
+            commit SHA.
+          </p>
+
+          <div className="architecture-cards">
+            <article className="architecture-card">
+              <div className="card-topline">
+                <span className="card-index">03</span>
+                <span className="system-status status-active">IMPLEMENTED</span>
+              </div>
+              <h3>Automated quality gates</h3>
+              <p className="card-description">
+                GitHub Actions runs type checks, linting, builds, component
+                tests and local Pages Function/D1 integration tests. Docker
+                packages the Playwright test environment for repeatable E2E runs.
+              </p>
+            </article>
+            <article className="architecture-card">
+              <div className="card-topline">
+                <span className="card-index">04</span>
+                <span className="system-status status-active">WORKFLOW DEFINED</span>
+              </div>
+              <h3>Release candidate validation</h3>
+              <p className="card-description">
+                A controlled workflow checks the candidate commit and retained
+                CI/SIT evidence before offering a production deployment that
+                requires explicit approval. Successful end-to-end release
+                operation is verified separately from workflow configuration.
+              </p>
+            </article>
+          </div>
+          <p>
+            <strong>Evidence matters:</strong> these capabilities are present
+            in the repository and workflow definitions. We are now validating
+            the full journey through actual workflow runs and test evidence;
+            configuration alone is not presented as proof that every release
+            path has succeeded.
           </p>
         </section>
 
