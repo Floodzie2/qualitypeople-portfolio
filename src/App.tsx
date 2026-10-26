@@ -73,6 +73,7 @@ function App() {
         </a>
 
         <nav className="main-nav" aria-label="Main navigation">
+          <a href="#story">My approach</a>
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
           <a href="#manual-sit">Manual SIT</a>
@@ -171,6 +172,56 @@ function App() {
               <span className="connection-line" />
               <span>Connected through code, tests and delivery pipelines</span>
             </div>
+          </div>
+        </section>
+
+        <section className="content-section" id="story">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">MY JOURNEY / QUALITY ENGINEERING</span>
+              <h2>From QA leadership to AI-first quality engineering.</h2>
+            </div>
+            <p>
+              Five years as Head of QA at Storyful shaped my view that quality
+              must be built into delivery, not bolted on at the end. QualityPeople
+              is where I am extending that experience through hands-on modern
+              engineering and AI evaluation.
+            </p>
+          </div>
+          <div className="architecture-support-grid">
+            <article className="architecture-note">
+              <span className="eyebrow">FOUNDATION</span>
+              <h3>Leadership grounded in delivery.</h3>
+              <p>
+                My background spans QA leadership, automation strategy and
+                practical testing. I have built Cypress frameworks and worked
+                with Playwright, API testing, CI/CD and cross-functional delivery
+                teams. I bring a leadership perspective, while deliberately
+                keeping my technical skills current through implementation.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">EARLY AI EXPERIMENTS</span>
+              <h3>Using AI to turn discussion into test ideas.</h3>
+              <p>
+                At Storyful, I experimented with early versions of ChatGPT to
+                transform requirements and email threads into candidate test
+                cases. That work raised the same question that drives this
+                project today: how do we get useful leverage from AI while
+                checking the output rather than accepting it on trust?
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">CURRENT PRACTICE</span>
+              <h3>Build it, measure it, challenge it.</h3>
+              <p>
+                QualityPeople brings that question into a working application:
+                TypeScript development, Playwright and API quality gates,
+                environment-aware delivery, and an evaluation harness for AI
+                triage. The project records both passing evidence and unresolved
+                failures, with a clear distinction between implemented and planned work.
+              </p>
+            </article>
           </div>
         </section>
 
