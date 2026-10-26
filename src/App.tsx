@@ -1,6 +1,7 @@
 
 import './App.css'
 import { ArchitectureDetail } from './ArchitectureDetail'
+import { ArchitectureDiagrams } from './ArchitectureDiagrams'
 import { ManualTestingChecklist } from './ManualTestingChecklist'
 
 const capabilities = [
@@ -292,6 +293,7 @@ function App() {
           </div>
         </section>
 
+        <ArchitectureDiagrams />
         <ArchitectureDetail />
         <ManualTestingChecklist />
 
