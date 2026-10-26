@@ -135,9 +135,9 @@ export function ArchitectureDiagrams() {
           <div className="qa-support-card">
             <span className="diagram-node-eyebrow">PERFORMANCE TESTING</span>
             <strong>Smoke now · load later</strong>
-            <p>The CI JMeter test checks ten read-only version endpoint requests. Scheduled load profiles, trend history and AI-assisted interpretation are planned, not yet operational.</p>
-            <span className="diagram-status diagram-status-implemented">SMOKE IN PLACE</span>
-            <span className="diagram-status diagram-status-planned">LOAD + AI PLANNED</span>
+            <p>The CI JMeter test checks ten read-only version endpoint requests. Ollama is already installed on the M4 and used for development; using it to interpret JMeter results and compare performance trends is the next planned step. Scheduled load profiles and trend history are also planned.</p>
+            <span className="diagram-status diagram-status-implemented">JMeter SMOKE + LOCAL OLLAMA</span>
+            <span className="diagram-status diagram-status-planned">LOAD + AI ANALYSIS PLANNED</span>
           </div>
           <div className="qa-support-card">
             <span className="diagram-node-eyebrow">ENVIRONMENT ISOLATION</span>
