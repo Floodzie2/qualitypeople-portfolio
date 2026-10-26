@@ -76,6 +76,7 @@ function App() {
           <a href="#story">My QA journey</a>
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
+          <a href="#performance">JMeter performance</a>
           <a href="#manual-sit">Manual SIT</a>
           <a href="#delivery">Deployment</a>
           <a href="#ai-evaluation">AI evaluation</a>
@@ -293,6 +294,87 @@ function App() {
 
         <ArchitectureDetail />
         <ManualTestingChecklist />
+
+        <section className="content-section performance-section" id="performance">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">03 / PERFORMANCE ENGINEERING</span>
+              <h2>Performance testing is now part of CI.</h2>
+            </div>
+            <p>
+              A small Apache JMeter smoke test now runs in the application CI
+              workflow against a locally served build. The generated HTML report
+              and raw JTL results are archived as a workflow artifact, giving us
+              evidence to inspect after the run rather than relying on a green tick alone.
+            </p>
+          </div>
+
+          <div className="performance-summary">
+            <div className="performance-summary-copy">
+              <span className="system-status status-active">CI RUN PASSED · 26 OCT 2026</span>
+              <h3>JMeter smoke test — first pipeline run</h3>
+              <p>
+                The run exercised <code>GET /version.json</code> ten times.
+                All ten requests returned HTTP 200 with no errors. This is a
+                lightweight smoke check of endpoint availability and response
+                behaviour, not a capacity or stress test.
+              </p>
+              <div className="tag-list">
+                <span className="tech-tag">Apache JMeter</span>
+                <span className="tech-tag">GitHub Actions</span>
+                <span className="tech-tag">HTML report</span>
+                <span className="tech-tag">Raw results (.jtl)</span>
+              </div>
+              <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665" target="_blank" rel="noreferrer">
+                View successful CI run <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div className="performance-metrics" aria-label="JMeter smoke test metrics">
+              <div><span>Samples</span><strong>10</strong><small>requests</small></div>
+              <div><span>Error rate</span><strong>0.00%</strong><small>0 errors</small></div>
+              <div><span>Mean response</span><strong>7.5 ms</strong><small>average</small></div>
+              <div><span>Median response</span><strong>3 ms</strong><small>p50</small></div>
+              <div><span>Maximum</span><strong>50 ms</strong><small>slowest sample</small></div>
+              <div><span>Throughput</span><strong>94.34/s</strong><small>reported by JMeter</small></div>
+            </div>
+          </div>
+
+          <div className="jmeter-report-card">
+            <div className="jmeter-report-heading">
+              <div>
+                <span className="panel-kicker">REPORT RECONSTRUCTION</span>
+                <h3>Apache JMeter · Dashboard overview</h3>
+              </div>
+              <span className="system-status status-active">10 / 10 SUCCESS</span>
+            </div>
+            <p>
+              A compact, portfolio-friendly recreation of the key information in
+              the full scrolling HTML report. Values are taken from the archived
+              JMeter statistics; the layout is redrawn, not a literal screenshot
+              of JMeter's original interface.
+            </p>
+            <a className="jmeter-report-image-link" href="/jmeter-report-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open the recreated JMeter report image">
+              <img
+                className="jmeter-report-image"
+                src="/jmeter-report-recreated.svg"
+                alt="Recreated JMeter dashboard showing ten successful GET version.json requests, zero errors, 7.5 millisecond mean response time, 3 millisecond median, 50 millisecond maximum and a response-time distribution."
+              />
+            </a>
+            <div className="jmeter-report-actions">
+              <a className="button button-secondary" href="/jmeter-report-recreated.svg" target="_blank" rel="noreferrer">Open report image ↗</a>
+              <a className="button button-secondary" href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665" target="_blank" rel="noreferrer">CI run &amp; archived artifact ↗</a>
+            </div>
+          </div>
+
+          <div className="performance-next-steps">
+            <span className="eyebrow">WHAT THIS ENABLES NEXT</span>
+            <div className="performance-next-grid">
+              <article><span className="card-index">01</span><h3>Repeatable baselines</h3><p>Compare response-time and error trends across builds instead of judging one run in isolation.</p></article>
+              <article><span className="card-index">02</span><h3>Scheduled load runs</h3><p>Extend beyond a smoke check to planned nightly performance runs with controlled test data and load profiles.</p></article>
+              <article><span className="card-index">03</span><h3>AI-assisted analysis</h3><p>Explore having AI summarise JMeter results, flag unusual changes and suggest investigations—with human review and evidence-backed conclusions.</p></article>
+            </div>
+          </div>
+        </section>
 
         <section className="content-section" id="delivery">
           <div className="section-heading">
