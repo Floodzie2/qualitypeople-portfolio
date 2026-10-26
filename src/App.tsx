@@ -458,6 +458,57 @@ function App() {
             </p>
           </div>
 
+          <div className="architecture-support-grid">
+            <article className="architecture-note">
+              <span className="eyebrow">ENGINEERING EVIDENCE</span>
+              <h3>Follow the checks, not just the claims.</h3>
+              <p>
+                The release pipeline has recorded successful runs for CI,
+                SIT deployment, deployed Playwright regression and controlled
+                production release. These links point to actual GitHub Actions
+                runs for the validated application commit.
+              </p>
+              <p>
+                <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192743234" target="_blank" rel="noreferrer">CI run ↗</a>
+                {' · '}
+                <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192889307" target="_blank" rel="noreferrer">SIT deployment ↗</a>
+                {' · '}
+                <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192935797" target="_blank" rel="noreferrer">Deployed Playwright ↗</a>
+                {' · '}
+                <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40193089925" target="_blank" rel="noreferrer">Production release ↗</a>
+              </p>
+              <p>
+                <a href="https://github.com/Floodzie2/qualitypeople-app" target="_blank" rel="noreferrer">Application repository ↗</a>
+                {' · '}
+                <a href="https://github.com/Floodzie2/qualitypeople-portfolio" target="_blank" rel="noreferrer">Portfolio source ↗</a>
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">CASE STUDY / CURRENT FAILURE</span>
+              <h3>When an AI test fails, investigate both sides.</h3>
+              <p>
+                In the latest 12-case evaluation, the prompt-injection example
+                was incorrectly classified as spam rather than a booking request,
+                and the output omitted date and location follow-up details.
+                This exposes two behaviours to investigate: preserving the
+                underlying customer intent when text contains manipulation,
+                and identifying the information still needed.
+              </p>
+              <p>
+                The next experiment should change one factor at a time, retain
+                the same reference cases, rerun the full suite and compare
+                case-level diagnostics. Evaluator calibration is tracked
+                separately from model or prompt changes, so a scoring improvement
+                is not misreported as a model improvement.
+              </p>
+              <p>
+                <a href="https://github.com/Floodzie2/qualitypeople-app/pull/7" target="_blank" rel="noreferrer">AI evaluation pull request ↗</a>
+                {' · '}
+                <a href="https://github.com/Floodzie2/qualitypeople-app/blob/feature/ai-enquiry-evaluation-foundation/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">Experiment log ↗</a>
+              </p>
+            </article>
+          </div>
+
           <div className="architecture-cards">
             <article className="architecture-card">
               <div className="card-topline">
