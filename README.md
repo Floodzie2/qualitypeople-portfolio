@@ -31,8 +31,22 @@ While at Storyful, I experimented with early ChatGPT to turn requirements and em
 - **Distributed development:** a MacBook Pro used as a VS Code client, an M4 Mac mini for development and orchestration, and a planned Linux-based QA machine.
 - **Quality engineering:** TypeScript, Playwright browser automation, API checks, regression strategy and manual system-integration testing.
 - **Delivery:** separate GitHub repositories and Cloudflare Pages destinations for the application and portfolio.
-- **Performance engineering:** planned repeatable JMeter load tests, with AI-assisted interpretation treated as something to validate rather than trust automatically.
+- **Performance engineering:** a parameterised JMeter smoke plan and CI integration are in a focused pull request; the feature-branch run passed and produced an HTML report plus raw JTL artifact. Broader load testing and AI-assisted interpretation remain planned.
 - **AI quality engineering:** a protected, evaluation-only enquiry-triage endpoint tested against 12 synthetic cases, including ambiguity, conflicting dates and prompt injection.
+
+
+## JMeter smoke-test evidence
+
+A focused application pull request adds Apache JMeter 5.6.3 to CI. The test starts the built application locally and sends ten read-only requests to `GET /version.json` with one virtual user. It checks for HTTP 200 and a `commitSha` field, fails the workflow if any sample fails, and uploads the generated HTML dashboard and raw JTL results as a 14-day GitHub Actions artifact.
+
+- [Focused JMeter CI pull request](https://github.com/Floodzie2/qualitypeople-app/pull/10)
+- [Successful feature-branch CI run and report artifact](https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665)
+
+The CI run completed 10 samples with **0 errors**. Its reported mean was **7.5 ms**, median **3 ms**, and maximum **50 ms** for that short local-preview run. These figures describe that specific run, not a stable performance baseline.
+
+A separate manual SIT verification on 26 October 2026 also completed 10 requests with **0 errors**. Its report showed a **159.7 ms mean**, **131.5 ms median**, **99 ms minimum**, and **479 ms maximum**. The portfolio's dashboard image is a labelled reconstruction of those summary statistics, not a literal screenshot of JMeter's HTML page. The reported **6.165 requests/second** is from this brief run and must not be treated as a capacity result.
+
+This is currently a smoke test for endpoint availability and basic response behaviour—not a load, stress or capacity test. Scheduled load profiles, historical trend comparisons and AI-assisted result analysis are future work. Any AI analysis should be evaluated against the raw results and human-reviewed before conclusions are accepted.
 
 ## What the AI evaluation metrics mean
 
