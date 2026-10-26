@@ -460,13 +460,14 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">05 / AI QUALITY ENGINEERING</span>
-              <h2>Test the model. Test the tests. Learn from failure.</h2>
+              <h2>Evaluate the model—and the safety net around it.</h2>
             </div>
             <p>
-              A hands-on experiment in evaluating a real AI triage model against
-              a fixed set of synthetic enquiries. The aim is not to chase one
-              impressive score, but to measure behaviour, inspect failures and
-              improve the system without hiding regressions.
+              A model-backed enquiry-triage feature is evaluated against a fixed
+              synthetic golden dataset. The latest experiment separates the raw
+              model candidate from the final API result, so improvements from
+              deterministic safety controls are visible rather than attributed
+              to the model.
             </p>
           </div>
 
@@ -476,168 +477,120 @@ function App() {
                 <span className="card-index">01</span>
                 <span className="system-status status-active">IMPLEMENTED</span>
               </div>
-              <h3>Golden evaluation set</h3>
+              <h3>Golden dataset and evaluator</h3>
               <p className="card-description">
-                Twelve synthetic, identity-free cases cover booking, availability,
-                pricing, ambiguity, conflicting dates, spam and prompt injection.
-                Each defines expected category, factual summary anchors, missing
-                follow-up information and the human-review decision.
+                Twelve synthetic cases cover booking and pricing enquiries,
+                ambiguity, conflicting dates, spam and prompt injection. The
+                evaluator checks schema validity, category accuracy, factual
+                summary anchors, missing-information recall and human-review
+                decisions. Tests also challenge the evaluator with deliberately
+                altered candidate outputs.
               </p>
             </article>
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">02</span>
-                <span className="system-status status-active">TESTED</span>
+                <span className="system-status status-active">12 / 12 FINAL CASES PASS</span>
               </div>
-              <h3>Test the test instrument</h3>
+              <h3>Latest final API evaluation</h3>
               <p className="card-description">
-                Controlled candidate outputs and mutation tests check whether
-                the evaluator catches deliberately corrupted categories,
-                summaries, missing-information lists and review decisions.
-                This reduces the risk of trusting a broken scoring script.
+                The local v13 run passed all five checks across all 12 cases:
+                schema validity 100%, category accuracy 100%, summary-anchor
+                coverage 100%, missing-information recall 100% and human-review
+                accuracy 100%. These results describe this small synthetic
+                dataset and the current scoring rules—not general real-world
+                accuracy or production readiness.
               </p>
             </article>
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">03</span>
-                <span className="system-status status-active">LIVE MODEL RUNS</span>
+                <span className="system-status status-active">RAW VS FINAL</span>
               </div>
-              <h3>Measure more than one thing</h3>
+              <h3>Keep the model's misses visible</h3>
               <p className="card-description">
-                The runner reports schema validity, category accuracy, summary
-                anchor coverage, missing-information recall and human-review
-                accuracy, with case-level diagnostics. A correct category does
-                not guarantee a safe review decision.
+                Before deterministic post-processing, the raw model passed
+                11 of 12 cases and missing-information recall was 91.7%.
+                The remaining conflict-date case omitted the confirmed event
+                date. A narrow safety override adds that required follow-up
+                detail; the evaluator reports both the raw candidate and the
+                final result so the improvement is attributable to the control,
+                not misrepresented as a model improvement.
               </p>
             </article>
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">04</span>
-                <span className="system-status status-planned">IN PROGRESS</span>
+                <span className="system-status status-planned">NEXT ITERATION</span>
               </div>
-              <h3>Prompt iteration and regression control</h3>
+              <h3>Broaden evidence before stronger claims</h3>
               <p className="card-description">
-                Prompt revisions brought human-review accuracy back to 100%,
-                while later evaluator changes made explicit paraphrases count
-                correctly. The latest documented run passes 7 of 12 cases end to end; the evaluation work is now merged into the application repository.
-                Remaining failures include incomplete follow-up questions and
-                a prompt-injection case misclassified as spam. These remain
-                open defects, not score adjustments to conceal.
+                The next work is to expand the dataset with more varied and
+                adversarial examples, test endpoint error paths and safety
+                boundaries, and verify behaviour through the wider application
+                flow. The evaluation endpoint is isolated from public enquiry
+                submission; no live customer data is used in the golden cases.
               </p>
             </article>
           </div>
 
           <div className="architecture-support-grid">
             <article className="architecture-note">
-              <span className="eyebrow">EXPERIMENT / BASELINE</span>
-              <h3>Start with a measurable baseline.</h3>
+              <span className="eyebrow">UNIT TESTS</span>
+              <h3>35 tests passing.</h3>
               <p>
-                The initial prompt passed every check in 1 of 12 cases. Schema
-                validity was 100%, but category accuracy was 66.7%, summary
-                anchor coverage 46.4%, missing-information recall 25.0%, and
-                human-review accuracy 91.7%.
-              </p>
-              <p>
-                <strong>What these numbers mean:</strong> schema validity checks
-                whether the response follows the required structured format;
-                it does not prove the content is correct. Category accuracy
-                measures how often the enquiry was put in the right category.
-                Summary anchor coverage measures how many expected facts—such
-                as the event type, date, place or time—were preserved in the
-                summary. Missing-information recall measures how many of the
-                follow-up details the reference says are needed were actually
-                identified. Human-review accuracy measures whether the model
-                correctly judged when a person should review the enquiry.
-              </p>
-              <p>
-                In practical terms, the first run produced validly structured
-                responses every time, but only about two-thirds had the right
-                category, fewer than half of the expected summary facts were
-                captured, and only one-quarter of required follow-up details
-                were found. The review decision was correct in 11 of 12 cases.
-                Each metric answers a different question; a perfect format
-                score cannot compensate for missing or incorrect content.
+                The latest local Vitest run passed all 35 tests across six test
+                files, including endpoint response contracts, safety checks,
+                golden cases and evaluator behaviour. Type checking also passed
+                in the preceding verification run.
               </p>
             </article>
             <article className="architecture-note">
-              <span className="eyebrow">ITERATION / PROMPT 1</span>
-              <h3>Clarify intent and resist manipulation.</h3>
+              <span className="eyebrow">MEASURED COVERAGE</span>
+              <h3>Strong core logic; endpoint paths remain.</h3>
               <p>
-                The next version improved all-check passes to 4 of 12 and
-                category accuracy to 83.3%. Summary coverage reached 79.2%,
-                missing-information recall 37.5%, while human-review accuracy
-                stayed at 91.7%.
-              </p>
-            </article>
-            <article className="architecture-note">
-              <span className="eyebrow">ITERATION / PROMPT 3</span>
-              <h3>Restore human-review accuracy.</h3>
-              <p>
-                The third prompt revision reached 100% category accuracy,
-                80.6% summary anchor coverage and 45.8% missing-information
-                recall. Human-review accuracy returned to 100%, but only 2 of
-                12 cases passed every check under the then-current evaluator.
-                The results exposed a need to distinguish true model failures
-                from brittle phrase-matching in the scoring logic.
-              </p>
-            </article>
-            <article className="architecture-note">
-              <span className="eyebrow">EVALUATOR CALIBRATION</span>
-              <h3>Recognise paraphrases without relaxing the standard.</h3>
-              <p>
-                Explicit, tested wording equivalences were added for phrases
-                such as “venue location” and “venue or event location”, and
-                for clear summary paraphrases. The latest run passes 7 of 12
-                cases: schema validity 100%, category accuracy 91.7%, summary
-                anchor coverage 91.7%, missing-information recall 58.3% and
-                human-review accuracy 100%. This is primarily an evaluator
-                calibration improvement, not proof that the model itself got
-                better. The remaining failures are still visible.
-              </p>
-            </article>
-            <article className="architecture-note">
-              <span className="eyebrow">CURRENT FAILURE / PROMPT INJECTION</span>
-              <h3>One safety case still fails.</h3>
-              <p>
-                The latest run classifies the injection example as spam rather
-                than a booking request and omits date and location follow-up
-                information. The next experiment should reinforce that customer
-                text is untrusted input, preserve the underlying triage task,
-                and request human review where appropriate. The golden cases
-                remain unchanged; passing them all is not yet a claim of
-                production readiness.
+                A local V8 coverage run measured 77.9% overall line coverage.
+                The AI evaluation cases and triage logic each reached 100% line
+                coverage, the evaluator 98.59%, safety checks 100%, and the
+                Cloudflare AI endpoint 68.62%. Coverage measures executed code,
+                not whether every behaviour is correct; the endpoint's
+                uncovered branches are a priority for the next test pass.
               </p>
             </article>
             <article className="architecture-note">
               <span className="eyebrow">QUALITY LESSON</span>
-              <h3>Test the model and the test instrument.</h3>
+              <h3>Test the model and the measuring instrument.</h3>
               <p>
-                Evaluator tests now cover explicit paraphrase equivalences and
-                guard against treating meaningful distinctions such as “event
-                date” and “confirmed event date” as interchangeable. Local
-                type checking passes and all 27 unit tests pass. The next step
-                is to improve missing-information extraction and prompt-injection
-                handling without weakening expected behaviour.
+                Evaluator calibration now recognises explicit, tested
+                paraphrases without treating meaningful distinctions such as
+                “event date” and “confirmed event date” as interchangeable.
+                The safety override addresses a specific known case; it is not
+                a substitute for broader evaluation or human review.
               </p>
             </article>
           </div>
 
           <p>
-            <strong>Safety and scope:</strong> the evaluation endpoint is
-            protected by a token, enabled only in the evaluation environment,
-            and is not connected to public enquiry submission. The cases use
-            no live customer data. Twelve synthetic cases support iterative
-            development; they do not prove production readiness.
+            <strong>Scope and limitations:</strong> v13 is a local evaluation
+            run against 12 synthetic cases using the current model and
+            deterministic post-processing. A 12/12 final score is useful
+            regression evidence, not a statistically representative accuracy
+            claim. The endpoint is protected and evaluation-only, and is not
+            wired into public enquiry submission.
           </p>
           <p>
-            Implementation and evaluation code:
+            Implementation and evidence:
             {' '}
-            <a href="https://github.com/Floodzie2/qualitypeople-app/pull/7" target="_blank" rel="noreferrer">
-              AI enquiry triage evaluation PR (merged) ↗
+            <a href="https://github.com/Floodzie2/qualitypeople-app/tree/feature/ai-enquiry-evaluation-foundation" target="_blank" rel="noreferrer">
+              AI evaluation implementation ↗
             </a>
             {' · '}
             <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">
-              Experiment log and methodology ↗
+              Evaluation methodology and experiment log ↗
+            </a>
+            {' · '}
+            <a href="https://github.com/Floodzie2/qualitypeople-app/actions" target="_blank" rel="noreferrer">
+              CI and test workflows ↗
             </a>.
           </p>
         </section>
