@@ -397,12 +397,13 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">05 / AI QUALITY ENGINEERING</span>
-              <h2>Evaluate the evaluator, then evaluate the model.</h2>
+              <h2>Test the model. Test the tests. Learn from failure.</h2>
             </div>
             <p>
-              The enquiry-triage experiment is being built as a measurable
-              testing problem: define expected behaviour, validate the scoring
-              logic, then compare a real model against the same synthetic cases.
+              A hands-on experiment in evaluating a real AI triage model against
+              a fixed set of synthetic enquiries. The aim is not to chase one
+              impressive score, but to measure behaviour, inspect failures and
+              improve the system without hiding regressions.
             </p>
           </div>
 
@@ -410,90 +411,124 @@ function App() {
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">01</span>
-                <span className="system-status status-planned">FEATURE BRANCH</span>
+                <span className="system-status status-active">IMPLEMENTED</span>
               </div>
               <h3>Golden evaluation set</h3>
               <p className="card-description">
-                Twelve identity-free cases cover booking, availability, pricing,
-                ambiguity, conflicting dates, spam and prompt injection. Each
-                defines expected category, summary facts, missing information
-                and whether a human should review the result.
+                Twelve synthetic, identity-free cases cover booking, availability,
+                pricing, ambiguity, conflicting dates, spam and prompt injection.
+                Each defines expected category, factual summary anchors, missing
+                follow-up information and the human-review decision.
               </p>
             </article>
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">02</span>
-                <span className="system-status status-planned">IMPLEMENTED</span>
+                <span className="system-status status-active">TESTED</span>
               </div>
               <h3>Test the test instrument</h3>
               <p className="card-description">
-                Controlled candidate outputs establish a known-good baseline.
-                Mutation tests deliberately corrupt category, summary facts,
-                follow-up information and review decisions to check that the
-                evaluator detects regressions.
+                Controlled candidate outputs and mutation tests check whether
+                the evaluator catches deliberately corrupted categories,
+                summaries, missing-information lists and review decisions.
+                This reduces the risk of trusting a broken scoring script.
               </p>
             </article>
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">03</span>
-                <span className="system-status status-planned">IMPLEMENTED · LIVE RUN PENDING</span>
+                <span className="system-status status-active">LIVE MODEL RUNS</span>
               </div>
-              <h3>Case-level diagnostics</h3>
+              <h3>Measure more than one thing</h3>
               <p className="card-description">
-                Reports identify failed case IDs and explain the mismatch:
-                incorrect category, missing fact anchors, omitted follow-up
-                details or the wrong human-review decision. Aggregate scores
-                alone can hide the reason a system failed.
+                The runner reports schema validity, category accuracy, summary
+                anchor coverage, missing-information recall and human-review
+                accuracy, with case-level diagnostics. A correct category does
+                not guarantee a safe review decision.
               </p>
             </article>
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">04</span>
-                <span className="system-status status-planned">PREVIEW SETUP PENDING</span>
+                <span className="system-status status-planned">IN PROGRESS</span>
               </div>
-              <h3>Real-model evaluation</h3>
+              <h3>Prompt iteration and regression control</h3>
               <p className="card-description">
-                A guarded Cloudflare Workers AI adapter and repeatable runner
-                are implemented on the feature branch. The preview binding must
-                be configured and the 12-case live run completed before any
-                model-quality score is reported. No live customer data is used.
+                Prompt changes are evaluated against the same cases. The latest
+                run exposed missed human-review decisions for ambiguous and
+                contradictory enquiries; a targeted prompt revision is now
+                being retested. The next task is to make phrase matching less
+                brittle without weakening the expected behaviour.
               </p>
             </article>
           </div>
 
           <div className="architecture-support-grid">
             <article className="architecture-note">
-              <span className="eyebrow">LEARNING 01</span>
-              <h3>Metrics are only as good as their definitions.</h3>
+              <span className="eyebrow">EXPERIMENT / BASELINE</span>
+              <h3>Start with a measurable baseline.</h3>
               <p>
-                Early controlled tests exposed a literal anchor mismatch
-                (“cost” versus “charge”) and a mutation that still contained
-                one expected word. Normalisation and explicit failure reasons
-                improved repeatability, but substring matching is not semantic
-                understanding.
+                The initial prompt passed every check in 1 of 12 cases. Schema
+                validity was 100%, but category accuracy was 66.7%, summary
+                anchor coverage 46.4%, missing-information recall 25.0%, and
+                human-review accuracy 91.7%.
               </p>
             </article>
             <article className="architecture-note">
-              <span className="eyebrow">LEARNING 02</span>
-              <h3>Safety is part of the acceptance criteria.</h3>
+              <span className="eyebrow">ITERATION / PROMPT 1</span>
+              <h3>Clarify intent and resist manipulation.</h3>
               <p>
-                The experiment treats message text as untrusted input, rejects
-                malformed model output, keeps identity fields out of the model
-                request, and reserves human review for ambiguous, contradictory
-                and manipulation-attempt cases. A perfect aggregate score on a
-                small synthetic set is not proof of production readiness.
+                The next version improved all-check passes to 4 of 12 and
+                category accuracy to 83.3%. Summary coverage reached 79.2%,
+                missing-information recall 37.5%, while human-review accuracy
+                stayed at 91.7%.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">ITERATION / PROMPT 2</span>
+              <h3>Category accuracy improved — review regressed.</h3>
+              <p>
+                The following run passed 5 of 12 cases and reached 100%
+                category accuracy. Summary coverage stayed at 79.2% and
+                missing-information recall rose to 45.8%, but human-review
+                accuracy fell to 83.3%. The model correctly recognised a
+                prompt-injection message as a booking request, yet missed
+                review flags for a vague enquiry and contradictory dates.
+                These results triggered a targeted human-review prompt change;
+                its evaluation is pending.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">QUALITY LESSON</span>
+              <h3>Separate model failures from test failures.</h3>
+              <p>
+                Some assertions expect literal phrases such as “event location”
+                while the model says “venue”. That may be an evaluator
+                limitation rather than a behavioural failure. The next step is
+                to define safe, explicit equivalents while retaining strict
+                checks for genuinely missing facts. Golden expectations should
+                not be weakened just to improve the score.
               </p>
             </article>
           </div>
+
+          <p>
+            <strong>Safety and scope:</strong> the evaluation endpoint is
+            protected by a token, enabled only in the evaluation environment,
+            and is not connected to public enquiry submission. The cases use
+            no live customer data. Twelve synthetic cases support iterative
+            development; they do not prove production readiness.
+          </p>
           <p>
             Implementation and evaluation code:
             {' '}
             <a href="https://github.com/Floodzie2/qualitypeople-app/pull/7" target="_blank" rel="noreferrer">
               AI enquiry triage evaluation pull request ↗
+            </a>
+            {' · '}
+            <a href="https://github.com/Floodzie2/qualitypeople-app/blob/feature/ai-enquiry-evaluation-foundation/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">
+              Experiment log and methodology ↗
             </a>.
-            The live model evaluation is not yet complete; results will be
-            published here only after the preview run has been executed and
-            reviewed.
           </p>
         </section>
       </main>
