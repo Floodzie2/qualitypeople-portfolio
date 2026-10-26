@@ -309,8 +309,11 @@ function App() {
               on unsuccessful samples, and publishes the HTML report and raw JTL
               results as a 14-day artifact. The merged CI change is in place; the
               current check is an endpoint smoke test, not a load or capacity test.
-              Scheduled load testing and AI-assisted performance analysis remain
-              planned enhancements.
+              Ollama is available locally on the M4 Mac mini for development
+              support. Using it to interpret JMeter results and compare performance
+              trends is planned; the hosted application does not depend on a remote
+              AI service. Scheduled load testing and AI-assisted performance analysis
+              remain planned enhancements.
             </p>
           </div>
 
@@ -407,7 +410,7 @@ function App() {
             <div className="performance-next-grid">
               <article><span className="card-index">01</span><h3>Repeatable baselines</h3><p>Compare response-time and error trends across builds instead of judging one run in isolation.</p></article>
               <article><span className="card-index">02</span><h3>Scheduled load runs</h3><p>Extend beyond a smoke check to planned nightly performance runs with controlled test data and load profiles.</p></article>
-              <article><span className="card-index">03</span><h3>AI-assisted analysis</h3><p>Explore having AI summarise JMeter results, flag unusual changes and suggest investigations—with human review and evidence-backed conclusions.</p></article>
+              <article><span className="card-index">03</span><h3>AI-assisted analysis</h3><p>Use local Ollama to explore summarising JMeter results, flagging unusual changes and suggesting investigations—with human review and evidence-backed conclusions.</p></article>
             </div>
           </div>
         </section>

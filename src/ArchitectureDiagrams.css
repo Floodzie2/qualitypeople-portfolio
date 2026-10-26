@@ -348,3 +348,15 @@
     grid-column: 2;
   }
 }
+
+
+.ai-capability-lane .diagram-node-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ai-capability-note {
+  margin: 9px 0 0;
+  color: var(--text-faint);
+  font-size: 10px;
+  line-height: 1.7;
+}
