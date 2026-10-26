@@ -73,7 +73,7 @@ function App() {
         </a>
 
         <nav className="main-nav" aria-label="Main navigation">
-          <a href="#architecture">Architecture</a>
+          <a href="#story">My QA journey</a>\n          <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
           <a href="#manual-sit">Manual SIT</a>
           <a href="#delivery">Deployment</a>
@@ -190,6 +190,68 @@ function App() {
           <div>
             <span className="metric-number">04</span>
             <span className="metric-label">EVALUATE AI WITH EVIDENCE</span>
+          </div>
+        </section>
+
+        <section className="content-section career-section" id="story">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">MY QA JOURNEY</span>
+              <h2>From QA leadership to AI-first quality engineering.</h2>
+            </div>
+            <p>
+              QualityPeople connects years of quality leadership with current,
+              hands-on engineering: building software, automating delivery gates,
+              and measuring whether AI systems behave as expected.
+            </p>
+          </div>
+          <div className="architecture-support-grid">
+            <article className="architecture-note">
+              <span className="eyebrow">LEADERSHIP</span>
+              <h3>Quality as a delivery discipline.</h3>
+              <p>
+                After five years as Head of QA at Storyful, I bring a leadership
+                perspective on risk, delivery, test strategy and making quality
+                part of how teams work—not just a final testing phase.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">EARLY AI EXPERIMENTS</span>
+              <h3>From unstructured conversations to test ideas.</h3>
+              <p>
+                While at Storyful, I experimented with early ChatGPT to turn
+                requirements and email threads into candidate test cases. That
+                exploration now informs a more systematic approach: define
+                expected behaviour, test outputs, measure errors and review
+                the evidence rather than assuming generated content is correct.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">CURRENT PRACTICE</span>
+              <h3>Build it, test it, measure it.</h3>
+              <p>
+                QualityPeople is a practical engineering project spanning
+                TypeScript, Playwright and API testing, CI/CD and separate
+                environments, plus an evaluation harness for AI-generated
+                enquiry triage. The work documents limitations as carefully
+                as successes.
+              </p>
+            </article>
+          </div>
+          <div className="architecture-note evidence-panel">
+            <span className="eyebrow">INSPECT THE EVIDENCE</span>
+            <h3>Claims should lead to code, tests and results.</h3>
+            <p>
+              Follow the implementation and its evidence directly in GitHub:
+              {' '}
+              <a href="https://github.com/Floodzie2/qualitypeople-app" target="_blank" rel="noreferrer">application source ↗</a>
+              {' · '}
+              <a href="https://github.com/Floodzie2/qualitypeople-app/actions" target="_blank" rel="noreferrer">CI and deployment workflows ↗</a>
+              {' · '}
+              <a href="https://github.com/Floodzie2/qualitypeople-app/pull/7" target="_blank" rel="noreferrer">merged AI evaluation work ↗</a>
+              {' · '}
+              <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">AI evaluation methodology and experiment log ↗</a>.
+            </p>
           </div>
         </section>
 
@@ -456,7 +518,7 @@ function App() {
               <p className="card-description">
                 Prompt revisions brought human-review accuracy back to 100%,
                 while later evaluator changes made explicit paraphrases count
-                correctly. The latest run passes 7 of 12 cases end to end.
+                correctly. The latest documented run passes 7 of 12 cases end to end; the evaluation work is now merged into the application repository.
                 Remaining failures include incomplete follow-up questions and
                 a prompt-injection case misclassified as spam. These remain
                 open defects, not score adjustments to conceal.
@@ -570,10 +632,10 @@ function App() {
             Implementation and evaluation code:
             {' '}
             <a href="https://github.com/Floodzie2/qualitypeople-app/pull/7" target="_blank" rel="noreferrer">
-              AI enquiry triage evaluation pull request ↗
+              AI enquiry triage evaluation PR (merged) ↗
             </a>
             {' · '}
-            <a href="https://github.com/Floodzie2/qualitypeople-app/blob/feature/ai-enquiry-evaluation-foundation/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">
+            <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">
               Experiment log and methodology ↗
             </a>.
           </p>

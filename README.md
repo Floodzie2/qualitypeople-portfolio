@@ -13,6 +13,19 @@ QualityPeople is a practical learning and portfolio project documenting how a sm
 
 The portfolio is intentionally transparent about what is implemented, what is planned, and what the tests have—and have not—demonstrated.
 
+## Professional context
+
+QualityPeople connects QA leadership experience with current hands-on engineering. After five years as Head of QA at Storyful, the project is a practical way to explore modern delivery, automation and AI quality engineering from both a leadership and implementation perspective.
+
+While at Storyful, I experimented with early ChatGPT to turn requirements and email threads into candidate test cases. The current work builds on that idea with explicit expected behaviour, repeatable tests and measurable evaluation of AI outputs—while documenting failure modes and limitations rather than treating generated content as inherently trustworthy.
+
+## Follow the engineering evidence
+
+- [Application source](https://github.com/Floodzie2/qualitypeople-app)
+- [CI and deployment workflows](https://github.com/Floodzie2/qualitypeople-app/actions)
+- [Merged AI triage evaluation work](https://github.com/Floodzie2/qualitypeople-app/pull/7)
+- [AI evaluation methodology and experiment log](https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md)
+
 ## What it covers
 
 - **Distributed development:** a MacBook Pro used as a VS Code client, an M4 Mac mini for development and orchestration, and a planned Linux-based QA machine.
@@ -39,7 +52,7 @@ The latest documented run passes **7 of 12 cases** end to end. The evaluator rep
 
 These figures need context: explicit evaluator calibration improved how paraphrases are scored, so the increase in all-check passes is not evidence by itself that the model improved. Missing-information completeness and a prompt-injection case remain unresolved. The endpoint is not connected to public enquiry submission, and the small synthetic set does not establish production readiness.
 
-See the [AI triage evaluation pull request](https://github.com/Floodzie2/qualitypeople-app/pull/7) and the [experiment log](https://github.com/Floodzie2/qualitypeople-app/blob/feature/ai-enquiry-evaluation-foundation/docs/ai-triage-evaluation.md).
+The evaluation implementation has been merged in the [AI triage evaluation pull request](https://github.com/Floodzie2/qualitypeople-app/pull/7). See the [experiment log on main](https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md) for methodology and current results.
 
 ## Run the portfolio locally
 
