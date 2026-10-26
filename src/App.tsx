@@ -299,20 +299,21 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">03 / PERFORMANCE ENGINEERING</span>
-              <h2>Performance testing is now part of CI.</h2>
+              <h2>JMeter smoke testing: from local run to CI.</h2>
             </div>
             <p>
-              A small Apache JMeter smoke test now runs in the application CI
-              workflow against a locally served build. The generated HTML report
-              and raw JTL results are archived as a workflow artifact, giving us
-              evidence to inspect after the run rather than relying on a green tick alone.
+              A focused pull request adds a small Apache JMeter smoke test to the
+              application CI workflow against a locally served build. Its
+              equivalent feature-branch run passed. The HTML report and raw JTL
+              results are uploaded as a 14-day artifact. The focused PR is open
+              for review and has not yet been merged into main.
             </p>
           </div>
 
           <div className="performance-summary">
             <div className="performance-summary-copy">
               <span className="system-status status-active">CI RUN PASSED · 26 OCT 2026</span>
-              <h3>JMeter smoke test — first pipeline run</h3>
+              <h3>JMeter smoke test — feature-branch CI run</h3>
               <p>
                 The run exercised <code>GET /version.json</code> ten times.
                 All ten requests returned HTTP 200 with no errors. This is a
@@ -326,7 +327,10 @@ function App() {
                 <span className="tech-tag">Raw results (.jtl)</span>
               </div>
               <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665" target="_blank" rel="noreferrer">
-                View successful CI run <span aria-hidden="true">↗</span>
+                View successful feature-branch CI run <span aria-hidden="true">↗</span>
+              </a>
+              <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/pull/10" target="_blank" rel="noreferrer">
+                Review focused CI pull request <span aria-hidden="true">↗</span>
               </a>
             </div>
             <div className="performance-metrics" aria-label="JMeter smoke test metrics">
