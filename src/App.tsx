@@ -299,14 +299,16 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">03 / PERFORMANCE ENGINEERING</span>
-              <h2>JMeter smoke testing: from local run to CI.</h2>
+              <h2>Performance Testing is now part of CI</h2>
             </div>
             <p>
-              A focused pull request adds a small Apache JMeter smoke test to the
-              application CI workflow against a locally served build. Its
-              equivalent feature-branch run passed. The HTML report and raw JTL
-              results are uploaded as a 14-day artifact. The focused PR is open
-              for review and has not yet been merged into main.
+              A parameterized Apache JMeter smoke test is now part of the application CI
+              workflow. It runs against a locally served build, fails the pipeline
+              on unsuccessful samples, and publishes the HTML report and raw JTL
+              results as a 14-day artifact. The merged CI change is in place; the
+              current check is an endpoint smoke test, not a load or capacity test.
+              Scheduled load testing and AI-assisted performance analysis remain
+              planned enhancements.
             </p>
           </div>
 
@@ -330,7 +332,7 @@ function App() {
                 View successful feature-branch CI run <span aria-hidden="true">↗</span>
               </a>
               <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/pull/10" target="_blank" rel="noreferrer">
-                Review focused CI pull request <span aria-hidden="true">↗</span>
+                View merged CI change <span aria-hidden="true">↗</span>
               </a>
             </div>
             <div className="performance-metrics" aria-label="JMeter smoke test metrics">
