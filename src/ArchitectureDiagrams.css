@@ -1,0 +1,350 @@
+.architecture-diagrams-section {
+  border-top: 1px solid var(--border);
+  background: var(--background);
+}
+
+.blueprint-card {
+  margin-top: 22px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.blueprint-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.blueprint-heading h3 {
+  margin: 8px 0 0;
+  color: var(--text-heading);
+  font-size: clamp(18px, 2.2vw, 24px);
+  letter-spacing: -0.7px;
+}
+
+.blueprint-index {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.blueprint-lane,
+.blueprint-runtime {
+  padding: 20px 0 0;
+}
+
+.blueprint-lane-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.blueprint-lane-label > span {
+  display: grid;
+  width: 23px;
+  height: 23px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.diagram-node-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.diagram-node-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.diagram-node {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--background);
+}
+
+.diagram-node-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 8px;
+  font-weight: 750;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.diagram-node strong,
+.qa-stage strong,
+.qa-support-card > strong {
+  color: var(--text-heading);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.diagram-node p,
+.qa-stage p,
+.qa-support-card p,
+.blueprint-note p,
+.qa-outcome p {
+  margin: 7px 0 0;
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.diagram-status {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 12px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 7px;
+  font-weight: 750;
+  letter-spacing: 0.6px;
+  line-height: 1.4;
+}
+
+.diagram-status-implemented {
+  background: #b7f56a18;
+  color: var(--accent);
+}
+
+.diagram-status-planned {
+  background: #94a3b812;
+  color: var(--text-muted);
+}
+
+.diagram-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 0;
+  color: var(--accent);
+}
+
+.diagram-arrow > span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.diagram-arrow small {
+  color: var(--text-faint);
+  font-size: 9px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.blueprint-runtime {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--background);
+}
+
+.runtime-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+}
+
+.runtime-flow .diagram-node {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+.runtime-flow .diagram-node strong {
+  font-size: 11px;
+}
+
+.runtime-flow .diagram-node p {
+  font-size: 9px;
+}
+
+.runtime-arrow {
+  color: var(--accent);
+  font-size: 20px;
+}
+
+.blueprint-note {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+  padding: 16px;
+  border-left: 2px solid var(--accent);
+  background: var(--background);
+}
+
+.blueprint-note > strong {
+  color: var(--text-heading);
+  font-size: 11px;
+}
+
+.blueprint-note p {
+  margin: 0;
+}
+
+.qa-blueprint-card {
+  margin-top: 18px;
+}
+
+.qa-flow {
+  max-width: 850px;
+  margin: 24px auto 0;
+}
+
+.qa-stage {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 14px;
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--background);
+}
+
+.qa-stage-number {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 8px;
+  background: #b7f56a18;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.qa-stage > div {
+  min-width: 0;
+}
+
+.qa-stage .diagram-status {
+  margin-top: 2px;
+}
+
+.qa-outcomes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.qa-outcome {
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+}
+
+.qa-outcome strong {
+  color: var(--text-heading);
+  font-size: 11px;
+}
+
+.qa-outcome-fail {
+  border-left: 2px solid #f59e0b;
+}
+
+.qa-outcome-pass {
+  border-left: 2px solid var(--accent);
+}
+
+.qa-support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.qa-support-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--background);
+}
+
+.qa-support-card .diagram-status + .diagram-status {
+  margin-top: 6px;
+}
+
+.blueprint-disclaimer {
+  margin: 15px 4px 0;
+  color: var(--text-faint);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .runtime-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .runtime-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .qa-support-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .blueprint-card {
+    padding: 16px;
+  }
+
+  .diagram-node-grid-two,
+  .qa-outcomes {
+    grid-template-columns: 1fr;
+  }
+
+  .blueprint-heading {
+    gap: 10px;
+  }
+
+  .blueprint-note {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .qa-stage {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .qa-stage > .diagram-status {
+    grid-column: 2;
+  }
+}
