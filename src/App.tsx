@@ -49,8 +49,8 @@ const systems = [
   },
   {
     name: 'QA environment',
-    device: 'Linux machine',
-    detail: 'Docker · Automated testing',
+    device: 'Linux-based Mac mini',
+    detail: 'Docker · Playwright · JMeter',
     status: 'PLANNED',
   },
   {
@@ -269,8 +269,8 @@ function App() {
               <h3>Engineering portfolio</h3>
               <p className="card-device">qualitypeople-portfolio</p>
               <p className="card-description">
-                <a href="https://www.howibuilt.qualitypeople.ie" target="_blank" rel="noreferrer">
-                  www.howibuilt.qualitypeople.ie ↗
+                <a href="https://howIbuiltit.qualitypeople.ie" target="_blank" rel="noreferrer">
+                  howIbuiltit.qualitypeople.ie ↗
                 </a>
                 <br />
                 Separate GitHub source → separate Cloudflare Pages deployment
