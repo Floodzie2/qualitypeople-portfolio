@@ -454,11 +454,12 @@ function App() {
               </div>
               <h3>Prompt iteration and regression control</h3>
               <p className="card-description">
-                Prompt changes are evaluated against the same cases. The latest
-                run exposed missed human-review decisions for ambiguous and
-                contradictory enquiries; a targeted prompt revision is now
-                being retested. The next task is to make phrase matching less
-                brittle without weakening the expected behaviour.
+                Prompt revisions brought human-review accuracy back to 100%,
+                while later evaluator changes made explicit paraphrases count
+                correctly. The latest run passes 7 of 12 cases end to end.
+                Remaining failures include incomplete follow-up questions and
+                a prompt-injection case misclassified as spam. These remain
+                open defects, not score adjustments to conceal.
               </p>
             </article>
           </div>
@@ -485,29 +486,54 @@ function App() {
               </p>
             </article>
             <article className="architecture-note">
-              <span className="eyebrow">ITERATION / PROMPT 2</span>
-              <h3>Category accuracy improved — review regressed.</h3>
+              <span className="eyebrow">ITERATION / PROMPT 3</span>
+              <h3>Restore human-review accuracy.</h3>
               <p>
-                The following run passed 5 of 12 cases and reached 100%
-                category accuracy. Summary coverage stayed at 79.2% and
-                missing-information recall rose to 45.8%, but human-review
-                accuracy fell to 83.3%. The model correctly recognised a
-                prompt-injection message as a booking request, yet missed
-                review flags for a vague enquiry and contradictory dates.
-                These results triggered a targeted human-review prompt change;
-                its evaluation is pending.
+                The third prompt revision reached 100% category accuracy,
+                80.6% summary anchor coverage and 45.8% missing-information
+                recall. Human-review accuracy returned to 100%, but only 2 of
+                12 cases passed every check under the then-current evaluator.
+                The results exposed a need to distinguish true model failures
+                from brittle phrase-matching in the scoring logic.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">EVALUATOR CALIBRATION</span>
+              <h3>Recognise paraphrases without relaxing the standard.</h3>
+              <p>
+                Explicit, tested wording equivalences were added for phrases
+                such as “venue location” and “venue or event location”, and
+                for clear summary paraphrases. The latest run passes 7 of 12
+                cases: schema validity 100%, category accuracy 91.7%, summary
+                anchor coverage 91.7%, missing-information recall 58.3% and
+                human-review accuracy 100%. This is primarily an evaluator
+                calibration improvement, not proof that the model itself got
+                better. The remaining failures are still visible.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">CURRENT FAILURE / PROMPT INJECTION</span>
+              <h3>One safety case still fails.</h3>
+              <p>
+                The latest run classifies the injection example as spam rather
+                than a booking request and omits date and location follow-up
+                information. The next experiment should reinforce that customer
+                text is untrusted input, preserve the underlying triage task,
+                and request human review where appropriate. The golden cases
+                remain unchanged; passing them all is not yet a claim of
+                production readiness.
               </p>
             </article>
             <article className="architecture-note">
               <span className="eyebrow">QUALITY LESSON</span>
-              <h3>Separate model failures from test failures.</h3>
+              <h3>Test the model and the test instrument.</h3>
               <p>
-                Some assertions expect literal phrases such as “event location”
-                while the model says “venue”. That may be an evaluator
-                limitation rather than a behavioural failure. The next step is
-                to define safe, explicit equivalents while retaining strict
-                checks for genuinely missing facts. Golden expectations should
-                not be weakened just to improve the score.
+                Evaluator tests now cover explicit paraphrase equivalences and
+                guard against treating meaningful distinctions such as “event
+                date” and “confirmed event date” as interchangeable. Local
+                type checking passes and all 27 unit tests pass. The next step
+                is to improve missing-information extraction and prompt-injection
+                handling without weakening expected behaviour.
               </p>
             </article>
           </div>
