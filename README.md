@@ -46,13 +46,29 @@ The initial run passed every check in just 1 of 12 cases. The individual metrics
 
 These metrics measure different things. A response can be perfectly valid JSON yet put an enquiry in the wrong category, omit key facts or fail to ask for essential details. That is why the evaluation uses multiple checks rather than treating schema validity as overall quality.
 
-## AI evaluation: current reported baseline
+## AI evaluation: latest local findings
 
-The latest documented run passes **7 of 12 cases** end to end. The evaluator reports 100% schema validity, 91.7% category accuracy, 91.7% summary-anchor coverage, 58.3% missing-information recall and 100% human-review accuracy.
+The latest local v13 evaluation passed **12 of 12 synthetic cases** on the final API result. The evaluator reports 100% schema validity, category accuracy, summary-anchor coverage, missing-information recall and human-review accuracy across this dataset.
 
-These figures need context: explicit evaluator calibration improved how paraphrases are scored, so the increase in all-check passes is not evidence by itself that the model improved. Missing-information completeness and a prompt-injection case remain unresolved. The endpoint is not connected to public enquiry submission, and the small synthetic set does not establish production readiness.
+The raw model result is reported separately: it passed **11 of 12 cases**, with missing-information recall of **91.7%**. The remaining raw-model miss was a conflicting-date case where the model omitted the confirmed event date from its follow-up requirements. A narrow deterministic safety override adds that detail to the final result. Reporting both outputs keeps the model's limitation visible and avoids presenting a post-processing improvement as a model improvement.
 
-The evaluation implementation has been merged in the [AI triage evaluation pull request](https://github.com/Floodzie2/qualitypeople-app/pull/7). See the [experiment log on main](https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md) for methodology and current results.
+### Local unit-test and coverage baseline
+
+- **35/35 unit tests passed** across six test files.
+- **77.9% line coverage overall** (76.53% statements, 75% branches, 87.03% functions).
+- AI evaluation cases: 100% line coverage.
+- AI triage logic: 100% line coverage.
+- Evaluator: 98.59% line coverage.
+- Safety checks: 100% line coverage.
+- Cloudflare AI endpoint: 68.62% line coverage.
+
+Coverage is a measure of executed code, not a guarantee of test quality or correctness. The endpoint's uncovered branches are the next investigation target.
+
+### What this does—and does not—show
+
+The result demonstrates a functioning evaluation harness, explicit expected behaviour, case-level diagnostics, evaluator tests and a deterministic control for one known conflict-date failure. It does **not** establish 100% real-world accuracy: the dataset contains only 12 synthetic cases, the results are from a local run, and the current scoring criteria have defined limits.
+
+Next work is to expand the golden dataset, exercise endpoint failure paths and safety boundaries, and validate the feature through broader application journeys. The protected evaluation endpoint is not connected to public enquiry submission and the dataset contains no live customer data.
 
 ## Run the portfolio locally
 
