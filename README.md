@@ -21,6 +21,25 @@ The portfolio is intentionally transparent about what is implemented, what is pl
 - **Performance engineering:** planned repeatable JMeter load tests, with AI-assisted interpretation treated as something to validate rather than trust automatically.
 - **AI quality engineering:** a protected, evaluation-only enquiry-triage endpoint tested against 12 synthetic cases, including ambiguity, conflicting dates and prompt injection.
 
+## Professional context and approach
+
+I spent five years as Head of QA at Storyful, leaving three years ago. My background combines QA leadership with hands-on automation and delivery practices, including Cypress, Playwright, API testing and CI/CD.
+
+My interest in AI-assisted QA began with early experiments using ChatGPT to turn requirements and email threads into candidate test cases. QualityPeople extends that exploration into implementation and evaluation: building an application, automating release checks, and measuring AI outputs against explicit expected behaviour.
+
+The project is a practical engineering lab, not a claim that a small prototype is production-ready. It distinguishes implemented capabilities from planned work and records failures as well as successes.
+
+## Engineering evidence and current AI failure
+
+The application delivery path has recorded successful GitHub Actions runs for CI, SIT deployment, deployed Playwright regression and controlled production release:
+
+- [CI run](https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192743234)
+- [SIT deployment](https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192889307)
+- [Deployed Playwright regression](https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192935797)
+- [Controlled production release](https://github.com/Floodzie2/qualitypeople-app/actions/runs/40193089925)
+
+In the latest reported AI evaluation, the prompt-injection case was incorrectly classified as spam instead of a booking request, and the response omitted date and location follow-up details. The next step is to investigate prompt/model behaviour while retaining the same golden cases and separately tracking evaluator calibration. This makes the failure reproducible and visible instead of masking it with a score change.
+
 ## What the AI evaluation metrics mean
 
 The initial run passed every check in just 1 of 12 cases. The individual metrics explain why:
