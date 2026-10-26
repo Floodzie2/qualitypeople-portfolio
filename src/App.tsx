@@ -77,6 +77,7 @@ function App() {
           <a href="#engineering">Engineering</a>
           <a href="#manual-sit">Manual SIT</a>
           <a href="#delivery">Deployment</a>
+          <a href="#ai-evaluation">AI evaluation</a>
           <a href="#approach">AI &amp; approach</a>
         </nav>
 
@@ -390,6 +391,110 @@ function App() {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="content-section" id="ai-evaluation">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">05 / AI QUALITY ENGINEERING</span>
+              <h2>Evaluate the evaluator, then evaluate the model.</h2>
+            </div>
+            <p>
+              The enquiry-triage experiment is being built as a measurable
+              testing problem: define expected behaviour, validate the scoring
+              logic, then compare a real model against the same synthetic cases.
+            </p>
+          </div>
+
+          <div className="architecture-cards">
+            <article className="architecture-card">
+              <div className="card-topline">
+                <span className="card-index">01</span>
+                <span className="system-status status-planned">FEATURE BRANCH</span>
+              </div>
+              <h3>Golden evaluation set</h3>
+              <p className="card-description">
+                Twelve identity-free cases cover booking, availability, pricing,
+                ambiguity, conflicting dates, spam and prompt injection. Each
+                defines expected category, summary facts, missing information
+                and whether a human should review the result.
+              </p>
+            </article>
+            <article className="architecture-card">
+              <div className="card-topline">
+                <span className="card-index">02</span>
+                <span className="system-status status-planned">TESTED</span>
+              </div>
+              <h3>Test the test instrument</h3>
+              <p className="card-description">
+                Controlled candidate outputs establish a known-good baseline.
+                Mutation tests deliberately corrupt category, summary facts,
+                follow-up information and review decisions to check that the
+                evaluator detects regressions.
+              </p>
+            </article>
+            <article className="architecture-card">
+              <div className="card-topline">
+                <span className="card-index">03</span>
+                <span className="system-status status-planned">IMPLEMENTED · LIVE RUN PENDING</span>
+              </div>
+              <h3>Case-level diagnostics</h3>
+              <p className="card-description">
+                Reports identify failed case IDs and explain the mismatch:
+                incorrect category, missing fact anchors, omitted follow-up
+                details or the wrong human-review decision. Aggregate scores
+                alone can hide the reason a system failed.
+              </p>
+            </article>
+            <article className="architecture-card">
+              <div className="card-topline">
+                <span className="card-index">04</span>
+                <span className="system-status status-planned">PREVIEW SETUP PENDING</span>
+              </div>
+              <h3>Real-model evaluation</h3>
+              <p className="card-description">
+                A guarded Cloudflare Workers AI adapter and repeatable runner
+                are implemented on the feature branch. The preview binding must
+                be configured and the 12-case live run completed before any
+                model-quality score is reported. No live customer data is used.
+              </p>
+            </article>
+          </div>
+
+          <div className="architecture-support-grid">
+            <article className="architecture-note">
+              <span className="eyebrow">LEARNING 01</span>
+              <h3>Metrics are only as good as their definitions.</h3>
+              <p>
+                Early controlled tests exposed a literal anchor mismatch
+                (“cost” versus “charge”) and a mutation that still contained
+                one expected word. Normalisation and explicit failure reasons
+                improved repeatability, but substring matching is not semantic
+                understanding.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">LEARNING 02</span>
+              <h3>Safety is part of the acceptance criteria.</h3>
+              <p>
+                The experiment treats message text as untrusted input, rejects
+                malformed model output, keeps identity fields out of the model
+                request, and reserves human review for ambiguous, contradictory
+                and manipulation-attempt cases. A perfect aggregate score on a
+                small synthetic set is not proof of production readiness.
+              </p>
+            </article>
+          </div>
+          <p>
+            Implementation and evaluation code:
+            {' '}
+            <a href="https://github.com/Floodzie2/qualitypeople-app/pull/7" target="_blank" rel="noreferrer">
+              AI enquiry triage evaluation pull request ↗
+            </a>.
+            The live model evaluation is not yet complete; results will be
+            published here only after the preview run has been executed and
+            reviewed.
+          </p>
         </section>
       </main>
 
