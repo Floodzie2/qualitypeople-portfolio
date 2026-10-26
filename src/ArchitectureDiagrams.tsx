@@ -47,6 +47,14 @@ export function ArchitectureDiagrams() {
           </div>
         </div>
 
+        <div className="blueprint-lane ai-capability-lane">
+          <div className="blueprint-lane-label"><span>AI</span><strong>LOCAL AI CAPABILITY</strong></div>
+          <div className="diagram-node-grid">
+            <DiagramNode eyebrow="LOCAL MODEL RUNTIME · M4 MAC MINI" title="Ollama" detail="Available locally and used to support development work. Intended next use: analyse JMeter results and performance trends without making the hosted application depend on a remote AI service." status="implemented" />
+          </div>
+          <p className="ai-capability-note">Development use: in place · Performance-result analysis: planned</p>
+        </div>
+
         <DiagramArrow label="Git branches · pull requests · reviewed changes" />
 
         <div className="blueprint-lane">
