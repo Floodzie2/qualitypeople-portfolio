@@ -73,7 +73,8 @@ function App() {
         </a>
 
         <nav className="main-nav" aria-label="Main navigation">
-          <a href="#story">My QA journey</a>\n          <a href="#architecture">Architecture</a>
+          <a href="#story">My QA journey</a>
+          <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
           <a href="#manual-sit">Manual SIT</a>
           <a href="#delivery">Deployment</a>
