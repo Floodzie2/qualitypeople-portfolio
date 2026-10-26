@@ -746,3 +746,167 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* JMeter performance evidence */
+.performance-section {
+  border-top: 1px solid var(--border);
+}
+
+.performance-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.performance-summary-copy,
+.performance-metrics,
+.jmeter-report-card,
+.performance-next-grid article {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.performance-summary-copy h3,
+.jmeter-report-heading h3 {
+  margin: 18px 0 10px;
+  color: var(--text-heading);
+  font-size: 19px;
+  letter-spacing: -0.5px;
+}
+
+.performance-summary-copy p,
+.jmeter-report-card > p,
+.performance-next-grid p {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.performance-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.performance-metrics > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  min-height: 96px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+}
+
+.performance-metrics span,
+.performance-metrics small {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.performance-metrics strong {
+  color: var(--text-heading);
+  font-size: clamp(17px, 2vw, 25px);
+  letter-spacing: -0.8px;
+}
+
+.performance-metrics small {
+  color: var(--text-faint);
+}
+
+.jmeter-report-card {
+  margin-bottom: 24px;
+  padding: 24px;
+}
+
+.jmeter-report-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.jmeter-report-heading h3 {
+  margin-top: 6px;
+}
+
+.jmeter-report-image-link {
+  display: block;
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #f5f7fa;
+}
+
+.jmeter-report-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.jmeter-report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.performance-next-steps > .eyebrow {
+  margin-bottom: 15px;
+}
+
+.performance-next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.performance-next-grid article {
+  padding: 20px;
+}
+
+.performance-next-grid h3 {
+  margin: 15px 0 8px;
+  color: var(--text-heading);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .performance-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .performance-next-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .performance-summary-copy,
+  .performance-metrics,
+  .jmeter-report-card {
+    padding: 16px;
+  }
+
+  .performance-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .jmeter-report-heading {
+    flex-direction: column;
+  }
+
+  .jmeter-report-actions .button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
