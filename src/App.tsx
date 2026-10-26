@@ -474,6 +474,27 @@ function App() {
                 anchor coverage 46.4%, missing-information recall 25.0%, and
                 human-review accuracy 91.7%.
               </p>
+              <p>
+                <strong>What these numbers mean:</strong> schema validity checks
+                whether the response follows the required structured format;
+                it does not prove the content is correct. Category accuracy
+                measures how often the enquiry was put in the right category.
+                Summary anchor coverage measures how many expected facts—such
+                as the event type, date, place or time—were preserved in the
+                summary. Missing-information recall measures how many of the
+                follow-up details the reference says are needed were actually
+                identified. Human-review accuracy measures whether the model
+                correctly judged when a person should review the enquiry.
+              </p>
+              <p>
+                In practical terms, the first run produced validly structured
+                responses every time, but only about two-thirds had the right
+                category, fewer than half of the expected summary facts were
+                captured, and only one-quarter of required follow-up details
+                were found. The review decision was correct in 11 of 12 cases.
+                Each metric answers a different question; a perfect format
+                score cannot compensate for missing or incorrect content.
+              </p>
             </article>
             <article className="architecture-note">
               <span className="eyebrow">ITERATION / PROMPT 1</span>

@@ -21,6 +21,18 @@ The portfolio is intentionally transparent about what is implemented, what is pl
 - **Performance engineering:** planned repeatable JMeter load tests, with AI-assisted interpretation treated as something to validate rather than trust automatically.
 - **AI quality engineering:** a protected, evaluation-only enquiry-triage endpoint tested against 12 synthetic cases, including ambiguity, conflicting dates and prompt injection.
 
+## What the AI evaluation metrics mean
+
+The initial run passed every check in just 1 of 12 cases. The individual metrics explain why:
+
+- **Schema validity (100%) — Is the response well-formed?** Every output matched the expected structured format and field types. This checks shape, not truth or usefulness.
+- **Category accuracy (66.7%) — Did it classify the enquiry correctly?** Roughly two-thirds of the 12 cases received the expected category, such as a booking request or a pricing enquiry.
+- **Summary anchor coverage (46.4%) — Did the summary preserve the important facts?** The evaluator checks for expected factual anchors, such as event type, date, venue and time. This score means fewer than half of the expected anchors were found in the summaries.
+- **Missing-information recall (25.0%) — Did it identify the details still needed?** Of the follow-up details marked as necessary in the reference cases, the model identified only one-quarter. For a booking, that might mean noticing that the date, location or budget still needs to be confirmed.
+- **Human-review accuracy (91.7%) — Did it know when a person should review the case?** The review/no-review decision matched the expected decision in 11 of 12 cases.
+
+These metrics measure different things. A response can be perfectly valid JSON yet put an enquiry in the wrong category, omit key facts or fail to ask for essential details. That is why the evaluation uses multiple checks rather than treating schema validity as overall quality.
+
 ## AI evaluation: current reported baseline
 
 The latest documented run passes **7 of 12 cases** end to end. The evaluator reports 100% schema validity, 91.7% category accuracy, 91.7% summary-anchor coverage, 58.3% missing-information recall and 100% human-review accuracy.
