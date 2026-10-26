@@ -213,9 +213,11 @@ function App() {
               <span className="eyebrow">LEADERSHIP</span>
               <h3>Quality as a delivery discipline.</h3>
               <p>
-                After five years as Head of QA at Storyful, I bring a leadership
-                perspective on risk, delivery, test strategy and making quality
-                part of how teams work—not just a final testing phase.
+                I bring a leadership perspective to quality engineering, combining
+                risk-based thinking, delivery awareness and practical automation
+                to help teams build quality into their processes from the outset.
+                My focus is on enabling teams, improving ways of working and
+                making quality an integral part of successful delivery.
               </p>
             </article>
             <article className="architecture-note">
