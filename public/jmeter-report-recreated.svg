@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
-<title id="title">Recreated Apache JMeter smoke test dashboard</title>
-<desc id="desc">Portfolio recreation of the archived JMeter HTML report for ten GET version.json requests: ten samples, zero errors, mean 7.5 milliseconds, median 3 milliseconds, maximum 50 milliseconds.</desc>
+<title id="title">Recreated Apache JMeter SIT smoke test dashboard</title>
+<desc id="desc">Portfolio reconstruction of a verified SIT JMeter report for ten GET version.json requests: ten samples, zero errors, mean response 159.7 milliseconds, median 131.5 milliseconds, minimum 99 milliseconds, maximum 479 milliseconds.</desc>
 <defs>
   <linearGradient id="header" x1="0" x2="1"><stop stop-color="#26384a"/><stop offset="1" stop-color="#415b70"/></linearGradient>
   <style>
@@ -10,45 +10,51 @@
 <rect width="1600" height="1040" fill="#eef2f6"/>
 <rect width="1600" height="100" fill="url(#header)"/>
 <text x="55" y="43" font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#b7f56a" font-weight="700" letter-spacing="3">QUALITYPEOPLE · PERFORMANCE ENGINEERING</text>
-<text x="55" y="76" font-family="Arial,Helvetica,sans-serif" font-size="29" fill="#fff" font-weight="700">Apache JMeter — Smoke Test Dashboard</text>
+<text x="55" y="76" font-family="Arial,Helvetica,sans-serif" font-size="29" fill="#fff" font-weight="700">Apache JMeter — SIT Smoke Test Dashboard</text>
 <rect x="1300" y="31" width="245" height="40" rx="20" fill="#d9fbe5"/>
-<circle cx="1323" cy="51" r="6" fill="#25834c"/><text x="1340" y="57" font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#17633a" font-weight="700">CI RUN PASSED</text>
-<text x="55" y="139" class="muted small">Test label</text><text x="55" y="170" class="text label">GET version.json</text>
+<circle cx="1323" cy="51" r="6" fill="#25834c"/><text x="1340" y="57" font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#17633a" font-weight="700">10 / 10 PASSED</text>
+<text x="55" y="139" class="muted small">Test label</text><text x="55" y="170" class="text label">GET /version.json</text>
 <text x="490" y="139" class="muted small">Execution profile</text><text x="490" y="170" class="text label">1 virtual user · 10 requests</text>
-<text x="1050" y="139" class="muted small">Evidence</text><text x="1050" y="170" class="text label">26 October 2026 · GitHub Actions</text>
+<text x="1050" y="139" class="muted small">Evidence</text><text x="1050" y="170" class="text label">26 October 2026 · SIT verification</text>
 <g transform="translate(55 205)">
   <rect class="card" width="350" height="135" rx="10"/><text x="25" y="36" class="muted small">TOTAL SAMPLES</text><text x="25" y="88" class="text value">10</text><text x="25" y="116" class="muted small">All requests completed</text>
-  <rect class="card" x="370" width="350" height="135" rx="10"/><text x="395" y="36" class="muted small">ERROR RATE</text><text x="395" y="88" class="green value">0.00%</text><text x="395" y="116" class="muted small">0 errors · all HTTP 200</text>
-  <rect class="card" x="740" width="350" height="135" rx="10"/><text x="765" y="36" class="muted small">AVERAGE RESPONSE</text><text x="765" y="88" class="text value">7.5 ms</text><text x="765" y="116" class="muted small">Mean elapsed time</text>
-  <rect class="card" x="1110" width="350" height="135" rx="10"/><text x="1135" y="36" class="muted small">MEDIAN RESPONSE</text><text x="1135" y="88" class="text value">3 ms</text><text x="1135" y="116" class="muted small">50th percentile</text>
+  <rect class="card" x="370" width="350" height="135" rx="10"/><text x="395" y="36" class="muted small">ERROR RATE</text><text x="395" y="88" class="green value">0.00%</text><text x="395" y="116" class="muted small">0 errors · HTTP 200</text>
+  <rect class="card" x="740" width="350" height="135" rx="10"/><text x="765" y="36" class="muted small">AVERAGE RESPONSE</text><text x="765" y="88" class="text value">159.7 ms</text><text x="765" y="116" class="muted small">Mean elapsed time</text>
+  <rect class="card" x="1110" width="350" height="135" rx="10"/><text x="1135" y="36" class="muted small">MEDIAN RESPONSE</text><text x="1135" y="88" class="text value">131.5 ms</text><text x="1135" y="116" class="muted small">50th percentile</text>
 </g>
 <rect x="55" y="370" width="890" height="360" rx="10" class="card"/>
-<text x="85" y="414" class="text heading">Response time by sample</text><text x="85" y="443" class="muted small">Elapsed time in milliseconds · 10 individual requests</text>
-<line x1="110" y1="650" x2="900" y2="650" stroke="#aeb9c5" stroke-width="1.5"/>
-<line x1="110" y1="590" x2="900" y2="590" stroke="#e2e7ed"/><line x1="110" y1="530" x2="900" y2="530" stroke="#e2e7ed"/><line x1="110" y1="470" x2="900" y2="470" stroke="#e2e7ed"/>
-<text x="78" y="655" class="muted small">0</text><text x="68" y="595" class="muted small">20</text><text x="68" y="535" class="muted small">40</text><text x="68" y="475" class="muted small">60</text>
-<g fill="#4f83b6">
-<rect x="140" y="500" width="43" height="150" rx="3"/><rect x="215" y="644" width="43" height="6" rx="2"/><rect x="290" y="644" width="43" height="6" rx="2"/><rect x="365" y="638" width="43" height="12" rx="2"/><rect x="440" y="635" width="43" height="15" rx="2"/><rect x="515" y="641" width="43" height="9" rx="2"/><rect x="590" y="641" width="43" height="9" rx="2"/><rect x="665" y="644" width="43" height="6" rx="2"/><rect x="740" y="641" width="43" height="9" rx="2"/><rect x="815" y="647" width="43" height="3" rx="2"/>
-</g>
-<text x="151" y="488" class="text small">50</text><text x="148" y="685" class="muted small">1</text><text x="223" y="685" class="muted small">2</text><text x="298" y="685" class="muted small">3</text><text x="373" y="685" class="muted small">4</text><text x="448" y="685" class="muted small">5</text><text x="523" y="685" class="muted small">6</text><text x="598" y="685" class="muted small">7</text><text x="673" y="685" class="muted small">8</text><text x="748" y="685" class="muted small">9</text><text x="818" y="685" class="muted small">10</text>
+<text x="85" y="414" class="text heading">Response-time summary</text><text x="85" y="443" class="muted small">Reported range and central values · scale 0–500 ms</text>
+<line x1="130" y1="565" x2="880" y2="565" stroke="#aeb9c5" stroke-width="7" stroke-linecap="round"/>
+<line x1="278.5" y1="565" x2="848.5" y2="565" stroke="#4f83b6" stroke-width="14" stroke-linecap="round"/>
+<line x1="327.25" y1="515" x2="327.25" y2="615" stroke="#25834c" stroke-width="4"/>
+<circle cx="327.25" cy="565" r="10" fill="#25834c" stroke="#fff" stroke-width="3"/>
+<line x1="369.55" y1="525" x2="369.55" y2="605" stroke="#b7791f" stroke-width="4"/>
+<circle cx="369.55" cy="565" r="10" fill="#b7791f" stroke="#fff" stroke-width="3"/>
+<circle cx="848.5" cy="565" r="10" fill="#4f83b6" stroke="#fff" stroke-width="3"/>
+<text x="278.5" y="500" text-anchor="middle" class="text label">Min 99 ms</text>
+<text x="327.25" y="640" text-anchor="middle" class="text label">Median 131.5</text>
+<text x="430" y="500" class="text label">Mean 159.7 ms</text>
+<text x="848.5" y="535" text-anchor="end" class="text label">Max 479 ms</text>
+<text x="130" y="685" class="muted small">0 ms</text><text x="880" y="685" text-anchor="end" class="muted small">500 ms</text>
+<text x="85" y="710" class="muted small">Range bar shows min-to-max only; individual sample timings are not reconstructed.</text>
 <rect x="970" y="370" width="575" height="360" rx="10" class="card"/>
 <text x="1000" y="414" class="text heading">Summary statistics</text>
 <text x="1000" y="455" class="tablehead">METRIC</text><text x="1485" y="455" text-anchor="end" class="tablehead">VALUE</text>
 <line x1="1000" y1="470" x2="1515" y2="470" stroke="#e2e7ed"/>
 <g class="tabletext">
-<text x="1000" y="505">Minimum response</text><text x="1485" y="505" text-anchor="end">1 ms</text>
-<text x="1000" y="543">Mean response</text><text x="1485" y="543" text-anchor="end">7.5 ms</text>
-<text x="1000" y="581">Median response</text><text x="1485" y="581" text-anchor="end">3 ms</text>
-<text x="1000" y="619">Maximum response</text><text x="1485" y="619" text-anchor="end">50 ms</text>
-<text x="1000" y="657">Reported throughput</text><text x="1485" y="657" text-anchor="end">94.34 req/s</text>
-<text x="1000" y="695">Received data rate</text><text x="1485" y="695" text-anchor="end">30.40 KB/s</text>
+<text x="1000" y="505">Minimum response</text><text x="1485" y="505" text-anchor="end">99 ms</text>
+<text x="1000" y="543">Mean response</text><text x="1485" y="543" text-anchor="end">159.7 ms</text>
+<text x="1000" y="581">Median response</text><text x="1485" y="581" text-anchor="end">131.5 ms</text>
+<text x="1000" y="619">Maximum response</text><text x="1485" y="619" text-anchor="end">479 ms</text>
+<text x="1000" y="657">Reported throughput</text><text x="1485" y="657" text-anchor="end">6.165 req/s</text>
+<text x="1000" y="695">Failed samples</text><text x="1485" y="695" text-anchor="end">0 of 10</text>
 </g>
 <rect x="55" y="755" width="1490" height="220" rx="10" class="card"/>
-<text x="85" y="800" class="text heading">Sample results</text><text x="85" y="829" class="muted small">Extract from the raw JTL result file</text>
+<text x="85" y="800" class="text heading">Sample results</text><text x="85" y="829" class="muted small">Summary of the ten-request JTL run</text>
 <rect x="85" y="850" width="1430" height="43" rx="5" fill="#e8edf2"/>
-<text x="105" y="877" class="tablehead">SAMPLE</text><text x="270" y="877" class="tablehead">REQUEST</text><text x="760" y="877" class="tablehead">HTTP</text><text x="950" y="877" class="tablehead">ELAPSED</text><text x="1190" y="877" class="tablehead">RESULT</text>
+<text x="105" y="877" class="tablehead">SAMPLES</text><text x="270" y="877" class="tablehead">REQUEST</text><text x="760" y="877" class="tablehead">HTTP</text><text x="950" y="877" class="tablehead">ELAPSED RANGE</text><text x="1190" y="877" class="tablehead">RESULT</text>
 <g class="tabletext">
-<text x="105" y="925">1–10</text><text x="270" y="925">GET /version.json</text><text x="760" y="925">200 OK</text><text x="950" y="925">1–50 ms</text><text x="1190" y="925" class="green">✓ 10 passed · 0 failed</text>
+<text x="105" y="925">1–10</text><text x="270" y="925">GET /version.json</text><text x="760" y="925">200 OK</text><text x="950" y="925">99–479 ms</text><text x="1190" y="925" class="green">✓ 10 passed · 0 failed</text>
 </g>
-<text x="55" y="1010" class="muted small">Recreated visual based on archived JMeter statistics.json and results.jtl. Not a literal capture of the original JMeter dashboard.</text>
+<text x="55" y="1010" class="muted small">Recreated from reported JMeter statistics; not a literal screenshot. One user / ten samples is a smoke check, not a capacity test.</text>
 </svg>

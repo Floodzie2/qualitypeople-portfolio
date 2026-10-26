@@ -299,20 +299,21 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">03 / PERFORMANCE ENGINEERING</span>
-              <h2>Performance testing is now part of CI.</h2>
+              <h2>JMeter smoke testing: from local run to CI.</h2>
             </div>
             <p>
-              A small Apache JMeter smoke test now runs in the application CI
-              workflow against a locally served build. The generated HTML report
-              and raw JTL results are archived as a workflow artifact, giving us
-              evidence to inspect after the run rather than relying on a green tick alone.
+              A focused pull request adds a small Apache JMeter smoke test to the
+              application CI workflow against a locally served build. Its
+              equivalent feature-branch run passed. The HTML report and raw JTL
+              results are uploaded as a 14-day artifact. The focused PR is open
+              for review and has not yet been merged into main.
             </p>
           </div>
 
           <div className="performance-summary">
             <div className="performance-summary-copy">
               <span className="system-status status-active">CI RUN PASSED · 26 OCT 2026</span>
-              <h3>JMeter smoke test — first pipeline run</h3>
+              <h3>JMeter smoke test — feature-branch CI run</h3>
               <p>
                 The run exercised <code>GET /version.json</code> ten times.
                 All ten requests returned HTTP 200 with no errors. This is a
@@ -326,7 +327,10 @@ function App() {
                 <span className="tech-tag">Raw results (.jtl)</span>
               </div>
               <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665" target="_blank" rel="noreferrer">
-                View successful CI run <span aria-hidden="true">↗</span>
+                View successful feature-branch CI run <span aria-hidden="true">↗</span>
+              </a>
+              <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/pull/10" target="_blank" rel="noreferrer">
+                Review focused CI pull request <span aria-hidden="true">↗</span>
               </a>
             </div>
             <div className="performance-metrics" aria-label="JMeter smoke test metrics">
@@ -339,29 +343,57 @@ function App() {
             </div>
           </div>
 
+          <div className="performance-summary sit-smoke-summary">
+            <div className="performance-summary-copy">
+              <span className="system-status status-active">SIT VERIFICATION · 26 OCT 2026</span>
+              <h3>Verified SIT smoke run</h3>
+              <p>
+                A separate manual run targeted the deployed Cloudflare Pages SIT
+                endpoint. Ten requests to <code>GET /version.json</code> passed
+                with no errors. Response times ranged from 99 to 479 ms. With one
+                virtual user and only ten samples, this is a verification snapshot,
+                not a stable performance baseline or a capacity measurement.
+              </p>
+              <div className="tag-list">
+                <span className="tech-tag">Apache JMeter 5.6.3</span>
+                <span className="tech-tag">Cloudflare Pages SIT</span>
+                <span className="tech-tag">10 samples</span>
+                <span className="tech-tag">Read-only endpoint</span>
+              </div>
+            </div>
+            <div className="performance-metrics" aria-label="Verified SIT JMeter smoke test metrics">
+              <div><span>Samples</span><strong>10</strong><small>requests</small></div>
+              <div><span>Error rate</span><strong>0.00%</strong><small>0 errors</small></div>
+              <div><span>Mean response</span><strong>159.7 ms</strong><small>average</small></div>
+              <div><span>Median response</span><strong>131.5 ms</strong><small>p50</small></div>
+              <div><span>Maximum</span><strong>479 ms</strong><small>slowest sample</small></div>
+              <div><span>Throughput</span><strong>6.165/s</strong><small>short-run result only</small></div>
+            </div>
+          </div>
+
           <div className="jmeter-report-card">
             <div className="jmeter-report-heading">
               <div>
-                <span className="panel-kicker">REPORT RECONSTRUCTION</span>
-                <h3>Apache JMeter · Dashboard overview</h3>
+                <span className="panel-kicker">SIT REPORT RECONSTRUCTION</span>
+                <h3>Apache JMeter · SIT dashboard overview</h3>
               </div>
               <span className="system-status status-active">10 / 10 SUCCESS</span>
             </div>
             <p>
               A compact, portfolio-friendly recreation of the key information in
-              the full scrolling HTML report. Values are taken from the archived
-              JMeter statistics; the layout is redrawn, not a literal screenshot
-              of JMeter's original interface.
+              the full scrolling SIT HTML report. Values reflect the verified
+              SIT statistics for this run; the layout is redrawn, not a literal
+              screenshot of JMeter's original interface.
             </p>
             <a className="jmeter-report-image-link" href="/jmeter-report-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open the recreated JMeter report image">
               <img
                 className="jmeter-report-image"
                 src="/jmeter-report-recreated.svg"
-                alt="Recreated JMeter dashboard showing ten successful GET version.json requests, zero errors, 7.5 millisecond mean response time, 3 millisecond median, 50 millisecond maximum and a response-time distribution."
+                alt="Recreated JMeter SIT dashboard showing ten successful GET version.json requests, zero errors, 159.7 millisecond mean response time, 131.5 millisecond median, 479 millisecond maximum and a summary response-time range."
               />
             </a>
             <div className="jmeter-report-actions">
-              <a className="button button-secondary" href="/jmeter-report-recreated.svg" target="_blank" rel="noreferrer">Open report image ↗</a>
+              <a className="button button-secondary" href="/jmeter-report-recreated.svg" target="_blank" rel="noreferrer">Open SIT report reconstruction ↗</a>
               <a className="button button-secondary" href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665" target="_blank" rel="noreferrer">CI run &amp; archived artifact ↗</a>
             </div>
           </div>
