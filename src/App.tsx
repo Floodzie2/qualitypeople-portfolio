@@ -423,7 +423,7 @@ function App() {
             <article className="architecture-card">
               <div className="card-topline">
                 <span className="card-index">02</span>
-                <span className="system-status status-planned">TESTED</span>
+                <span className="system-status status-planned">IMPLEMENTED</span>
               </div>
               <h3>Test the test instrument</h3>
               <p className="card-description">
