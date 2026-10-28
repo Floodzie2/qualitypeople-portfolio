@@ -545,6 +545,87 @@ function App() {
               </article>
             ))}
           </div>
+
+          <div className="evidence-gallery">
+            <div className="evidence-gallery-heading">
+              <div>
+                <span className="eyebrow">VISUAL EVIDENCE</span>
+                <h3>See the tools at work.</h3>
+              </div>
+              <p>
+                Reconstructed reports and architecture views make the workflow
+                easier to inspect. Each visual is labelled so illustrative
+                designs are not confused with original tool screenshots.
+              </p>
+            </div>
+
+            <div className="evidence-gallery-grid">
+              <article className="evidence-card">
+                <div className="evidence-card-topline">
+                  <span className="panel-kicker">BROWSER REGRESSION</span>
+                  <span className="system-status status-active">RUN VERIFIED</span>
+                </div>
+                <a className="evidence-image-link" href="/playwright-regression-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open Playwright regression report reconstruction">
+                  <img src="/playwright-regression-recreated.svg" alt="Reconstructed Playwright deployed regression report showing successful build, SIT deployment and browser regression stages tied to a verified commit." loading="lazy" />
+                </a>
+                <h4>Playwright regression</h4>
+                <p>Recorded end-to-end evidence for a deployed preview, including build identity verification. This is a report reconstruction, not a literal Playwright UI screenshot.</p>
+                <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40192935797" target="_blank" rel="noreferrer">Open recorded Playwright run ↗</a>
+              </article>
+
+              <article className="evidence-card">
+                <div className="evidence-card-topline">
+                  <span className="panel-kicker">CONTAINERISATION</span>
+                  <span className="system-status status-planned">ARCHITECTURE VIEW</span>
+                </div>
+                <a className="evidence-image-link" href="/docker-test-architecture.svg" target="_blank" rel="noreferrer" aria-label="Open Docker test environment architecture diagram">
+                  <img src="/docker-test-architecture.svg" alt="Illustrative Docker architecture diagram showing an isolated Playwright runner container communicating with an application-under-test container over a Docker network." loading="lazy" />
+                </a>
+                <h4>Docker test environment</h4>
+                <p>A conceptual view of the runner and application boundary. The dedicated Linux-based QA host is still planned; this is an architecture illustration, not a capture of a running container session.</p>
+                <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app" target="_blank" rel="noreferrer">Explore application repository ↗</a>
+              </article>
+
+              <article className="evidence-card">
+                <div className="evidence-card-topline">
+                  <span className="panel-kicker">CLOUD DELIVERY</span>
+                  <span className="system-status status-active">WORKFLOW VERIFIED</span>
+                </div>
+                <a className="evidence-image-link" href="/cloudflare-deployment-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open Cloudflare deployment overview reconstruction">
+                  <img src="/cloudflare-deployment-recreated.svg" alt="Reconstructed Cloudflare Pages project overview distinguishing the application and portfolio projects and showing the CI, SIT, Playwright and production release path." loading="lazy" />
+                </a>
+                <h4>Cloudflare Pages</h4>
+                <p>Shows the separation between application and portfolio deployments and the controlled application release path. It summarises the architecture rather than exposing a live account dashboard.</p>
+                <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/actions" target="_blank" rel="noreferrer">Explore CI and deployment runs ↗</a>
+              </article>
+
+              <article className="evidence-card">
+                <div className="evidence-card-topline">
+                  <span className="panel-kicker">CI / CD</span>
+                  <span className="system-status status-active">RECORDED SUCCESS</span>
+                </div>
+                <a className="evidence-image-link" href="/github-actions-pipeline-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open GitHub Actions pipeline reconstruction">
+                  <img src="/github-actions-pipeline-recreated.svg" alt="Reconstructed GitHub Actions workflow with successful CI, SIT deployment, deployed Playwright regression and controlled production validation stages." loading="lazy" />
+                </a>
+                <h4>GitHub Actions release path</h4>
+                <p>The successful 25 October 2026 release path, tied to a specific commit, demonstrates that the release process has run end to end—not just that workflows exist.</p>
+                <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40193089925" target="_blank" rel="noreferrer">Open production workflow run ↗</a>
+              </article>
+
+              <article className="evidence-card">
+                <div className="evidence-card-topline">
+                  <span className="panel-kicker">AI QUALITY ENGINEERING</span>
+                  <span className="system-status status-active">LOCAL EXPERIMENT</span>
+                </div>
+                <a className="evidence-image-link" href="/ai-evaluation-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open AI evaluation results reconstruction">
+                  <img src="/ai-evaluation-recreated.svg" alt="Reconstructed AI evaluation results showing 11 of 12 raw model cases passed and 12 of 12 final API cases passed after deterministic safety post-processing, with five final checks at 100 percent." loading="lazy" />
+                </a>
+                <h4>AI evaluation results</h4>
+                <p>The local v13 experiment keeps the raw model miss visible and attributes the final improvement to a narrow deterministic safety control. Results are from 12 synthetic cases, not a general accuracy claim.</p>
+                <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">Read evaluation methodology ↗</a>
+              </article>
+            </div>
+          </div>
         </section>
 
         <section className="approach-section" id="approach">
