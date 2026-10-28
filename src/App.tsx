@@ -575,15 +575,16 @@ function App() {
 
               <article className="evidence-card">
                 <div className="evidence-card-topline">
-                  <span className="panel-kicker">CONTAINERISATION</span>
-                  <span className="system-status status-planned">ARCHITECTURE VIEW</span>
+                  <span className="panel-kicker">CONTAINERISED E2E TESTING</span>
+                  <span className="system-status status-active">RUN VERIFIED</span>
                 </div>
-                <a className="evidence-image-link" href="/docker-test-architecture.svg" target="_blank" rel="noreferrer" aria-label="Open Docker test environment architecture diagram">
-                  <img src="/docker-test-architecture.svg" alt="Illustrative Docker architecture diagram showing an isolated Playwright runner container communicating with an application-under-test container over a Docker network." loading="lazy" />
+                <a className="evidence-image-link" href="/docker-playwright-run-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open Docker Playwright test run reconstruction">
+                  <img src="/docker-playwright-run-recreated.svg" alt="Reconstructed terminal view of docker run --rm qualitypeople-playwright, executing npm run test:e2e with all five Chromium end-to-end tests passing in 1.9 seconds." loading="lazy" />
                 </a>
-                <h4>Docker test environment</h4>
-                <p>A conceptual view of the runner and application boundary. The dedicated Linux-based QA host is still planned; this is an architecture illustration, not a capture of a running container session.</p>
+                <h4>Playwright running inside Docker</h4>
+                <p>This is implemented and has been run: a Docker image packages Playwright 1.64.1, Chromium and its browser dependencies with the project dependencies. Running the container executes the end-to-end suite in Linux; the recorded run passed 5/5 tests in 1.9 seconds. The separate headless Linux QA host is a distinct next step.</p>
                 <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app" target="_blank" rel="noreferrer">Explore application repository ↗</a>
+                <a className="text-link" href="/docker-test-architecture.svg" target="_blank" rel="noreferrer">View container architecture ↗</a>
               </article>
 
               <article className="evidence-card">
