@@ -74,7 +74,7 @@ function App() {
         </a>
 
         <nav className="main-nav" aria-label="Main navigation">
-          <a href="#story">My QA journey</a>
+          <a href="#story">Project context</a>
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
           <a href="#performance">JMeter performance</a>
@@ -199,36 +199,36 @@ function App() {
         <section className="content-section career-section" id="story">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">MY QA JOURNEY</span>
-              <h2>From QA leadership to AI-first quality engineering.</h2>
+              <span className="eyebrow">PROJECT CONTEXT</span>
+              <h2>Exploring quality engineering through practical work.</h2>
             </div>
             <p>
-              QualityPeople connects years of quality leadership with current,
-              hands-on engineering: building software, automating delivery gates,
-              and measuring whether AI systems behave as expected.
+              QualityPeople is a hands-on engineering project exploring how modern
+              development, automated quality checks and evidence-led AI evaluation
+              fit together in a practical delivery workflow.
             </p>
           </div>
           <div className="architecture-support-grid">
             <article className="architecture-note">
-              <span className="eyebrow">LEADERSHIP</span>
+              <span className="eyebrow">QUALITY PRINCIPLES</span>
               <h3>Quality as a delivery discipline.</h3>
               <p>
-                I bring a leadership perspective to quality engineering, combining
-                risk-based thinking, delivery awareness and practical automation
-                to help teams build quality into their processes from the outset.
-                My focus is on enabling teams, improving ways of working and
-                making quality an integral part of successful delivery.
+                Effective quality engineering combines risk-based thinking,
+                delivery awareness and practical automation. The aim is to help
+                teams build quality into their processes from the outset,
+                improve ways of working and make quality an integral part of
+                successful delivery—not just a final testing phase.
               </p>
             </article>
             <article className="architecture-note">
-              <span className="eyebrow">EARLY AI EXPERIMENTS</span>
-              <h3>From unstructured conversations to test ideas.</h3>
+              <span className="eyebrow">AI EXPERIMENTS</span>
+              <h3>From unstructured information to test ideas.</h3>
               <p>
-                While at Storyful, I experimented with early ChatGPT to turn
-                requirements and email threads into candidate test cases. That
-                exploration now informs a more systematic approach: define
-                expected behaviour, test outputs, measure errors and review
-                the evidence rather than assuming generated content is correct.
+                Early experiments with ChatGPT explored turning requirements and
+                email threads into candidate test cases. That idea informs a
+                more systematic approach: define expected behaviour, test
+                outputs, measure errors and review the evidence rather than
+                assuming generated content is correct.
               </p>
             </article>
             <article className="architecture-note">
