@@ -455,8 +455,8 @@ function App() {
               <h3>Engineering portfolio</h3>
               <p className="card-device">qualitypeople-portfolio</p>
               <p className="card-description">
-                <a href="https://howIbuiltit.qualitypeople.ie" target="_blank" rel="noreferrer">
-                  howIbuiltit.qualitypeople.ie ↗
+                <a href="https://www.howibuilt.qualitypeople.ie" target="_blank" rel="noreferrer">
+                  www.howibuilt.qualitypeople.ie ↗
                 </a>
                 <br />
                 Separate GitHub source → separate Cloudflare Pages deployment
