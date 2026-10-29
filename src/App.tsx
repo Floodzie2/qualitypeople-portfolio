@@ -908,10 +908,10 @@ function App() {
 
           <div className="defect-stage-dashboard" aria-label="Findings by discovery stage">
             <article className="defect-stage-card">
-              <span className="defect-stage-label">FOUND LOCALLY</span>
-              <strong>0 verified</strong>
-              <p>Earlier local Playwright runs passed; no local-first defect is evidenced in the recorded results.</p>
-              <span className="defect-stage-note">No historic failure invented</span>
+              <span className="defect-stage-label">FOUND IN DEVELOPMENT</span>
+              <strong>3 documented</strong>
+              <p>Three findings in the project history were identified and addressed during development: Workers AI response handling, evaluator text normalisation and missing-information matching.</p>
+              <span className="defect-stage-note">Code and test history linked below</span>
             </article>
             <article className="defect-stage-card">
               <span className="defect-stage-label">SEEDED FOR PLAYWRIGHT</span>
@@ -1089,12 +1089,16 @@ function App() {
           </div>
 
           <p className="defect-evidence-footnote">
-            Metrics are deliberately modest: this register combines four
-            documented project findings with two explicitly seeded QA exercises.
-            The seeded cases are on a feature branch, not production incidents;
-            CI execution is not counted as verified until the workflow result is
-            confirmed. Earlier local Playwright runs passed and are not being
-            retroactively described as defect discoveries.
+            Metrics are deliberately evidence-led: the register includes three
+            development findings, one AI quality finding and two explicitly
+            seeded QA exercises. The three development findings are supported
+            by code and test history; the seeded cases are controlled exercises,
+            not naturally occurring or production incidents. The latest CI run
+            did execute the seeded Playwright assertions, but its overall result
+            failed and the fix run has not yet provided a verified green result.
+            No distinct SIT-first product defect is currently evidenced, so the
+            SIT count remains zero rather than attributing a development finding
+            to SIT without proof.
           </p>
         </section>
 
