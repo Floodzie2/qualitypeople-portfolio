@@ -829,6 +829,76 @@ function App() {
             </div>
           </div>
 
+          <div className="defect-stage-dashboard" aria-label="Findings by discovery stage">
+            <article className="defect-stage-card">
+              <span className="defect-stage-label">FOUND LOCALLY</span>
+              <strong>3</strong>
+              <p>Documented integration and evaluator fixes from development work.</p>
+              <span className="defect-stage-note">Code / test tooling</span>
+            </article>
+            <article className="defect-stage-card">
+              <span className="defect-stage-label">FOUND IN CI</span>
+              <strong>Tracked next</strong>
+              <p>CI runs regression checks; no separate, verified CI-first defect count is claimed yet.</p>
+              <span className="defect-stage-note">Automated regression</span>
+            </article>
+            <article className="defect-stage-card">
+              <span className="defect-stage-label">FOUND IN SIT</span>
+              <strong>0 recorded</strong>
+              <p>No distinct SIT-first product defect is currently evidenced in this curated register.</p>
+              <span className="defect-stage-note">Not a claim that SIT found nothing</span>
+            </article>
+            <article className="defect-stage-card">
+              <span className="defect-stage-label">AI EVALUATION</span>
+              <strong>12 cases</strong>
+              <p>Live-model experiments exposed summary and missing-information weaknesses.</p>
+              <span className="defect-stage-note">Preview-only experiment</span>
+            </article>
+          </div>
+
+          <div className="defect-register">
+            <div className="defect-register-heading">
+              <div>
+                <span className="eyebrow">DISCOVERY REGISTER</span>
+                <h3>Where the findings surfaced</h3>
+              </div>
+              <p>Stage labels reflect the evidence currently available; unverified discovery stages are left unclaimed.</p>
+            </div>
+            <div className="defect-register-table-wrap">
+              <table className="defect-register-table">
+                <thead>
+                  <tr><th>Finding</th><th>Found in</th><th>Classification</th><th>Outcome / evidence</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Workers AI response handling</strong><span>Provider response parsing</span></td>
+                    <td><span className="defect-stage-pill">Development</span></td>
+                    <td>Integration defect</td>
+                    <td><a href="https://github.com/Floodzie2/qualitypeople-app/commit/6aa44bf2aa3aad7cdd01a2b767f7a55246b70cf3" target="_blank" rel="noreferrer">Fix and test history ↗</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Evaluator text normalisation</strong><span>Deterministic evaluation checks</span></td>
+                    <td><span className="defect-stage-pill">Development</span></td>
+                    <td>Test-tooling defect</td>
+                    <td><a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/src/ai/enquiry-evaluator.ts" target="_blank" rel="noreferrer">Evaluator implementation ↗</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Missing-information matching</strong><span>Equivalent wording in responses</span></td>
+                    <td><span className="defect-stage-pill">Development</span></td>
+                    <td>Evaluation defect</td>
+                    <td><a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/src/ai/enquiry-evaluation-cases.ts" target="_blank" rel="noreferrer">Cases and matching rules ↗</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Summary fact coverage</strong><span>Live model output against golden cases</span></td>
+                    <td><span className="defect-stage-pill defect-stage-pill-ai">AI preview evaluation</span></td>
+                    <td>AI quality finding</td>
+                    <td><a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">Experiment log ↗</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div className="defect-evidence-stats" aria-label="Defect evidence summary">
             <div>
               <span className="defect-stat-value">04</span>
