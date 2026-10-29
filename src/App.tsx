@@ -77,6 +77,7 @@ function App() {
           <a href="#story">Project context</a>
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
+          <a href="#developer-playwright">Developer test reuse</a>
           <a href="#performance">JMeter performance</a>
           <a href="#manual-sit">Manual SIT</a>
           <a href="#delivery">Deployment</a>
@@ -545,6 +546,67 @@ function App() {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="developer-playwright-panel" id="developer-playwright">
+            <div className="developer-playwright-heading">
+              <div>
+                <span className="eyebrow">PLAYWRIGHT AS A SHARED TOOLKIT</span>
+                <h3>Use the right tests when the developer needs them.</h3>
+              </div>
+              <p>
+                The value of a Playwright suite is not limited to a scheduled
+                CI or SIT run. Quality engineers can design reusable tests that
+                developers select and run locally while building, changing or
+                maintaining a feature.
+              </p>
+            </div>
+
+            <div className="developer-test-use-grid">
+              <article className="developer-test-use-card">
+                <span className="card-index">01</span>
+                <h4>Fast smoke checks</h4>
+                <p>Run a small, reliable subset after a local change to check that the key user journeys still work before investing in a wider test cycle.</p>
+                <span className="developer-test-label">Quick confidence check</span>
+              </article>
+              <article className="developer-test-use-card">
+                <span className="card-index">02</span>
+                <h4>Prepare test data</h4>
+                <p>Reuse supported setup helpers or API fixtures to create the preconditions a feature needs, rather than repeating manual setup for every test session.</p>
+                <span className="developer-test-label">Repeatable preconditions</span>
+              </article>
+              <article className="developer-test-use-card">
+                <span className="card-index">03</span>
+                <h4>Target a feature</h4>
+                <p>Run tests tagged or grouped around the area being developed or maintained, keeping feedback focused while still retaining a broader regression suite.</p>
+                <span className="developer-test-label">Focused feedback</span>
+              </article>
+              <article className="developer-test-use-card">
+                <span className="card-index">04</span>
+                <h4>Run before the PR</h4>
+                <p>Use the same relevant tests locally, then let CI run them consistently on the proposed change. SIT can then concentrate on integration and environment-specific risks.</p>
+                <span className="developer-test-label">Local → CI → SIT</span>
+              </article>
+            </div>
+
+            <div className="developer-playwright-flow">
+              <div><span>01</span><strong>Choose a subset</strong><small>Smoke · feature · data setup</small></div>
+              <span className="developer-flow-arrow" aria-hidden="true">→</span>
+              <div><span>02</span><strong>Run locally</strong><small>Fast developer feedback</small></div>
+              <span className="developer-flow-arrow" aria-hidden="true">→</span>
+              <div><span>03</span><strong>Run in CI</strong><small>Repeatable PR quality gate</small></div>
+              <span className="developer-flow-arrow" aria-hidden="true">→</span>
+              <div><span>04</span><strong>Broader SIT testing</strong><small>Integrated-system risks</small></div>
+            </div>
+
+            <p className="developer-playwright-caveat">
+              This is the intended reuse model, not a claim that every helper or
+              subset is already implemented in QualityPeople. Data setup must
+              remain safe and repeatable, and tests should be independent of
+              execution order. The local command currently available is
+              <code> npm run test:e2e</code>; feature filtering and reusable
+              setup should be documented as they are implemented.
+            </p>
           </div>
 
           <div className="evidence-gallery">
