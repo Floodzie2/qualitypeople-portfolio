@@ -908,22 +908,22 @@ function App() {
 
           <div className="defect-stage-dashboard" aria-label="Findings by discovery stage">
             <article className="defect-stage-card">
-              <span className="defect-stage-label">FOUND LOCALLY</span>
+              <span className="defect-stage-label">DEVELOPMENT FINDINGS</span>
               <strong>3 documented</strong>
-              <p>Three findings in the project history were identified and addressed during development: Workers AI response handling, evaluator text normalisation and missing-information matching.</p>
-              <span className="defect-stage-note">Code and test history linked below</span>
+              <p>Historical findings cover Workers AI response handling, evaluator text normalisation and missing-information matching.</p>
+              <span className="defect-stage-note">Implementation and test history linked below</span>
             </article>
             <article className="defect-stage-card">
-              <span className="defect-stage-label">SEEDED PLAYWRIGHT EXERCISE</span>
-              <strong>2 cases</strong>
-              <p>CI reproduced both seeded regressions before the fix. The fix run now passes the field-retention test, but the pending-submit assertion still fails, so the overall retest is not green yet.</p>
-              <span className="defect-stage-note">Controlled QA exercise · not production incidents</span>
+              <span className="defect-stage-label">PLAYWRIGHT REGRESSION TESTS</span>
+              <strong>2 seeded cases</strong>
+              <p>Browser tests exercised field retention after API failure and disabled-submit behaviour while a request is pending. CI detected both before the fix; the current retest is still partially failing.</p>
+              <span className="defect-stage-note"><a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/tests/contact-form.spec.ts" target="_blank" rel="noreferrer">Playwright test source ↗</a> · <a href="https://github.com/Floodzie2/qualitypeople-app/pull/11" target="_blank" rel="noreferrer">Controlled exercise ↗</a></span>
             </article>
             <article className="defect-stage-card">
-              <span className="defect-stage-label">FOUND IN SIT</span>
-              <strong>0 recorded</strong>
-              <p>No distinct SIT-first product defect is currently evidenced in this curated register.</p>
-              <span className="defect-stage-note">Not a claim that SIT found nothing</span>
+              <span className="defect-stage-label">SIT REGRESSION</span>
+              <strong>Verification pending</strong>
+              <p>The deployed-preview Playwright/API regression needs to be run and reviewed before a distinct SIT-first defect can be recorded honestly.</p>
+              <span className="defect-stage-note"><a href="https://github.com/Floodzie2/qualitypeople-app/actions/workflows/test-deployed-preview.yml" target="_blank" rel="noreferrer">Run deployed-preview tests ↗</a></span>
             </article>
             <article className="defect-stage-card">
               <span className="defect-stage-label">AI EVALUATION</span>
@@ -939,7 +939,7 @@ function App() {
                 <span className="eyebrow">DISCOVERY REGISTER</span>
                 <h3>Where the findings surfaced</h3>
               </div>
-              <p>Historical findings and seeded QA exercises are separated; seeded cases are not presented as real incidents or verified CI discoveries.</p>
+              <p>Historical findings, Playwright regression evidence and the pending SIT verification are separated. Seeded cases are controlled exercises, not production incidents.</p>
             </div>
             <div className="defect-register-table-wrap">
               <table className="defect-register-table">
@@ -973,14 +973,14 @@ function App() {
                   </tr>
                   <tr>
                     <td><strong>Enquiry fields cleared after API failure</strong><span>Seeded regression; existing failure-path assertion</span></td>
-                    <td><span className="defect-stage-pill">Seeded QA exercise</span></td>
-                    <td>Form-state / usability defect</td>
-                    <td><a href="https://github.com/Floodzie2/qualitypeople-app/pull/11" target="_blank" rel="noreferrer">Test and fix PR ↗</a></td>
+                    <td><span className="defect-stage-pill">Playwright · CI</span></td>
+                    <td>Form-state / usability defect · seeded exercise</td>
+                    <td><a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/tests/contact-form.spec.ts" target="_blank" rel="noreferrer">Playwright test source ↗</a> · <a href="https://github.com/Floodzie2/qualitypeople-app/pull/11" target="_blank" rel="noreferrer">Test and fix PR ↗</a></td>
                   </tr>
                   <tr>
                     <td><strong>Submit button active while request is pending</strong><span>Seeded regression; pending-state Playwright test added</span></td>
-                    <td><span className="defect-stage-pill">Seeded QA exercise</span></td>
-                    <td>Duplicate-submit prevention</td>
+                    <td><span className="defect-stage-pill">Playwright · CI</span></td>
+                    <td>Duplicate-submit prevention · seeded exercise</td>
                     <td><a href="https://github.com/Floodzie2/qualitypeople-app/commit/6aadb139335ee198e7286bdbf22ddc133f5648cd" target="_blank" rel="noreferrer">Fix commit ↗</a></td>
                   </tr>
                 </tbody>
