@@ -908,16 +908,16 @@ function App() {
 
           <div className="defect-stage-dashboard" aria-label="Findings by discovery stage">
             <article className="defect-stage-card">
-              <span className="defect-stage-label">FOUND IN DEVELOPMENT</span>
+              <span className="defect-stage-label">FOUND LOCALLY</span>
               <strong>3 documented</strong>
               <p>Three findings in the project history were identified and addressed during development: Workers AI response handling, evaluator text normalisation and missing-information matching.</p>
               <span className="defect-stage-note">Code and test history linked below</span>
             </article>
             <article className="defect-stage-card">
-              <span className="defect-stage-label">SEEDED FOR PLAYWRIGHT</span>
+              <span className="defect-stage-label">SEEDED PLAYWRIGHT EXERCISE</span>
               <strong>2 cases</strong>
-              <p>Two controlled enquiry-form regressions were seeded and fixed on a feature branch; CI execution evidence is pending verification.</p>
-              <span className="defect-stage-note">QA exercise · not production incidents</span>
+              <p>CI reproduced both seeded regressions before the fix. The fix run now passes the field-retention test, but the pending-submit assertion still fails, so the overall retest is not green yet.</p>
+              <span className="defect-stage-note">Controlled QA exercise · not production incidents</span>
             </article>
             <article className="defect-stage-card">
               <span className="defect-stage-label">FOUND IN SIT</span>
