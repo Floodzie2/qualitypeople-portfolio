@@ -81,6 +81,7 @@ function App() {
           <a href="#manual-sit">Manual SIT</a>
           <a href="#delivery">Deployment</a>
           <a href="#ai-evaluation">AI evaluation</a>
+          <a href="#defect-evidence">Defect evidence</a>
           <a href="#approach">AI &amp; approach</a>
         </nav>
 
@@ -799,6 +800,144 @@ function App() {
             </a>.
           </p>
         </section>
+
+        <section className="content-section defect-evidence-section" id="defect-evidence">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">06 / DEFECT DETECTION &amp; PREVENTION</span>
+              <h2>Find the weakness. Fix it. Prove the retest.</h2>
+            </div>
+            <p>
+              A traceable record of engineering and AI-evaluation findings from
+              the project history. Each example links to implementation evidence
+              and distinguishes defects in our code or test tooling from quality
+              findings in model output.
+            </p>
+          </div>
+
+          <div className="defect-evidence-principle">
+            <div className="defect-evidence-principle-mark" aria-hidden="true">✓</div>
+            <div>
+              <h3>Evidence-led, not incident theatre.</h3>
+              <p>
+                These are documented development and pre-release findings. We
+                have not labelled them production incidents because the available
+                evidence does not establish that customers encountered them in
+                the live service. The AI triage experiment is isolated from public
+                enquiry submission.
+              </p>
+            </div>
+          </div>
+
+          <div className="defect-evidence-stats" aria-label="Defect evidence summary">
+            <div>
+              <span className="defect-stat-value">04</span>
+              <span className="defect-stat-label">documented finding examples</span>
+            </div>
+            <div>
+              <span className="defect-stat-value">12</span>
+              <span className="defect-stat-label">synthetic AI evaluation cases</span>
+            </div>
+            <div>
+              <span className="defect-stat-value">3</span>
+              <span className="defect-stat-label">evidence stages: detect · fix · retest</span>
+            </div>
+          </div>
+
+          <div className="defect-evidence-grid">
+            <article className="defect-evidence-card">
+              <div className="defect-card-meta">
+                <span className="defect-type">INTEGRATION DEFECT</span>
+                <span className="system-status status-active">FIXED + TESTED</span>
+              </div>
+              <h3>Workers AI response handling</h3>
+              <p>
+                The integration needed to handle the provider's structured
+                response shape correctly. The implementation history records a
+                fix and corresponding coverage, reducing the risk that a valid
+                provider response is misread by the application.
+              </p>
+              <div className="defect-evidence-links">
+                <a href="https://github.com/Floodzie2/qualitypeople-app/commit/6aa44bf2aa3aad7cdd01a2b767f7a55246b70cf3" target="_blank" rel="noreferrer">Implementation and fix history ↗</a>
+                <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/src/ai/enquiry-triage.ts" target="_blank" rel="noreferrer">Current triage implementation ↗</a>
+              </div>
+            </article>
+
+            <article className="defect-evidence-card">
+              <div className="defect-card-meta">
+                <span className="defect-type">TEST-TOOLING DEFECT</span>
+                <span className="system-status status-active">FIXED + TESTED</span>
+              </div>
+              <h3>Evaluator text normalisation</h3>
+              <p>
+                The deterministic evaluator had to compare candidate responses
+                consistently despite harmless text-format differences. A fix
+                to normalisation made the evaluation harness more reliable,
+                helping separate genuine model failures from evaluator noise.
+              </p>
+              <div className="defect-evidence-links">
+                <a href="https://github.com/Floodzie2/qualitypeople-app/commit/6aa44bf2aa3aad7cdd01a2b767f7a55246b70cf3" target="_blank" rel="noreferrer">Evaluator implementation history ↗</a>
+                <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/src/ai/enquiry-evaluator.ts" target="_blank" rel="noreferrer">Current evaluator checks ↗</a>
+              </div>
+            </article>
+
+            <article className="defect-evidence-card">
+              <div className="defect-card-meta">
+                <span className="defect-type">EVALUATION DEFECT</span>
+                <span className="system-status status-active">REFINED + TESTED</span>
+              </div>
+              <h3>Missing-information matching</h3>
+              <p>
+                Equivalent ways of expressing missing details could be
+                interpreted too narrowly by the evaluator. The matching rules
+                and tests were refined so that meaningful wording variations
+                are recognised without treating every response as correct.
+              </p>
+              <div className="defect-evidence-links">
+                <a href="https://github.com/Floodzie2/qualitypeople-app/commit/6aa44bf2aa3aad7cdd01a2b767f7a55246b70cf3" target="_blank" rel="noreferrer">Fix and test history ↗</a>
+                <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/src/ai/enquiry-evaluation-cases.ts" target="_blank" rel="noreferrer">Synthetic evaluation cases ↗</a>
+              </div>
+            </article>
+
+            <article className="defect-evidence-card">
+              <div className="defect-card-meta">
+                <span className="defect-type">AI QUALITY FINDING</span>
+                <span className="system-status status-planned">ITERATIVE IMPROVEMENT</span>
+              </div>
+              <h3>Summary facts and model behaviour</h3>
+              <p>
+                Early live-model runs exposed weak coverage of required summary
+                facts and missing information. Prompt revisions improved some
+                measures, while also showing trade-offs in human-review
+                decisions. These are evaluation findings—not customer incidents
+                or a statistically representative accuracy claim.
+              </p>
+              <div className="defect-evidence-links">
+                <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">Experiment results and limitations ↗</a>
+                <a href="https://github.com/Floodzie2/qualitypeople-app/actions" target="_blank" rel="noreferrer">Test and CI evidence ↗</a>
+              </div>
+            </article>
+          </div>
+
+          <div className="defect-lifecycle">
+            <span className="eyebrow">THE AUTOMATION VALUE STORY</span>
+            <div className="defect-lifecycle-grid">
+              <div><span>01</span><h3>Detect</h3><p>A targeted test or evaluation case exposes unexpected behaviour.</p></div>
+              <div><span>02</span><h3>Diagnose</h3><p>Failure output and source history help distinguish product, test-tooling and model issues.</p></div>
+              <div><span>03</span><h3>Resolve</h3><p>A code, evaluator or prompt change addresses the specific finding.</p></div>
+              <div><span>04</span><h3>Retest</h3><p>Focused checks and regression coverage provide evidence that the change behaves as intended.</p></div>
+            </div>
+          </div>
+
+          <p className="defect-evidence-footnote">
+            Metrics are deliberately modest: the four examples above are a
+            curated evidence set, not a complete defect register or a claim that
+            automation prevented four production incidents. Future entries can
+            record discovery stage, severity, detecting test, fix commit, retest
+            result and whether a verified user-facing incident occurred.
+          </p>
+        </section>
+
       </main>
 
       <footer className="site-footer">
