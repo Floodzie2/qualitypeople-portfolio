@@ -612,12 +612,15 @@ function App() {
             </div>
 
             <p className="developer-playwright-caveat">
-              This is the intended reuse model, not a claim that every helper or
-              subset is already implemented in QualityPeople. Data setup must
-              remain safe and repeatable, and tests should be independent of
-              execution order. The local command currently available is
-              <code> npm run test:e2e</code>; feature filtering and reusable
-              setup should be documented as they are implemented.
+              The application already exposes commands for unit tests
+              (<code>npm test</code>), Playwright browser tests
+              (<code>npm run test:e2e</code>), preview API tests
+              (<code>npm run test:api:preview</code>) and the synthetic AI
+              evaluation harness (<code>npm run evaluate:ai</code>). Choose the
+              command that fits the change and environment. A polished developer
+              experience still needs clearly documented subsets, safe data setup
+              and reliable cleanup; the existence of a command does not mean
+              every convenience workflow is already complete.
             </p>
           </div>
 
