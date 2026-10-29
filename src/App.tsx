@@ -832,15 +832,15 @@ function App() {
           <div className="defect-stage-dashboard" aria-label="Findings by discovery stage">
             <article className="defect-stage-card">
               <span className="defect-stage-label">FOUND LOCALLY</span>
-              <strong>3</strong>
-              <p>Documented integration and evaluator fixes from development work.</p>
-              <span className="defect-stage-note">Code / test tooling</span>
+              <strong>0 verified</strong>
+              <p>Earlier local Playwright runs passed; no local-first defect is evidenced in the recorded results.</p>
+              <span className="defect-stage-note">No historic failure invented</span>
             </article>
             <article className="defect-stage-card">
-              <span className="defect-stage-label">FOUND IN CI</span>
-              <strong>Tracked next</strong>
-              <p>CI runs regression checks; no separate, verified CI-first defect count is claimed yet.</p>
-              <span className="defect-stage-note">Automated regression</span>
+              <span className="defect-stage-label">SEEDED FOR PLAYWRIGHT</span>
+              <strong>2 cases</strong>
+              <p>Two controlled enquiry-form regressions were seeded and fixed on a feature branch; CI execution evidence is pending verification.</p>
+              <span className="defect-stage-note">QA exercise · not production incidents</span>
             </article>
             <article className="defect-stage-card">
               <span className="defect-stage-label">FOUND IN SIT</span>
@@ -862,7 +862,7 @@ function App() {
                 <span className="eyebrow">DISCOVERY REGISTER</span>
                 <h3>Where the findings surfaced</h3>
               </div>
-              <p>Stage labels reflect the evidence currently available; unverified discovery stages are left unclaimed.</p>
+              <p>Historical findings and seeded QA exercises are separated; seeded cases are not presented as real incidents or verified CI discoveries.</p>
             </div>
             <div className="defect-register-table-wrap">
               <table className="defect-register-table">
@@ -894,6 +894,18 @@ function App() {
                     <td>AI quality finding</td>
                     <td><a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">Experiment log ↗</a></td>
                   </tr>
+                  <tr>
+                    <td><strong>Enquiry fields cleared after API failure</strong><span>Seeded regression; existing failure-path assertion</span></td>
+                    <td><span className="defect-stage-pill">Seeded QA exercise</span></td>
+                    <td>Form-state / usability defect</td>
+                    <td><a href="https://github.com/Floodzie2/qualitypeople-app/pull/11" target="_blank" rel="noreferrer">Test and fix PR ↗</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Submit button active while request is pending</strong><span>Seeded regression; pending-state Playwright test added</span></td>
+                    <td><span className="defect-stage-pill">Seeded QA exercise</span></td>
+                    <td>Duplicate-submit prevention</td>
+                    <td><a href="https://github.com/Floodzie2/qualitypeople-app/commit/6aadb139335ee198e7286bdbf22ddc133f5648cd" target="_blank" rel="noreferrer">Fix commit ↗</a></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -901,8 +913,8 @@ function App() {
 
           <div className="defect-evidence-stats" aria-label="Defect evidence summary">
             <div>
-              <span className="defect-stat-value">04</span>
-              <span className="defect-stat-label">documented finding examples</span>
+              <span className="defect-stat-value">06</span>
+              <span className="defect-stat-label">curated entries: 4 project findings + 2 seeded QA cases</span>
             </div>
             <div>
               <span className="defect-stat-value">12</span>
@@ -1000,11 +1012,12 @@ function App() {
           </div>
 
           <p className="defect-evidence-footnote">
-            Metrics are deliberately modest: the four examples above are a
-            curated evidence set, not a complete defect register or a claim that
-            automation prevented four production incidents. Future entries can
-            record discovery stage, severity, detecting test, fix commit, retest
-            result and whether a verified user-facing incident occurred.
+            Metrics are deliberately modest: this register combines four
+            documented project findings with two explicitly seeded QA exercises.
+            The seeded cases are on a feature branch, not production incidents;
+            CI execution is not counted as verified until the workflow result is
+            confirmed. Earlier local Playwright runs passed and are not being
+            retroactively described as defect discoveries.
           </p>
         </section>
 
