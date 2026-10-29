@@ -77,7 +77,7 @@ function App() {
           <a href="#story">Project context</a>
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
-          <a href="#developer-playwright">Developer test reuse</a>
+          <a href="#developer-playwright">Reusable test toolkit</a>
           <a href="#performance">JMeter performance</a>
           <a href="#manual-sit">Manual SIT</a>
           <a href="#delivery">Deployment</a>
@@ -551,8 +551,8 @@ function App() {
           <div className="developer-playwright-panel" id="developer-playwright">
             <div className="developer-playwright-heading">
               <div>
-                <span className="eyebrow">PLAYWRIGHT AS A SHARED TOOLKIT</span>
-                <h3>Use the right tests when the developer needs them.</h3>
+                <span className="eyebrow">REUSABLE TESTS ACROSS THE STACK</span>
+                <h3>Give developers the right checks at the right time.</h3>
               </div>
               <p>
                 The value of a Playwright suite is not limited to a scheduled
@@ -565,38 +565,50 @@ function App() {
             <div className="developer-test-use-grid">
               <article className="developer-test-use-card">
                 <span className="card-index">01</span>
-                <h4>Fast smoke checks</h4>
-                <p>Run a small, reliable subset after a local change to check that the key user journeys still work before investing in a wider test cycle.</p>
-                <span className="developer-test-label">Quick confidence check</span>
+                <h4>Browser smoke &amp; feature tests</h4>
+                <p>Run a small Playwright subset after a UI change, or target the feature being built or maintained, without waiting for the full regression cycle.</p>
+                <span className="developer-test-label">Playwright · focused feedback</span>
               </article>
               <article className="developer-test-use-card">
                 <span className="card-index">02</span>
-                <h4>Prepare test data</h4>
-                <p>Reuse supported setup helpers or API fixtures to create the preconditions a feature needs, rather than repeating manual setup for every test session.</p>
-                <span className="developer-test-label">Repeatable preconditions</span>
+                <h4>API checks &amp; test data</h4>
+                <p>Run API-level checks closer to the code, validate request and response behaviour, and use supported API helpers or fixtures to prepare repeatable preconditions.</p>
+                <span className="developer-test-label">Contracts · setup · error paths</span>
               </article>
               <article className="developer-test-use-card">
                 <span className="card-index">03</span>
-                <h4>Target a feature</h4>
-                <p>Run tests tagged or grouped around the area being developed or maintained, keeping feedback focused while still retaining a broader regression suite.</p>
-                <span className="developer-test-label">Focused feedback</span>
+                <h4>AI evaluation cases</h4>
+                <p>Re-run a small, known set of synthetic cases after changing prompts, model handling or deterministic safeguards. Compare expected behaviour and keep model output under evaluation.</p>
+                <span className="developer-test-label">Golden cases · measurable results</span>
               </article>
               <article className="developer-test-use-card">
                 <span className="card-index">04</span>
-                <h4>Run before the PR</h4>
-                <p>Use the same relevant tests locally, then let CI run them consistently on the proposed change. SIT can then concentrate on integration and environment-specific risks.</p>
+                <h4>Unit &amp; component tests</h4>
+                <p>Use fast Vitest checks while changing application logic, response handling or evaluation rules, before moving to browser-level tests.</p>
+                <span className="developer-test-label">Fast feedback loop</span>
+              </article>
+              <article className="developer-test-use-card">
+                <span className="card-index">05</span>
+                <h4>Performance smoke checks</h4>
+                <p>Run a lightweight JMeter endpoint smoke check to confirm basic availability. Keep it distinct from load, stress and capacity testing.</p>
+                <span className="developer-test-label">JMeter · bounded purpose</span>
+              </article>
+              <article className="developer-test-use-card">
+                <span className="card-index">06</span>
+                <h4>PR to SIT regression</h4>
+                <p>Repeat relevant checks in CI, then use SIT for integrated-system behaviour, deployed configuration and risks that require the shared environment.</p>
                 <span className="developer-test-label">Local → CI → SIT</span>
               </article>
             </div>
 
             <div className="developer-playwright-flow">
-              <div><span>01</span><strong>Choose a subset</strong><small>Smoke · feature · data setup</small></div>
+              <div><span>01</span><strong>Choose a subset</strong><small>Browser · API · AI · unit</small></div>
               <span className="developer-flow-arrow" aria-hidden="true">→</span>
-              <div><span>02</span><strong>Run locally</strong><small>Fast developer feedback</small></div>
+              <div><span>02</span><strong>Run locally</strong><small>Choose a focused test group</small></div>
               <span className="developer-flow-arrow" aria-hidden="true">→</span>
-              <div><span>03</span><strong>Run in CI</strong><small>Repeatable PR quality gate</small></div>
+              <div><span>03</span><strong>Run in CI</strong><small>Repeat the relevant checks</small></div>
               <span className="developer-flow-arrow" aria-hidden="true">→</span>
-              <div><span>04</span><strong>Broader SIT testing</strong><small>Integrated-system risks</small></div>
+              <div><span>04</span><strong>Broader SIT testing</strong><small>Environment &amp; end-to-end</small></div>
             </div>
 
             <p className="developer-playwright-caveat">
