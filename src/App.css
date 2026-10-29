@@ -1177,3 +1177,153 @@
     padding: 18px;
   }
 }
+
+
+/* Discovery-stage defect dashboard and register */
+.defect-stage-dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 22px;
+}
+.defect-stage-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--background);
+}
+.defect-stage-label {
+  color: var(--text-muted);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+.defect-stage-card > strong {
+  display: block;
+  margin: 17px 0 10px;
+  color: var(--text-heading);
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: -0.8px;
+}
+.defect-stage-card > p {
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+.defect-stage-note {
+  margin-top: auto;
+  padding-top: 13px;
+  color: var(--text-faint);
+  font-size: 9px;
+  line-height: 1.6;
+}
+.defect-register {
+  margin: 0 0 28px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+}
+.defect-register-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.defect-register-heading h3 {
+  margin: 7px 0 0;
+  color: var(--text-heading);
+  font-size: 18px;
+  letter-spacing: -0.4px;
+}
+.defect-register-heading > p {
+  max-width: 390px;
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+.defect-register-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+.defect-register-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.defect-register-table th {
+  padding: 13px 16px;
+  background: var(--surface);
+  color: var(--text-faint);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.defect-register-table td {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.7;
+  vertical-align: top;
+}
+.defect-register-table td:first-child {
+  min-width: 180px;
+}
+.defect-register-table td strong,
+.defect-register-table td span:not(.defect-stage-pill) {
+  display: block;
+}
+.defect-register-table td strong {
+  margin-bottom: 4px;
+  color: var(--text-heading);
+  font-size: 11px;
+}
+.defect-register-table td a {
+  color: var(--text-heading);
+  font-weight: 650;
+  text-decoration: none;
+}
+.defect-register-table td a:hover {
+  color: var(--accent);
+}
+.defect-stage-pill {
+  display: inline-block;
+  padding: 5px 7px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text-muted);
+  font-size: 9px;
+  white-space: nowrap;
+}
+.defect-stage-pill-ai {
+  border-color: #b7f56a44;
+  color: var(--accent);
+}
+@media (max-width: 1050px) {
+  .defect-stage-dashboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .defect-stage-dashboard {
+    grid-template-columns: 1fr;
+  }
+  .defect-register-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px;
+  }
+  .defect-register-table {
+    min-width: 680px;
+  }
+}
