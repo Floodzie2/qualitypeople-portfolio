@@ -998,3 +998,182 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Defect detection, resolution and prevention evidence */
+.defect-evidence-section {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.defect-evidence-principle {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+}
+.defect-evidence-principle-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #b7f56a44;
+  border-radius: 9px;
+  color: var(--accent);
+  font-size: 17px;
+}
+.defect-evidence-principle h3 {
+  margin: 1px 0 7px;
+  color: var(--text-heading);
+  font-size: 15px;
+}
+.defect-evidence-principle p {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+.defect-evidence-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.defect-evidence-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 21px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--background);
+}
+.defect-stat-value {
+  color: var(--accent);
+  font-size: 29px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.defect-stat-label {
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+.defect-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.defect-evidence-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+}
+.defect-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+}
+.defect-type {
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+.defect-evidence-card h3 {
+  margin: 19px 0 10px;
+  color: var(--text-heading);
+  font-size: 17px;
+  letter-spacing: -0.35px;
+}
+.defect-evidence-card > p {
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.9;
+}
+.defect-evidence-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+.defect-evidence-links a {
+  color: var(--text-heading);
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.6;
+  text-decoration: none;
+}
+.defect-evidence-links a:hover {
+  color: var(--accent);
+}
+.defect-lifecycle {
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+}
+.defect-lifecycle > .eyebrow {
+  margin-bottom: 16px;
+}
+.defect-lifecycle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.defect-lifecycle-grid > div {
+  min-width: 0;
+  padding: 19px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--background);
+}
+.defect-lifecycle-grid > div > span {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.defect-lifecycle-grid h3 {
+  margin: 13px 0 7px;
+  color: var(--text-heading);
+  font-size: 14px;
+}
+.defect-lifecycle-grid p,
+.defect-evidence-footnote {
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.85;
+}
+.defect-evidence-footnote {
+  max-width: 900px;
+  margin-top: 24px;
+}
+@media (max-width: 900px) {
+  .defect-lifecycle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .defect-evidence-principle {
+    padding: 17px;
+  }
+  .defect-evidence-stats,
+  .defect-evidence-grid,
+  .defect-lifecycle-grid {
+    grid-template-columns: 1fr;
+  }
+  .defect-evidence-card {
+    padding: 18px;
+  }
+}
