@@ -839,8 +839,8 @@ function App() {
               <span className="defect-stat-label">synthetic AI evaluation cases</span>
             </div>
             <div>
-              <span className="defect-stat-value">3</span>
-              <span className="defect-stat-label">evidence stages: detect · fix · retest</span>
+              <span className="defect-stat-value">4</span>
+              <span className="defect-stat-label">lifecycle stages: detect · diagnose · resolve · retest</span>
             </div>
           </div>
 
