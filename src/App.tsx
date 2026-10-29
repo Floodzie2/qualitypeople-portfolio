@@ -579,7 +579,7 @@ function App() {
                   <span className="system-status status-active">RUN VERIFIED</span>
                 </div>
                 <a className="evidence-image-link" href="/docker-playwright-run-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open Docker Playwright test run reconstruction">
-                  <img src="/docker-playwright-run-recreated.svg" alt="Reconstructed terminal view of docker run --rm qualitypeople-playwright, executing npm run test:e2e with all five Chromium end-to-end tests passing in 1.9 seconds." loading="lazy" />
+                  <img src="/docker-playwright-run-recreated.svg" alt="Reconstructed terminal view of docker run --rm qualitypeople-playwright, executing npm run test:e2e with all five Chromium end-to-end tests passing in 1.9 seconds." />
                 </a>
                 <h4>Playwright running inside Docker</h4>
                 <p>This is implemented and has been run: a Docker image packages Playwright 1.64.1, Chromium and its browser dependencies with the project dependencies. Running the container executes the end-to-end suite in Linux; the recorded run passed 5/5 tests in 1.9 seconds. The separate headless Linux QA host is a distinct next step.</p>
@@ -593,7 +593,7 @@ function App() {
                   <span className="system-status status-active">WORKFLOW VERIFIED</span>
                 </div>
                 <a className="evidence-image-link" href="/cloudflare-deployment-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open Cloudflare deployment overview reconstruction">
-                  <img src="/cloudflare-deployment-recreated.svg" alt="Reconstructed Cloudflare Pages project overview distinguishing the application and portfolio projects and showing the CI, SIT, Playwright and production release path." loading="lazy" />
+                  <img src="/cloudflare-deployment-recreated.svg" alt="Reconstructed Cloudflare Pages project overview distinguishing the application and portfolio projects and showing the CI, SIT, Playwright and production release path." />
                 </a>
                 <h4>Cloudflare Pages</h4>
                 <p>Shows the separation between application and portfolio deployments and the controlled application release path. It summarises the architecture rather than exposing a live account dashboard.</p>
@@ -606,7 +606,7 @@ function App() {
                   <span className="system-status status-active">RECORDED SUCCESS</span>
                 </div>
                 <a className="evidence-image-link" href="/github-actions-pipeline-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open GitHub Actions pipeline reconstruction">
-                  <img src="/github-actions-pipeline-recreated.svg" alt="Reconstructed GitHub Actions workflow with successful CI, SIT deployment, deployed Playwright regression and controlled production validation stages." loading="lazy" />
+                  <img src="/github-actions-pipeline-recreated.svg" alt="Reconstructed GitHub Actions workflow with successful CI, SIT deployment, deployed Playwright regression and controlled production validation stages." />
                 </a>
                 <h4>GitHub Actions release path</h4>
                 <p>The successful 25 October 2026 release path, tied to a specific commit, demonstrates that the release process has run end to end—not just that workflows exist.</p>
@@ -619,7 +619,7 @@ function App() {
                   <span className="system-status status-active">LOCAL EXPERIMENT</span>
                 </div>
                 <a className="evidence-image-link" href="/ai-evaluation-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open AI evaluation results reconstruction">
-                  <img src="/ai-evaluation-recreated.svg" alt="Reconstructed AI evaluation results showing 11 of 12 raw model cases passed and 12 of 12 final API cases passed after deterministic safety post-processing, with five final checks at 100 percent." loading="lazy" />
+                  <img src="/ai-evaluation-recreated.svg" alt="Reconstructed AI evaluation results showing 11 of 12 raw model cases passed and 12 of 12 final API cases passed after deterministic safety post-processing, with five final checks at 100 percent." />
                 </a>
                 <h4>AI evaluation results</h4>
                 <p>The local v13 experiment keeps the raw model miss visible and attributes the final improvement to a narrow deterministic safety control. Results are from 12 synthetic cases, not a general accuracy claim.</p>
