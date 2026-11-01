@@ -75,7 +75,6 @@ function App() {
 
         <nav className="main-nav" aria-label="Main navigation">
           <a href="#highlights">Evidence</a>
-          <a href="#story">Project context</a>
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
           <a href="#developer-playwright">Reusable test toolkit</a>
