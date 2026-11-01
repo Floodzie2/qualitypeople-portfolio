@@ -231,7 +231,7 @@ function App() {
                 response for ten version-endpoint requests. This is a smoke
                 check, not a load or capacity benchmark.
               </p>
-              <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665" target="_blank" rel="noreferrer">
+              <a href="https://github.com/Floodzie2/qualitypeople-app/actions" target="_blank" rel="noreferrer">
                 JMeter CI evidence ↗
               </a>
             </article>
