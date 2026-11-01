@@ -2,7 +2,7 @@
 
 **Building quality in. Proving it.**
 
-Live portfolio: [howIbuiltit.qualitypeople.ie](https://howIbuiltit.qualitypeople.ie)  
+Live portfolio: [howIbuiltit.qualitypeople.ie](https://www.howibuilt.qualitypeople.ie)  
 Application: [www.qualitypeople.ie](https://www.qualitypeople.ie)  
 Portfolio source: [GitHub](https://github.com/Floodzie2/qualitypeople-portfolio)  
 Application source: [GitHub](https://github.com/Floodzie2/qualitypeople-app)
