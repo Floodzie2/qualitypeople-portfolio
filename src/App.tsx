@@ -74,6 +74,7 @@ function App() {
         </a>
 
         <nav className="main-nav" aria-label="Main navigation">
+          <a href="#highlights">Evidence</a>
           <a href="#story">Project context</a>
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
@@ -101,7 +102,7 @@ function App() {
           <div className="hero-copy">
             <div className="eyebrow">
               <span className="status-dot" />
-              A PRACTICAL ENGINEERING PORTFOLIO
+              SENIOR QA AUTOMATION &amp; QUALITY ENGINEERING
             </div>
 
             <h1>
@@ -111,9 +112,9 @@ function App() {
             </h1>
 
             <p className="hero-description">
-              Exploring modern software delivery through distributed
-              development, automated quality engineering, performance testing
-              and AI-assisted workflows.
+              A hands-on portfolio connecting QA leadership with practical
+              engineering: Playwright and API automation, performance testing,
+              CI/CD delivery and the evaluation of AI-enabled behaviour.
             </p>
 
             <div className="hero-actions">
@@ -196,6 +197,75 @@ function App() {
             <span className="metric-number">04</span>
             <span className="metric-label">EVALUATE AI WITH EVIDENCE</span>
           </div>
+        </section>
+
+        <section className="content-section proof-section" id="highlights">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">ENGINEERING EVIDENCE</span>
+              <h2>Strategy is important. Executable proof matters.</h2>
+            </div>
+            <p>
+              A quick view of the work behind this portfolio: automated feedback,
+              measurable experiments and controlled delivery. Each result is
+              linked to its scope and limitations.
+            </p>
+          </div>
+
+          <div className="proof-grid">
+            <article className="proof-card">
+              <span className="proof-kicker">BROWSER &amp; API AUTOMATION</span>
+              <strong>Playwright</strong>
+              <p>
+                TypeScript browser regression and API checks integrated into
+                CI, including deployed-preview verification before release.
+              </p>
+              <a href="https://github.com/Floodzie2/qualitypeople-app/actions/workflows/test-deployed-preview.yml" target="_blank" rel="noreferrer">
+                Deployed-preview workflow ↗
+              </a>
+            </article>
+            <article className="proof-card">
+              <span className="proof-kicker">PERFORMANCE SMOKE TEST</span>
+              <strong>10 / 10 · 0 errors</strong>
+              <p>
+                A local feature-branch JMeter CI run reported a 7.5 ms mean
+                response for ten version-endpoint requests. This is a smoke
+                check, not a load or capacity benchmark.
+              </p>
+              <a href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665" target="_blank" rel="noreferrer">
+                JMeter CI evidence ↗
+              </a>
+            </article>
+            <article className="proof-card">
+              <span className="proof-kicker">AI QUALITY EVALUATION</span>
+              <strong>12 synthetic cases</strong>
+              <p>
+                In local v13 evaluation, the raw model passed 11/12 cases;
+                deterministic safety post-processing brought the final API
+                result to 12/12. The distinction keeps model limitations visible.
+              </p>
+              <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">
+                Evaluation approach ↗
+              </a>
+            </article>
+            <article className="proof-card">
+              <span className="proof-kicker">CONTROLLED DELIVERY</span>
+              <strong>Verified releases</strong>
+              <p>
+                GitHub Actions coordinates validation and controlled Cloudflare
+                production deployment, with a version endpoint used to verify
+                the deployed commit.
+              </p>
+              <a href="https://github.com/Floodzie2/qualitypeople-app/actions" target="_blank" rel="noreferrer">
+                CI and deployment history ↗
+              </a>
+            </article>
+          </div>
+          <p className="proof-footnote">
+            Results are specific to the runs and synthetic dataset described;
+            they are not presented as production defect rates, broad model
+            accuracy or performance capacity claims.
+          </p>
         </section>
 
         <section className="content-section career-section" id="story">
