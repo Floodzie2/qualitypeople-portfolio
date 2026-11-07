@@ -19,6 +19,21 @@ QualityPeople connects QA leadership experience with current hands-on engineerin
 
 While at Storyful, I experimented with early ChatGPT to turn requirements and email threads into candidate test cases. The current work builds on that idea with explicit expected behaviour, repeatable tests and measurable evaluation of AI outputs—while documenting failure modes and limitations rather than treating generated content as inherently trustworthy.
 
+## Senior Quality Engineering operating model
+
+The portfolio also documents the delivery model behind the technical work:
+
+- **Shared quality ownership:** quality is built by the whole delivery team, with QE providing strategy, specialist expertise and independent challenge.
+- **Risk-based testing:** prioritise critical journeys, access controls, data integrity, integrations and high-change areas rather than maximising automation percentages.
+- **Early, layered feedback:** combine fast unit and static checks with API/contract tests, targeted browser smoke tests, broader SIT regression and exploratory testing.
+- **Purposeful automation:** measure defect detection, feedback time, reliability and maintenance cost—not just the number of automated tests.
+- **Governed AI evaluation:** use representative golden datasets, task-specific measures, baselines, adversarial cases and human review; distinguish raw model output from deterministic controls.
+- **Reliable test suites:** investigate flaky failures by root cause, use quarantine only as controlled temporary containment, and track ownership through to a stable retest.
+
+The operating model proposes outcome measures including escaped defects, feedback time, regression flakiness, risk coverage, delivery flow and AI quality. These should be baselined and interpreted together; none is a standalone proxy for quality.
+
+The website distinguishes the principles and proposed measures from implemented project evidence. QualityPeople demonstrates selected practices through Playwright/API checks, deployed-preview verification, CI delivery, JMeter smoke testing, defect records and synthetic AI evaluation. It does not claim that an enterprise-wide QE transformation has already been delivered.
+
 ## Follow the engineering evidence
 
 - [Application source](https://github.com/Floodzie2/qualitypeople-app)
