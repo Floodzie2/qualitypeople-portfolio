@@ -98,6 +98,20 @@ function App() {
         </a>
       </header>
 
+      <nav className="mobile-section-nav" aria-label="Jump to portfolio section">
+        <a href="#highlights">Evidence</a>
+        <a href="#qe-strategy">QE strategy</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#developer-playwright">Playwright</a>
+        <a href="#performance">Performance</a>
+        <a href="#manual-sit">SIT</a>
+        <a href="#delivery">Delivery</a>
+        <a href="#ai-evaluation">AI evaluation</a>
+        <a href="#defect-evidence">Defects</a>
+        <a href="#approach">Approach</a>
+      </nav>
+
       <main>
         <section className="hero-section" id="home">
           <div className="hero-copy">
