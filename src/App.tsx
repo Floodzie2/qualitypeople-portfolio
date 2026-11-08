@@ -98,18 +98,30 @@ function App() {
         </a>
       </header>
 
-      <nav className="mobile-section-nav" aria-label="Jump to portfolio section">
-        <a href="#highlights">Evidence</a>
-        <a href="#qe-strategy">QE strategy</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#engineering">Engineering</a>
-        <a href="#developer-playwright">Playwright</a>
-        <a href="#performance">Performance</a>
-        <a href="#manual-sit">SIT</a>
-        <a href="#delivery">Delivery</a>
-        <a href="#ai-evaluation">AI evaluation</a>
-        <a href="#defect-evidence">Defects</a>
-        <a href="#approach">Approach</a>
+      <nav className="mobile-section-nav" aria-label="Portfolio section navigation">
+        <label htmlFor="mobile-section-select">JUMP TO SECTION</label>
+        <select
+          id="mobile-section-select"
+          defaultValue=""
+          onChange={(event) => {
+            if (event.currentTarget.value) {
+              window.location.hash = event.currentTarget.value
+            }
+          }}
+        >
+          <option value="" disabled>Choose a portfolio section…</option>
+          <option value="highlights">Evidence</option>
+          <option value="qe-strategy">QE strategy</option>
+          <option value="architecture">Architecture</option>
+          <option value="engineering">Engineering</option>
+          <option value="developer-playwright">Reusable Playwright toolkit</option>
+          <option value="performance">JMeter performance</option>
+          <option value="manual-sit">Manual SIT</option>
+          <option value="delivery">Deployment</option>
+          <option value="ai-evaluation">AI evaluation</option>
+          <option value="defect-evidence">Defect evidence</option>
+          <option value="approach">AI and approach</option>
+        </select>
       </nav>
 
       <main>
