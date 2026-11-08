@@ -3,6 +3,7 @@ import './App.css'
 import { ArchitectureDetail } from './ArchitectureDetail'
 import { ArchitectureDiagrams } from './ArchitectureDiagrams'
 import { ManualTestingChecklist } from './ManualTestingChecklist'
+import { QualityEngineeringStrategy } from './QualityEngineeringStrategy'
 
 const capabilities = [
   {
@@ -75,6 +76,7 @@ function App() {
 
         <nav className="main-nav" aria-label="Main navigation">
           <a href="#highlights">Evidence</a>
+          <a href="#qe-strategy">QE strategy</a>
           <a href="#architecture">Architecture</a>
           <a href="#engineering">Engineering</a>
           <a href="#developer-playwright">Reusable test toolkit</a>
@@ -775,6 +777,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <QualityEngineeringStrategy />
 
         <section className="approach-section" id="approach">
           <div className="approach-copy">
