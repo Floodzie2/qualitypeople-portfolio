@@ -32,7 +32,7 @@ The portfolio also documents the delivery model behind the technical work:
 
 The operating model proposes outcome measures including escaped defects, feedback time, regression flakiness, risk coverage, delivery flow and AI quality. These should be baselined and interpreted together; none is a standalone proxy for quality.
 
-The website distinguishes the principles and proposed measures from implemented project evidence. QualityPeople demonstrates selected practices through Playwright/API checks, deployed-preview verification, CI delivery, JMeter smoke testing, defect records and synthetic AI evaluation. It does not claim that an enterprise-wide QE transformation has already been delivered.
+My approach to Quality Engineering combines enterprise QA leadership with hands-on engineering. It connects shared quality ownership, risk-based testing, automation strategy, CI/CD, performance engineering, security and AI evaluation. QualityPeople is a working application and engineering portfolio through which I demonstrate these practices in code: automated Playwright and API checks, delivery pipelines, performance testing, defect analysis and AI evaluation. Together, my leadership experience and technical work show how I approach building quality into the delivery lifecycle.
 
 ## Follow the engineering evidence
 
