@@ -31,13 +31,13 @@
 <text x="90" y="458" class="f h2">Response-time range</text>
 <text x="90" y="489" class="muted small">Minimum, mean and maximum from the JMeter summary · milliseconds</text>
 <line x1="150" y1="600" x2="900" y2="600" stroke="#d4dde5" stroke-width="12" stroke-linecap="round"/>
-<line x1="272.5" y1="600" x2="825.5" y2="600" stroke="#4b83b7" stroke-width="16" stroke-linecap="round"/>
-<line x1="310.5" y1="548" x2="310.5" y2="652" stroke="#25834c" stroke-width="5"/>
-<circle cx="310.5" cy="600" r="11" fill="#25834c" stroke="#fff" stroke-width="3"/>
+<line x1="252.2" y1="600" x2="781.9" y2="600" stroke="#4b83b7" stroke-width="16" stroke-linecap="round"/>
+<line x1="350.6" y1="548" x2="350.6" y2="652" stroke="#25834c" stroke-width="5"/>
+<circle cx="350.6" cy="600" r="11" fill="#25834c" stroke="#fff" stroke-width="3"/>
 <circle cx="825.5" cy="600" r="11" fill="#4b83b7" stroke="#fff" stroke-width="3"/>
-<text x="272.5" y="535" text-anchor="middle" class="f label">Min 109 ms</text>
-<text x="310.5" y="686" text-anchor="middle" class="f label">Mean 214 ms</text>
-<text x="825.5" y="535" text-anchor="end" class="f label">Max 674 ms</text>
+<text x="252.2" y="535" text-anchor="middle" class="f label">Min 109 ms</text>
+<text x="350.6" y="686" text-anchor="middle" class="f label">Mean 214 ms</text>
+<text x="781.9" y="535" text-anchor="end" class="f label">Max 674 ms</text>
 <text x="150" y="720" class="muted small">0 ms</text><text x="900" y="720" text-anchor="end" class="muted small">800 ms</text>
 <rect x="1015" y="410" width="527" height="340" rx="12" class="card"/>
 <text x="1048" y="458" class="f h2">Run summary</text>
