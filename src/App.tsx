@@ -429,14 +429,13 @@ function App() {
               </p>
             </article>
             <article className="architecture-note">
-              <span className="eyebrow">SCOPE &amp; NEXT STEP</span>
-              <h3>Read-only SIT smoke checks.</h3>
+              <span className="eyebrow">INDEPENDENT PERFORMANCE CHECK</span>
+              <h3>JMeter ran on the Tester machine.</h3>
               <p>
-                The initial tests verify basic deployment availability and
-                version identity. They do not represent full regression or
-                capacity coverage. The next iteration is a repeatable test
-                evidence and defect-reporting hand-off between Tester and
-                Developer.
+                Apache JMeter 5.6.3 independently executed ten sequential,
+                read-only requests to the SIT version endpoint: 10 passed,
+                zero errors, 214 ms mean, 109 ms minimum and 674 ms maximum.
+                This is a smoke check, not load or capacity testing.
               </p>
             </article>
           </div>
@@ -445,12 +444,16 @@ function App() {
             <span className="eyebrow">INDEPENDENT QA REPOSITORY</span>
             <h3>QA tooling stays separate from application source.</h3>
             <p>
-              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/tree/setup/initial-qa-lab-structure" target="_blank" rel="noreferrer">
-                Inspect the QA Lab repository and Playwright tests ↗
+              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab" target="_blank" rel="noreferrer">
+                Inspect the independent QA Lab repository ↗
               </a>
               {' · '}
-              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/blob/setup/initial-qa-lab-structure/playwright/tests/sit-smoke.spec.ts" target="_blank" rel="noreferrer">
-                View the two SIT smoke tests ↗
+              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/blob/feature/qa-lab-v2-foundation/playwright/tests/sit-smoke.spec.ts" target="_blank" rel="noreferrer">
+                View the two Playwright SIT smoke tests ↗
+              </a>
+              {' · '}
+              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1" target="_blank" rel="noreferrer">
+                Review the QA Lab foundation PR and Tester evidence ↗
               </a>.
             </p>
           </div>
@@ -467,11 +470,10 @@ function App() {
               <h2>Performance Testing is now part of CI</h2>
             </div>
             <p>
-              A parameterized Apache JMeter smoke test is now part of the application CI
-              workflow. It runs against a locally served build, fails the pipeline
-              on unsuccessful samples, and publishes the HTML report and raw JTL
-              results as a 14-day artifact. The merged CI change is in place; the
-              current check is an endpoint smoke test, not a load or capacity test.
+              Apache JMeter is now exercised in two distinct ways: the application
+              CI workflow checks a locally served build, while the independent QA
+              Lab run executes against deployed SIT from the Kubuntu Tester machine.
+              Both are small endpoint smoke checks, not load or capacity tests.
               Ollama is available locally on the M4 Mac mini for development
               support. Using it to interpret JMeter results and compare performance
               trends is planned; the hosted application does not depend on a remote
@@ -515,55 +517,56 @@ function App() {
 
           <div className="performance-summary sit-smoke-summary">
             <div className="performance-summary-copy">
-              <span className="system-status status-active">SIT VERIFICATION · 26 OCT 2026</span>
-              <h3>Verified SIT smoke run</h3>
+              <span className="system-status status-active">INDEPENDENT QA LAB RUN · 10 NOV 2026</span>
+              <h3>Kubuntu Tester — deployed SIT smoke run</h3>
               <p>
-                A separate manual run targeted the deployed Cloudflare Pages SIT
-                endpoint. Ten requests to <code>GET /version.json</code> passed
-                with no errors. Response times ranged from 99 to 479 ms. With one
-                virtual user and only ten samples, this is a verification snapshot,
-                not a stable performance baseline or a capacity measurement.
+                The independent Tester machine ran the version-endpoint plan
+                against deployed SIT using one virtual user and ten sequential
+                requests. All ten returned HTTP 200 with zero errors. The HTML
+                dashboard was generated on Kubuntu and opened remotely on the
+                MBP over Tailscale; generated report and JTL files remain local
+                and Git-ignored.
               </p>
               <div className="tag-list">
                 <span className="tech-tag">Apache JMeter 5.6.3</span>
+                <span className="tech-tag">Kubuntu Tester</span>
                 <span className="tech-tag">Cloudflare Pages SIT</span>
-                <span className="tech-tag">10 samples</span>
                 <span className="tech-tag">Read-only endpoint</span>
               </div>
             </div>
             <div className="performance-metrics" aria-label="Verified SIT JMeter smoke test metrics">
               <div><span>Samples</span><strong>10</strong><small>requests</small></div>
               <div><span>Error rate</span><strong>0.00%</strong><small>0 errors</small></div>
-              <div><span>Mean response</span><strong>159.7 ms</strong><small>average</small></div>
-              <div><span>Median response</span><strong>131.5 ms</strong><small>p50</small></div>
-              <div><span>Maximum</span><strong>479 ms</strong><small>slowest sample</small></div>
-              <div><span>Throughput</span><strong>6.165/s</strong><small>short-run result only</small></div>
+              <div><span>Mean response</span><strong>214 ms</strong><small>average</small></div>
+              <div><span>Minimum</span><strong>109 ms</strong><small>fastest sample</small></div>
+              <div><span>Maximum</span><strong>674 ms</strong><small>slowest sample</small></div>
+              <div><span>Throughput</span><strong>~4.3/s</strong><small>short-run result only</small></div>
             </div>
           </div>
 
           <div className="jmeter-report-card">
             <div className="jmeter-report-heading">
               <div>
-                <span className="panel-kicker">SIT REPORT RECONSTRUCTION</span>
-                <h3>Apache JMeter · SIT dashboard overview</h3>
+                <span className="panel-kicker">QA LAB REPORT RECONSTRUCTION</span>
+                <h3>Apache JMeter · independent SIT dashboard</h3>
               </div>
               <span className="system-status status-active">10 / 10 SUCCESS</span>
             </div>
             <p>
-              A compact, portfolio-friendly recreation of the key information in
-              the full scrolling SIT HTML report. Values reflect the verified
-              SIT statistics for this run; the layout is redrawn, not a literal
-              screenshot of JMeter's original interface.
+              A portfolio-friendly reconstruction of the 10 November 2026
+              Kubuntu Tester report. Values reflect the actual JMeter summary;
+              the layout is redrawn, not a literal screenshot of JMeter's
+              original interface.
             </p>
-            <a className="jmeter-report-image-link" href="/jmeter-report-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open the recreated JMeter report image">
+            <a className="jmeter-report-image-link" href="/qa-lab-jmeter-report-2026-11-10.svg" target="_blank" rel="noreferrer" aria-label="Open the reconstructed independent QA Lab JMeter report">
               <img
                 className="jmeter-report-image"
-                src="/jmeter-report-recreated.svg"
-                alt="Recreated JMeter SIT dashboard showing ten successful GET version.json requests, zero errors, 159.7 millisecond mean response time, 131.5 millisecond median, 479 millisecond maximum and a summary response-time range."
+                src="/qa-lab-jmeter-report-2026-11-10.svg"
+                alt="Reconstructed JMeter SIT dashboard for 10 November 2026: ten successful GET version.json requests, zero errors, 214 millisecond mean, 109 millisecond minimum, 674 millisecond maximum and approximately 4.3 requests per second."
               />
             </a>
             <div className="jmeter-report-actions">
-              <a className="button button-secondary" href="/jmeter-report-recreated.svg" target="_blank" rel="noreferrer">Open SIT report reconstruction ↗</a>
+              <a className="button button-secondary" href="/qa-lab-jmeter-report-2026-11-10.svg" target="_blank" rel="noreferrer">Open QA Lab report reconstruction ↗</a>
               <a className="button button-secondary" href="https://github.com/Floodzie2/qualitypeople-app/actions/runs/40385523665" target="_blank" rel="noreferrer">CI run &amp; archived artifact ↗</a>
             </div>
           </div>
