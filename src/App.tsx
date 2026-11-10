@@ -52,7 +52,7 @@ const systems = [
   {
     name: 'Independent Tester',
     device: '2012 Mac mini · Kubuntu 26.04',
-    detail: 'Node.js 24.22 · Chromium · Playwright',
+    detail: 'Node.js 24.22 · Chromium · Playwright · JMeter',
     status: 'IN USE',
   },
   {
@@ -467,7 +467,7 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">03 / PERFORMANCE ENGINEERING</span>
-              <h2>Performance Testing is now part of CI</h2>
+              <h2>Performance checks in CI and independent SIT.</h2>
             </div>
             <p>
               Apache JMeter is now exercised in two distinct ways: the application
