@@ -48,7 +48,7 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 - **Distributed development:** a MacBook Pro acts as the VS Code control centre; an M4 Mac mini is the Developer machine; and a 2012 Mac mini running Kubuntu 26.04 is the independent Tester machine. VS Code Remote SSH connects to both over Tailscale.
 - **Quality engineering:** TypeScript, Playwright browser automation, API checks, regression strategy and manual system-integration testing.
 - **Delivery:** separate GitHub repositories and Cloudflare Pages destinations for the application and portfolio.
-- **Performance engineering:** a parameterised JMeter smoke plan and CI integration are in a focused pull request; the feature-branch run passed and produced an HTML report plus raw JTL artifact. Broader load testing and AI-assisted interpretation remain planned.
+- **Performance engineering:** Apache JMeter 5.6.3 runs in application CI and independently from the Kubuntu QA Lab Tester against deployed SIT. Both are deliberately small smoke checks; broader load testing and AI-assisted interpretation remain planned.
 - **AI quality engineering:** a protected, evaluation-only enquiry-triage endpoint tested against 12 synthetic cases, including ambiguity, conflicting dates and prompt injection.
 
 
