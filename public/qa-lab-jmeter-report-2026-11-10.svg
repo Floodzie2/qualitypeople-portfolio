@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Reconstructed JMeter report for the independent QualityPeople QA Lab run on 10 November 2026</title>
+<desc id="desc">A clearly labelled reconstruction of the JMeter HTML dashboard summary: ten GET version.json requests against SIT, zero errors, average 214 milliseconds, minimum 109 milliseconds, maximum 674 milliseconds and approximately 4.3 requests per second. Run on the Kubuntu Tester machine using JMeter 5.6.3.</desc>
+<defs>
+  <linearGradient id="head" x1="0" x2="1"><stop stop-color="#182b3d"/><stop offset="1" stop-color="#31516a"/></linearGradient>
+  <style>
+    .f{font-family:Arial,Helvetica,sans-serif;fill:#203247}.muted{font-family:Arial,Helvetica,sans-serif;fill:#637589}.white{font-family:Arial,Helvetica,sans-serif;fill:#fff}.kicker{font-size:17px;font-weight:700;letter-spacing:2.5px;fill:#c8ef86;font-family:Arial,Helvetica,sans-serif}.h1{font-size:31px;font-weight:700}.h2{font-size:25px;font-weight:700}.label{font-size:17px;font-weight:600}.value{font-size:42px;font-weight:700}.small{font-size:16px}.card{fill:#fff;stroke:#d9e1e8;stroke-width:1.5}.green{fill:#23794b}.line{stroke:#dce4eb;stroke-width:1.5}
+  </style>
+</defs>
+<rect width="1600" height="1000" fill="#edf2f6"/>
+<rect width="1600" height="118" fill="url(#head)"/>
+<text x="58" y="42" class="kicker">QUALITYPEOPLE · INDEPENDENT QA LAB</text>
+<text x="58" y="83" class="white h1">Apache JMeter — SIT Smoke Test</text>
+<rect x="1300" y="39" width="242" height="43" rx="21" fill="#dff7e8"/>
+<circle cx="1325" cy="60" r="7" fill="#25834c"/>
+<text x="1343" y="67" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#17633a">10 / 10 PASSED</text>
+<text x="58" y="160" class="muted small">EXECUTED</text><text x="58" y="190" class="f label">10 November 2026 · Kubuntu Tester</text>
+<text x="590" y="160" class="muted small">PLAN</text><text x="590" y="190" class="f label">1 virtual user · 10 sequential requests</text>
+<text x="1130" y="160" class="muted small">TARGET</text><text x="1130" y="190" class="f label">SIT · GET /version.json</text>
+<g transform="translate(58 225)">
+  <rect class="card" width="350" height="145" rx="12"/>
+  <text x="26" y="39" class="muted small">TOTAL SAMPLES</text><text x="26" y="99" class="f value">10</text><text x="26" y="127" class="muted small">All requests completed</text>
+  <rect class="card" x="370" width="350" height="145" rx="12"/>
+  <text x="396" y="39" class="muted small">ERROR RATE</text><text x="396" y="99" class="green value">0.00%</text><text x="396" y="127" class="muted small">0 errors · HTTP 200</text>
+  <rect class="card" x="740" width="350" height="145" rx="12"/>
+  <text x="766" y="39" class="muted small">AVERAGE RESPONSE</text><text x="766" y="99" class="f value">214 ms</text><text x="766" y="127" class="muted small">Mean elapsed time</text>
+  <rect class="card" x="1110" width="350" height="145" rx="12"/>
+  <text x="1136" y="39" class="muted small">MAXIMUM RESPONSE</text><text x="1136" y="99" class="f value">674 ms</text><text x="1136" y="127" class="muted small">Slowest sample</text>
+</g>
+<rect x="58" y="410" width="930" height="340" rx="12" class="card"/>
+<text x="90" y="458" class="f h2">Response-time range</text>
+<text x="90" y="489" class="muted small">Minimum, mean and maximum from the JMeter summary · milliseconds</text>
+<line x1="150" y1="600" x2="900" y2="600" stroke="#d4dde5" stroke-width="12" stroke-linecap="round"/>
+<line x1="252.2" y1="600" x2="781.9" y2="600" stroke="#4b83b7" stroke-width="16" stroke-linecap="round"/>
+<line x1="350.6" y1="548" x2="350.6" y2="652" stroke="#25834c" stroke-width="5"/>
+<circle cx="350.6" cy="600" r="11" fill="#25834c" stroke="#fff" stroke-width="3"/>
+<circle cx="825.5" cy="600" r="11" fill="#4b83b7" stroke="#fff" stroke-width="3"/>
+<text x="252.2" y="535" text-anchor="middle" class="f label">Min 109 ms</text>
+<text x="350.6" y="686" text-anchor="middle" class="f label">Mean 214 ms</text>
+<text x="781.9" y="535" text-anchor="end" class="f label">Max 674 ms</text>
+<text x="150" y="720" class="muted small">0 ms</text><text x="900" y="720" text-anchor="end" class="muted small">800 ms</text>
+<rect x="1015" y="410" width="527" height="340" rx="12" class="card"/>
+<text x="1048" y="458" class="f h2">Run summary</text>
+<text x="1048" y="505" class="muted small">METRIC</text><text x="1505" y="505" text-anchor="end" class="muted small">VALUE</text>
+<line x1="1048" y1="520" x2="1505" y2="520" class="line"/>
+<g class="f label">
+<text x="1048" y="562">Samples</text><text x="1505" y="562" text-anchor="end">10</text>
+<text x="1048" y="607">Errors</text><text x="1505" y="607" text-anchor="end" class="green">0 (0.00%)</text>
+<text x="1048" y="652">Minimum</text><text x="1505" y="652" text-anchor="end">109 ms</text>
+<text x="1048" y="697">Maximum</text><text x="1505" y="697" text-anchor="end">674 ms</text>
+<text x="1048" y="735">Throughput</text><text x="1505" y="735" text-anchor="end">~4.3 req/s</text>
+</g>
+<rect x="58" y="785" width="1484" height="135" rx="12" class="card"/>
+<text x="90" y="832" class="f h2">Execution context</text>
+<text x="90" y="870" class="f label">Apache JMeter 5.6.3 · OpenJDK 17 · Independent Tester machine</text>
+<text x="90" y="898" class="muted small">HTML dashboard generated locally; viewed remotely from the MBP over Tailscale. Raw JTL and report outputs remain local and are Git-ignored.</text>
+<text x="58" y="965" class="muted small">Reconstructed portfolio visual based on the actual JMeter summary; not a literal screenshot. Ten requests are a smoke check, not a load or capacity test.</text>
+</svg>
