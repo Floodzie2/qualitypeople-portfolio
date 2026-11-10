@@ -38,27 +38,27 @@ const capabilities = [
 
 const systems = [
   {
-    name: 'Development',
+    name: 'Control centre',
     device: 'MacBook Pro',
-    detail: 'VS Code · Remote workflow',
+    detail: 'VS Code · Remote SSH · Tailscale',
     status: 'IN USE',
   },
   {
-    name: 'Build & orchestration',
+    name: 'Developer',
     device: 'M4 Mac mini',
-    detail: 'Git · Node.js · TypeScript',
+    detail: 'Git · Node.js 24.22 · Playwright',
     status: 'IN USE',
   },
   {
-    name: 'QA environment',
-    device: 'Linux-based Mac mini',
-    detail: 'Docker · Playwright · JMeter',
-    status: 'PLANNED',
+    name: 'Independent Tester',
+    device: '2012 Mac mini · Kubuntu 26.04',
+    detail: 'Node.js 24.22 · Chromium · Playwright',
+    status: 'IN USE',
   },
   {
-    name: 'Delivery',
-    device: 'GitHub & Cloudflare',
-    detail: 'Version control · Deployment',
+    name: 'Delivery & collaboration',
+    device: 'GitHub',
+    detail: 'Separate application and QA Lab repositories',
     status: 'IN USE',
   },
 ]
@@ -366,8 +366,8 @@ function App() {
               <h2>One project. Multiple environments.</h2>
             </div>
             <p>
-              A closer look at the machines, tools and delivery practices
-              behind the application — including the parts still being built.
+              A working distributed setup separates control, development,
+              independent test execution and version-controlled delivery.
             </p>
           </div>
 
@@ -391,6 +391,68 @@ function App() {
                 <p className="card-description">{system.detail}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="content-section" id="independent-qa">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">02 / INDEPENDENT QA EXECUTION</span>
+              <h2>A separate tester. The same repeatable checks.</h2>
+            </div>
+            <p>
+              The QA Lab is maintained in its own private repository, separate
+              from the application. The Developer prepares and versions the
+              tests on the M4; the Kubuntu machine independently pulls and runs
+              them against the deployed SIT environment.
+            </p>
+          </div>
+
+          <div className="architecture-support-grid">
+            <article className="architecture-note">
+              <span className="eyebrow">CROSS-MACHINE RESULT</span>
+              <h3>2 / 2 tests passed on both machines.</h3>
+              <p>
+                The same Playwright suite passed on the M4 Developer machine
+                and the 2012 Kubuntu Tester machine. The checks confirm that
+                the SIT homepage responds successfully and that
+                <code> /version.json </code> returns a non-empty commit SHA.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">ENVIRONMENT PARITY</span>
+              <h3>Matching Node.js toolchains.</h3>
+              <p>
+                Both machines use Node.js 24.22.0 and npm 11.19.1. The Tester
+                has its own Linux Chromium installation and executes the
+                repository's locked dependencies independently.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">SCOPE &amp; NEXT STEP</span>
+              <h3>Read-only SIT smoke checks.</h3>
+              <p>
+                The initial tests verify basic deployment availability and
+                version identity. They do not represent full regression or
+                capacity coverage. The next iteration is a repeatable test
+                evidence and defect-reporting hand-off between Tester and
+                Developer.
+              </p>
+            </article>
+          </div>
+
+          <div className="architecture-note evidence-panel">
+            <span className="eyebrow">INDEPENDENT QA REPOSITORY</span>
+            <h3>QA tooling stays separate from application source.</h3>
+            <p>
+              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/tree/setup/initial-qa-lab-structure" target="_blank" rel="noreferrer">
+                Inspect the QA Lab repository and Playwright tests ↗
+              </a>
+              {' · '}
+              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/blob/setup/initial-qa-lab-structure/playwright/tests/sit-smoke.spec.ts" target="_blank" rel="noreferrer">
+                View the two SIT smoke tests ↗
+              </a>.
+            </p>
           </div>
         </section>
 
