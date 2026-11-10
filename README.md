@@ -37,18 +37,34 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 ## Follow the engineering evidence
 
 - [Application source](https://github.com/Floodzie2/qualitypeople-app)
+- [Independent QA Lab — Playwright tests and test-environment setup](https://github.com/Floodzie2/qualitypeople-qa-lab/tree/setup/initial-qa-lab-structure)
 - [CI and deployment workflows](https://github.com/Floodzie2/qualitypeople-app/actions)
 - [Merged AI triage evaluation work](https://github.com/Floodzie2/qualitypeople-app/pull/7)
 - [AI evaluation methodology and experiment log](https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md)
 
 ## What it covers
 
-- **Distributed development:** a MacBook Pro used as a VS Code client, an M4 Mac mini for development and orchestration, and a planned Linux-based QA machine.
+- **Distributed development:** a MacBook Pro acts as the VS Code control centre; an M4 Mac mini is the Developer machine; and a 2012 Mac mini running Kubuntu 26.04 is the independent Tester machine. VS Code Remote SSH connects to both over Tailscale.
 - **Quality engineering:** TypeScript, Playwright browser automation, API checks, regression strategy and manual system-integration testing.
 - **Delivery:** separate GitHub repositories and Cloudflare Pages destinations for the application and portfolio.
 - **Performance engineering:** a parameterised JMeter smoke plan and CI integration are in a focused pull request; the feature-branch run passed and produced an HTML report plus raw JTL artifact. Broader load testing and AI-assisted interpretation remain planned.
 - **AI quality engineering:** a protected, evaluation-only enquiry-triage endpoint tested against 12 synthetic cases, including ambiguity, conflicting dates and prompt injection.
 
+
+## Independent QA Lab: developer and tester separation
+
+A separate private repository, [qualitypeople-qa-lab](https://github.com/Floodzie2/qualitypeople-qa-lab/tree/setup/initial-qa-lab-structure), holds QA tooling independently of the application source. It targets the deployed SIT environment; it does not contain or deploy the application, and the initial smoke checks are read-only.
+
+The first cross-machine milestone is complete:
+
+- **Developer:** M4 Mac mini, with Node.js 24.22.0 and the Playwright project.
+- **Tester:** 2012 Mac mini running Kubuntu 26.04, with Node.js 24.22.0, npm 11.19.1 and Playwright Chromium installed.
+- **Control centre:** MacBook Pro using VS Code Remote SSH over Tailscale to access both machines.
+- **Independent execution:** the same two Playwright SIT smoke tests passed on both the M4 and the Kubuntu Tester (**2/2 on each machine**).
+
+The checks verify that the SIT homepage responds successfully and that `/version.json` returns a non-empty commit SHA. This demonstrates a working cross-machine test hand-off and basic deployment verification; it is not broad regression coverage, a security assessment or proof of application correctness.
+
+The QA Lab remains separate from [qualitypeople-app](https://github.com/Floodzie2/qualitypeople-app). The next stage is to add a repeatable results/evidence and defect-reporting workflow so Tester findings can be reviewed and acted on by the Developer.
 
 ## JMeter smoke-test evidence
 
