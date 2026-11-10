@@ -45,7 +45,7 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 
 ## What it covers
 
-- **Distributed development:** a MacBook Pro acts as the VS Code control centre; an M4 Mac mini is the Developer machine; and a 2012 Mac mini running Kubuntu 26.04 is the independent Tester machine. VS Code Remote SSH connects to both over Tailscale.
+- **Distributed development:** a MacBook Pro acts as the VS Code control centre; an M4 Mac mini is the Developer and Ollama inference host; and a 2012 Mac mini running Kubuntu 26.04 is the independent Tester machine. VS Code Remote SSH connects to both over Tailscale.
 - **Quality engineering:** TypeScript, Playwright browser automation, API checks, regression strategy and manual system-integration testing.
 - **Delivery:** separate GitHub repositories and Cloudflare Pages destinations for the application and portfolio.
 - **Performance engineering:** Apache JMeter 5.6.3 runs in application CI and independently from the Kubuntu QA Lab Tester against deployed SIT. Both are deliberately small smoke checks; broader load testing and AI-assisted interpretation remain planned.
@@ -68,6 +68,21 @@ The first end-to-end cross-machine QA workflow is now demonstrated:
 The Playwright checks verify that the SIT homepage responds successfully and that `/version.json` returns a non-empty commit SHA. The JMeter plan sends ten sequential read-only GET requests to the same version endpoint. Together, these checks demonstrate independent test execution and a practical evidence hand-off; they are not broad regression coverage, a security assessment or proof of application correctness.
 
 The QA Lab remains separate from [qualitypeople-app](https://github.com/Floodzie2/qualitypeople-app): it contains QA tooling and runbooks, not application source or deployment configuration. Generated JMeter JTL and HTML report outputs remain local to the Tester and are Git-ignored. The foundation work is in [draft PR #1](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1); it has not been merged.
+
+## Local AI-assisted development: M4 Ollama and remote QA
+
+The distributed workstation now uses the M4 Mac mini as a local AI inference host while the QualityPeople QA Lab workspace remains on the independent Kubuntu Tester. VS Code runs on the MacBook Pro and opens the Tester project through Remote SSH.
+
+- **Inference host:** Ollama runs on the M4 Mac mini.
+- **Available models:** `qwen3.5:4b` (approximately 4.0 GB) for general assistance and `qwen2.5-coder:7b` (approximately 4.7 GB) for coding-focused work.
+- **Editor and workspace:** VS Code on the MacBook Pro connects to the Kubuntu QA Lab workspace over Remote SSH. The Ollama extension is enabled in the SSH environment.
+- **Agent compatibility:** BYOK models are not supported in remote GitHub Copilot sessions. The working configuration uses VS Code's local agent harness for Ollama/BYOK sessions; GitHub Copilot remains available separately.
+- **Private network:** Tailscale provides connectivity between the machines, including when they are on different networks.
+- **API forwarding:** an SSH local port forward makes the M4's Ollama API available as `http://127.0.0.1:11434` on Kubuntu. Ollama remains bound to the M4's loopback interface rather than being exposed directly to the wider network.
+
+The connection was verified from Kubuntu by requesting `/api/tags` through the tunnel and receiving both installed model entries. This confirms that the Tester can reach the M4-hosted Ollama service; inference itself takes place on the M4. The SSH forwarding session must be active when this route is used.
+
+This is a development-assistance path, not part of the automated test execution path. Playwright and JMeter continue to run on their designated machines, and AI-generated suggestions remain subject to normal review and test evidence.
 
 ## JMeter smoke-test evidence
 
