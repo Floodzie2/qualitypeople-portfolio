@@ -46,7 +46,7 @@ const systems = [
   {
     name: 'Developer',
     device: 'M4 Mac mini',
-    detail: 'Git · Node.js 24.22 · Playwright',
+    detail: 'Git · Node.js 24.22 · Playwright · Ollama AI inference',
     status: 'IN USE',
   },
   {
@@ -78,6 +78,7 @@ function App() {
           <a href="#highlights">Evidence</a>
           <a href="#qe-strategy">QE strategy</a>
           <a href="#architecture">Architecture</a>
+          <a href="#ai-workstation">AI workstation</a>
           <a href="#engineering">Engineering</a>
           <a href="#developer-playwright">Reusable test toolkit</a>
           <a href="#performance">JMeter performance</a>
@@ -113,6 +114,7 @@ function App() {
           <option value="highlights">Evidence</option>
           <option value="qe-strategy">QE strategy</option>
           <option value="architecture">Architecture</option>
+          <option value="ai-workstation">AI workstation</option>
           <option value="engineering">Engineering</option>
           <option value="developer-playwright">Reusable Playwright toolkit</option>
           <option value="performance">JMeter performance</option>
@@ -355,6 +357,74 @@ function App() {
               <a href="https://github.com/Floodzie2/qualitypeople-app/pull/7" target="_blank" rel="noreferrer">merged AI evaluation work ↗</a>
               {' · '}
               <a href="https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md" target="_blank" rel="noreferrer">AI evaluation methodology and experiment log ↗</a>.
+            </p>
+          </div>
+        </section>
+
+
+        <section className="content-section" id="ai-workstation">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">03 / LOCAL AI-ASSISTED DEVELOPMENT</span>
+              <h2>AI inference on the M4. Independent testing on Kubuntu.</h2>
+            </div>
+            <p>
+              VS Code remains the control surface on the MacBook Pro, with the
+              QualityPeople QA Lab workspace open on the 2012 Kubuntu Tester over
+              Remote SSH. Ollama runs on the M4 Mac mini, keeping model inference
+              on the machine with the stronger compute resources while the Tester
+              remains responsible for independent test execution.
+            </p>
+          </div>
+
+          <div className="architecture-support-grid">
+            <article className="architecture-note">
+              <span className="eyebrow">M4 AI HOST</span>
+              <h3>Two local Ollama models available.</h3>
+              <p>
+                <code>qwen3.5:4b</code> (approximately 4.0 GB) provides general
+                assistance, while <code>qwen2.5-coder:7b</code> (approximately
+                4.7 GB) is the coding-focused option. Both models are installed
+                and served by Ollama on the M4 Mac mini; they are not duplicated
+                on the Kubuntu Tester.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">VS CODE WORKFLOW</span>
+              <h3>Remote project, local agent harness.</h3>
+              <p>
+                The MacBook Pro connects to the Kubuntu QA Lab workspace using
+                VS Code Remote SSH. The Ollama extension is enabled in the SSH
+                environment, while VS Code's local agent harness is used for
+                BYOK model sessions because remote GitHub Copilot sessions do
+                not support BYOK models. GitHub Copilot remains available as a
+                separate option.
+              </p>
+            </article>
+            <article className="architecture-note">
+              <span className="eyebrow">PRIVATE CONNECTIVITY</span>
+              <h3>Tailscale plus SSH port forwarding.</h3>
+              <p>
+                Tailscale connects the three machines across networks. An SSH
+                local-forward maps port <code>11434</code> on Kubuntu to the
+                M4's Ollama API at <code>127.0.0.1:11434</code>, without exposing
+                Ollama's API directly to the wider network. A request to
+                <code> /api/tags </code> from Kubuntu confirmed that both models
+                were reachable through the tunnel.
+              </p>
+            </article>
+          </div>
+
+          <div className="architecture-note evidence-panel">
+            <span className="eyebrow">WHY THIS SEPARATION MATTERS</span>
+            <h3>Keep inference and test execution on the right machines.</h3>
+            <p>
+              Model inference runs on the M4; source control and test execution
+              remain independently available on the Kubuntu Tester. This gives
+              the QA workflow access to local AI assistance without making the
+              test machine responsible for hosting or loading the models. The
+              connection was verified end to end using Tailscale, SSH and the
+              Ollama model-list API.
             </p>
           </div>
         </section>
