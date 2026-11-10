@@ -37,7 +37,8 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 ## Follow the engineering evidence
 
 - [Application source](https://github.com/Floodzie2/qualitypeople-app)
-- [Independent QA Lab — Playwright tests and test-environment setup](https://github.com/Floodzie2/qualitypeople-qa-lab/tree/setup/initial-qa-lab-structure)
+- [Independent QA Lab — separate test tooling and execution environment](https://github.com/Floodzie2/qualitypeople-qa-lab)
+- [QA Lab foundation pull request and independent Tester evidence](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1)
 - [CI and deployment workflows](https://github.com/Floodzie2/qualitypeople-app/actions)
 - [Merged AI triage evaluation work](https://github.com/Floodzie2/qualitypeople-app/pull/7)
 - [AI evaluation methodology and experiment log](https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md)
@@ -55,16 +56,17 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 
 A separate private repository, [qualitypeople-qa-lab](https://github.com/Floodzie2/qualitypeople-qa-lab/tree/setup/initial-qa-lab-structure), holds QA tooling independently of the application source. It targets the deployed SIT environment; it does not contain or deploy the application, and the initial smoke checks are read-only.
 
-The first cross-machine milestone is complete:
+The first end-to-end cross-machine QA workflow is now demonstrated:
 
-- **Developer:** M4 Mac mini, with Node.js 24.22.0 and the Playwright project.
-- **Tester:** 2012 Mac mini running Kubuntu 26.04, with Node.js 24.22.0, npm 11.19.1 and Playwright Chromium installed.
+- **Developer:** M4 Mac mini, maintaining the QA tooling and Git branches.
+- **Tester:** 2012 Mac mini running Kubuntu 26.04, independently pulling the QA Lab repository and executing its tests.
 - **Control centre:** MacBook Pro using VS Code Remote SSH over Tailscale to access both machines.
-- **Independent execution:** the same two Playwright SIT smoke tests passed on both the M4 and the Kubuntu Tester (**2/2 on each machine**).
+- **Playwright:** the same two deployed-SIT smoke tests passed on both M4 and Kubuntu (**2/2 on each machine**).
+- **JMeter:** Apache JMeter 5.6.3 ran independently on Kubuntu against the deployed SIT version endpoint (**10 samples, 0 errors**); the HTML dashboard was generated on the Tester and viewed remotely from the MBP.
 
-The checks verify that the SIT homepage responds successfully and that `/version.json` returns a non-empty commit SHA. This demonstrates a working cross-machine test hand-off and basic deployment verification; it is not broad regression coverage, a security assessment or proof of application correctness.
+The Playwright checks verify that the SIT homepage responds successfully and that `/version.json` returns a non-empty commit SHA. The JMeter plan sends ten sequential read-only GET requests to the same version endpoint. Together, these checks demonstrate independent test execution and a practical evidence hand-off; they are not broad regression coverage, a security assessment or proof of application correctness.
 
-The QA Lab remains separate from [qualitypeople-app](https://github.com/Floodzie2/qualitypeople-app). The next stage is to add a repeatable results/evidence and defect-reporting workflow so Tester findings can be reviewed and acted on by the Developer.
+The QA Lab remains separate from [qualitypeople-app](https://github.com/Floodzie2/qualitypeople-app): it contains QA tooling and runbooks, not application source or deployment configuration. Generated JMeter JTL and HTML report outputs remain local to the Tester and are Git-ignored. The foundation work is in [draft PR #1](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1); it has not been merged.
 
 ## JMeter smoke-test evidence
 
@@ -76,6 +78,23 @@ A focused application pull request adds Apache JMeter 5.6.3 to CI. The test star
 The CI run completed 10 samples with **0 errors**. Its reported mean was **7.5 ms**, median **3 ms**, and maximum **50 ms** for that short local-preview run. These figures describe that specific run, not a stable performance baseline.
 
 A separate manual SIT verification on 26 October 2026 also completed 10 requests with **0 errors**. Its report showed a **159.7 ms mean**, **131.5 ms median**, **99 ms minimum**, and **479 ms maximum**. The portfolio's dashboard image is a labelled reconstruction of those summary statistics, not a literal screenshot of JMeter's HTML page. The reported **6.165 requests/second** is from this brief run and must not be treated as a capacity result.
+
+### Independent QA Lab JMeter run — 10 November 2026
+
+The 2012 Kubuntu Tester ran the QA Lab's `performance/jmeter/sit-smoke.jmx` plan using **Apache JMeter 5.6.3** against the deployed SIT endpoint. The plan used one virtual user and ten sequential GET requests to `/version.json`, with HTTP 200 and response-body assertions.
+
+- **Samples:** 10
+- **Errors:** 0 (0.00%)
+- **Mean response:** 214 ms
+- **Minimum:** 109 ms
+- **Maximum:** 674 ms
+- **Throughput:** approximately 4.3 requests/second for this short run
+
+The HTML dashboard and raw JTL results were generated on Kubuntu, then the dashboard was viewed in Brave on the MBP over Tailscale. The generated report directory and JTL file are Git-ignored; the Tester execution and summary were recorded in the QA Lab [draft PR #1](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1).
+
+![Reconstructed JMeter dashboard for the independent QA Lab run](public/qa-lab-jmeter-report-2026-11-10.svg)
+
+*The image is a labelled reconstruction of the actual JMeter summary, not a literal screenshot. The run is a small endpoint smoke check—not a load, stress or capacity test. Ten samples are insufficient for a stable performance baseline, and the reported throughput must not be interpreted as system capacity.*
 
 This is currently a smoke test for endpoint availability and basic response behaviour—not a load, stress or capacity test. Scheduled load profiles, historical trend comparisons and AI-assisted result analysis are future work. Any AI analysis should be evaluated against the raw results and human-reviewed before conclusions are accepted.
 
