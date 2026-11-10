@@ -54,13 +54,14 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 
 ## Independent QA Lab: developer and tester separation
 
-A separate private repository, [qualitypeople-qa-lab](https://github.com/Floodzie2/qualitypeople-qa-lab/tree/setup/initial-qa-lab-structure), holds QA tooling independently of the application source. It targets the deployed SIT environment; it does not contain or deploy the application, and the initial smoke checks are read-only.
+A separate private repository, [qualitypeople-qa-lab](https://github.com/Floodzie2/qualitypeople-qa-lab/tree/feature/qa-lab-v2-foundation), holds QA tooling independently of the application source. It targets the deployed SIT environment; it does not contain or deploy the application, and the initial smoke checks are read-only.
 
 The first end-to-end cross-machine QA workflow is now demonstrated:
 
 - **Developer:** M4 Mac mini, maintaining the QA tooling and Git branches.
 - **Tester:** 2012 Mac mini running Kubuntu 26.04, independently pulling the QA Lab repository and executing its tests.
 - **Control centre:** MacBook Pro using VS Code Remote SSH over Tailscale to access both machines.
+- **Git authentication:** the Kubuntu Tester uses its own GitHub SSH key with Keychain-backed agent reuse. A passphrase-free `git pull` was verified in the active login session; a fresh login may require the passphrase once.
 - **Playwright:** the same two deployed-SIT smoke tests passed on both M4 and Kubuntu (**2/2 on each machine**).
 - **JMeter:** Apache JMeter 5.6.3 ran independently on Kubuntu against the deployed SIT version endpoint (**10 samples, 0 errors**); the HTML dashboard was generated on the Tester and viewed remotely from the MBP.
 
@@ -116,17 +117,18 @@ The latest local v13 evaluation passed **12 of 12 synthetic cases** on the final
 
 The raw model result is reported separately: it passed **11 of 12 cases**, with missing-information recall of **91.7%**. The remaining raw-model miss was a conflicting-date case where the model omitted the confirmed event date from its follow-up requirements. A narrow deterministic safety override adds that detail to the final result. Reporting both outputs keeps the model's limitation visible and avoids presenting a post-processing improvement as a model improvement.
 
-### Local unit-test and coverage baseline
+### Latest local coverage snapshot
 
-- **35/35 unit tests passed** across six test files.
-- **77.9% line coverage overall** (76.53% statements, 75% branches, 87.03% functions).
-- AI evaluation cases: 100% line coverage.
-- AI triage logic: 100% line coverage.
-- Evaluator: 98.59% line coverage.
-- Safety checks: 100% line coverage.
-- Cloudflare AI endpoint: 68.62% line coverage.
+A later V8 coverage inspection produced a **partial report across seven instrumented files**, not a whole-application coverage result. Statement coverage in that snapshot was:
 
-Coverage is a measure of executed code, not a guarantee of test quality or correctness. The endpoint's uncovered branches are the next investigation target.
+- Cloudflare AI endpoint (`functions/api/ai-triage.ts`): **63.8%**
+- Main application component (`src/App.tsx`): **41.7%**
+- AI evaluator (`src/ai/enquiry-evaluator.ts`): **96.4%**
+- AI safety checks (`src/ai/enquiry-safety.ts`): **93.8%**
+- Golden evaluation cases and triage logic: **100% each**
+- `src/App.css`: no executable statements to measure
+
+This replaces the earlier 77.9% aggregate figure in this portfolio: the newer report is partial and should not be presented as total application coverage. Coverage measures executed statements, not test effectiveness or correctness. The endpoint and main application component remain useful targets for additional tests.
 
 ### What this does—and does not—show
 

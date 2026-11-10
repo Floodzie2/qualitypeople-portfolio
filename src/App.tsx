@@ -40,7 +40,7 @@ const systems = [
   {
     name: 'Control centre',
     device: 'MacBook Pro',
-    detail: 'VS Code · Remote SSH · Tailscale',
+    detail: 'VS Code · Remote SSH · Tailscale · SSH agent',
     status: 'IN USE',
   },
   {
@@ -52,7 +52,7 @@ const systems = [
   {
     name: 'Independent Tester',
     device: '2012 Mac mini · Kubuntu 26.04',
-    detail: 'Node.js 24.22 · Chromium · Playwright · JMeter',
+    detail: 'Node.js 24.22 · Chromium · Playwright · JMeter · Keychain SSH agent',
     status: 'IN USE',
   },
   {
@@ -986,22 +986,22 @@ function App() {
               <span className="eyebrow">UNIT TESTS</span>
               <h3>35 tests passing.</h3>
               <p>
-                The latest local Vitest run passed all 35 tests across six test
-                files, including endpoint response contracts, safety checks,
-                golden cases and evaluator behaviour. Type checking also passed
-                in the preceding verification run.
+                An earlier local Vitest run passed 35 tests across six files. That is a dated
+                test-run result, not a claim about the latest test count; current
+                coverage evidence is reported separately below.
               </p>
             </article>
             <article className="architecture-note">
               <span className="eyebrow">MEASURED COVERAGE</span>
               <h3>Strong core logic; endpoint paths remain.</h3>
               <p>
-                A local V8 coverage run measured 77.9% overall line coverage.
-                The AI evaluation cases and triage logic each reached 100% line
-                coverage, the evaluator 98.59%, safety checks 100%, and the
-                Cloudflare AI endpoint 68.62%. Coverage measures executed code,
-                not whether every behaviour is correct; the endpoint's
-                uncovered branches are a priority for the next test pass.
+                A later V8 inspection covered seven instrumented files only, so it is not
+                whole-application coverage. Statement coverage was 63.8% for the
+                Cloudflare AI endpoint, 41.7% for App.tsx, 96.4% for the evaluator,
+                93.8% for safety checks, and 100% for the golden cases and triage
+                logic. App.css had no executable statements. These partial figures
+                supersede the earlier 77.9% aggregate and should not be read as a
+                complete application-wide coverage percentage.
               </p>
             </article>
             <article className="architecture-note">
