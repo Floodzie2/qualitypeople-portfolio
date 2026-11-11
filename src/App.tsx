@@ -52,7 +52,7 @@ const systems = [
   {
     name: 'Independent Tester',
     device: '2012 Mac mini · Kubuntu 26.04',
-    detail: 'Node.js 24.22 · Chromium · Playwright · JMeter · Keychain SSH agent',
+    detail: 'Docker Compose · Playwright 1.64.1 · Chromium · JMeter · Node.js 24.22',
     status: 'IN USE',
   },
   {
@@ -403,34 +403,36 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">02 / INDEPENDENT QA EXECUTION</span>
-              <h2>A separate tester. The same repeatable checks.</h2>
+              <h2>A separate tester. Repeatable tests in an isolated runner.</h2>
             </div>
             <p>
-              The QA Lab is maintained in its own private repository, separate
-              from the application. The Developer prepares and versions the
-              tests on the M4; the Kubuntu machine independently pulls and runs
-              them against the deployed SIT environment.
+              The QA Lab is maintained in its own repository, separate from the
+              application. The Developer prepares and versions tests on the M4;
+              the Kubuntu machine independently pulls them and runs the
+              containerised Playwright suite against deployed SIT.
             </p>
           </div>
 
           <div className="architecture-support-grid">
             <article className="architecture-note">
-              <span className="eyebrow">CROSS-MACHINE RESULT</span>
-              <h3>2 / 2 tests passed on both machines.</h3>
+              <span className="eyebrow">CROSS-MACHINE BASELINE</span>
+              <h3>The first smoke checks passed on both machines.</h3>
               <p>
-                The same Playwright suite passed on the M4 Developer machine
-                and the 2012 Kubuntu Tester machine. The checks confirm that
-                the SIT homepage responds successfully and that
-                <code> /version.json </code> returns a non-empty commit SHA.
+                The initial two-test Playwright smoke suite passed on the M4
+                Developer and Kubuntu Tester machines (2/2 on each). The
+                expanded ten-test suite is now independently executed on
+                Kubuntu, both natively and in Docker.
               </p>
             </article>
             <article className="architecture-note">
-              <span className="eyebrow">ENVIRONMENT PARITY</span>
-              <h3>Matching Node.js toolchains.</h3>
+              <span className="eyebrow">CONTAINERISED SIT EXECUTION</span>
+              <h3>10 / 10 tests passed in Docker.</h3>
               <p>
-                Both machines use Node.js 24.22.0 and npm 11.19.1. The Tester
-                has its own Linux Chromium installation and executes the
-                repository's locked dependencies independently.
+                On 11 November 2026, the Kubuntu Tester ran the official
+                Playwright 1.64.1 image with four workers: 10 passed in 5.8
+                seconds. The native Kubuntu run also passed 10/10 in 5.4
+                seconds. The HTML report and result metadata persisted on the
+                host. Contact-form API responses were mocked.
               </p>
             </article>
             <article className="architecture-note">
@@ -453,12 +455,16 @@ function App() {
                 Inspect the independent QA Lab repository ↗
               </a>
               {' · '}
-              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/blob/feature/qa-lab-v2-foundation/playwright/tests/sit-smoke.spec.ts" target="_blank" rel="noreferrer">
-                View the two Playwright SIT smoke tests ↗
+              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/tree/feature/qa-lab-v2-foundation/playwright/tests" target="_blank" rel="noreferrer">
+                View the independent Playwright SIT tests ↗
               </a>
               {' · '}
               <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1" target="_blank" rel="noreferrer">
-                Review the QA Lab foundation PR and Tester evidence ↗
+                Review the QA Lab foundation PR ↗
+              </a>
+              {' · '}
+              <a href="https://github.com/Floodzie2/qualitypeople-qa-lab/pull/2" target="_blank" rel="noreferrer">
+                Review the Docker runner and execution evidence ↗
               </a>.
             </p>
           </div>
@@ -887,16 +893,17 @@ function App() {
 
               <article className="evidence-card">
                 <div className="evidence-card-topline">
-                  <span className="panel-kicker">CONTAINERISED E2E TESTING</span>
-                  <span className="system-status status-active">RUN VERIFIED</span>
+                  <span className="panel-kicker">KUBUNTU QA CONTAINER</span>
+                  <span className="system-status status-active">10 / 10 PASSED</span>
                 </div>
-                <a className="evidence-image-link" href="/docker-playwright-run-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open Docker Playwright test run reconstruction">
-                  <img src="/docker-playwright-run-recreated.svg" alt="Reconstructed terminal view of docker run --rm qualitypeople-playwright, executing npm run test:e2e with all five Chromium end-to-end tests passing in 1.9 seconds." />
+                <a className="evidence-image-link" href="/docker-playwright-run-recreated.svg" target="_blank" rel="noreferrer" aria-label="Open Docker Playwright SIT run reconstruction">
+                  <img src="/docker-playwright-run-recreated.svg" alt="Reconstructed Docker Compose terminal output showing all ten Playwright SIT tests passing in 5.8 seconds using four workers on the Kubuntu Tester." loading="lazy" />
                 </a>
-                <h4>Playwright running inside Docker</h4>
-                <p>This is implemented and has been run: a Docker image packages Playwright 1.64.1, Chromium and its browser dependencies with the project dependencies. Running the container executes the end-to-end suite in Linux; the recorded run passed 5/5 tests in 1.9 seconds. The separate headless Linux QA host is a distinct next step.</p>
-                <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-app" target="_blank" rel="noreferrer">Explore application repository ↗</a>
-                <a className="text-link" href="/docker-test-architecture.svg" target="_blank" rel="noreferrer">View container architecture ↗</a>
+                <h4>Independent Playwright runner in Docker</h4>
+                <p>The 2012 Kubuntu Tester runs the QA Lab suite in the official Microsoft Playwright 1.64.1 image. The 11 November SIT run passed 10/10 tests in 5.8 seconds using four workers, and the HTML report persisted on the host. The container runs the test tooling only; the application remains deployed to Cloudflare Pages and is not containerised by this workflow.</p>
+                <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-qa-lab/pull/2" target="_blank" rel="noreferrer">Review the Docker runner and evidence ↗</a>
+                <a className="text-link" href="https://github.com/Floodzie2/qualitypeople-qa-lab" target="_blank" rel="noreferrer">Explore the independent QA Lab ↗</a>
+                <a className="text-link" href="/docker-test-architecture.svg" target="_blank" rel="noreferrer">View the QA runner architecture ↗</a>
               </article>
 
               <article className="evidence-card">
