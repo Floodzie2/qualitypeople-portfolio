@@ -38,7 +38,8 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 
 - [Application source](https://github.com/Floodzie2/qualitypeople-app)
 - [Independent QA Lab — separate test tooling and execution environment](https://github.com/Floodzie2/qualitypeople-qa-lab)
-- [QA Lab foundation pull request and independent Tester evidence](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1)
+- [QA Lab foundation pull request](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1)
+- [Docker Playwright runner and Kubuntu execution evidence](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/2)
 - [CI and deployment workflows](https://github.com/Floodzie2/qualitypeople-app/actions)
 - [Merged AI triage evaluation work](https://github.com/Floodzie2/qualitypeople-app/pull/7)
 - [AI evaluation methodology and experiment log](https://github.com/Floodzie2/qualitypeople-app/blob/main/docs/ai-triage-evaluation.md)
@@ -54,21 +55,24 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 
 ## Independent QA Lab: developer and tester separation
 
-A separate private repository, [qualitypeople-qa-lab](https://github.com/Floodzie2/qualitypeople-qa-lab/tree/feature/qa-lab-v2-foundation), holds QA tooling independently of the application source. It targets the deployed SIT environment; it does not contain or deploy the application, and the initial smoke checks are read-only.
+A separate private repository, [qualitypeople-qa-lab](https://github.com/Floodzie2/qualitypeople-qa-lab), holds independent test tooling and execution guidance outside the application source. It targets the deployed Cloudflare Pages SIT environment; it does not contain, build or deploy the application.
 
-The first end-to-end cross-machine QA workflow is now demonstrated:
+The cross-machine workflow is now demonstrated:
 
-- **Developer:** M4 Mac mini, maintaining the QA tooling and Git branches.
-- **Tester:** 2012 Mac mini running Kubuntu 26.04, independently pulling the QA Lab repository and executing its tests.
+- **Developer:** M4 Mac mini, maintaining the application and QA tooling through Git branches and pull requests.
+- **Tester:** 2012 Mac mini running Kubuntu 26.04, independently pulling the QA Lab repository and executing tests.
 - **Control centre:** MacBook Pro using VS Code Remote SSH over Tailscale to access both machines.
 - **Git authentication:** the Kubuntu Tester uses its own GitHub SSH key with Keychain-backed agent reuse. A passphrase-free `git pull` was verified in the active login session; a fresh login may require the passphrase once.
-- **Playwright:** the same two deployed-SIT smoke tests passed on both M4 and Kubuntu (**2/2 on each machine**).
+- **Initial cross-machine Playwright baseline:** the first two deployed-SIT smoke tests passed on both M4 and Kubuntu (**2/2 on each machine**).
+- **Expanded Playwright SIT suite:** all **10/10 tests passed natively** on Kubuntu in 5.4 seconds and all **10/10 passed in Docker** in 5.8 seconds using four workers on 11 November 2026.
+- **Docker runner:** the Kubuntu Tester uses the official `mcr.microsoft.com/playwright:v1.64.1-noble` image through Docker Compose. The HTML report and last-run metadata were confirmed in the host workspace after the container exited.
 - **JMeter:** Apache JMeter 5.6.3 ran independently on Kubuntu against the deployed SIT version endpoint (**10 samples, 0 errors**); the HTML dashboard was generated on the Tester and viewed remotely from the MBP.
 
-The Playwright checks verify that the SIT homepage responds successfully and that `/version.json` returns a non-empty commit SHA. The JMeter plan sends ten sequential read-only GET requests to the same version endpoint. Together, these checks demonstrate independent test execution and a practical evidence hand-off; they are not broad regression coverage, a security assessment or proof of application correctness.
+The Playwright suite covers homepage response, deployment version identity, navigation and mobile layout, plus contact-form validation and mocked success/failure responses. The contact-form tests do not create real enquiries or verify backend persistence. This is targeted Chromium browser coverage, not broad regression, accessibility, security or cross-browser proof.
 
-The QA Lab remains separate from [qualitypeople-app](https://github.com/Floodzie2/qualitypeople-app): it contains QA tooling and runbooks, not application source or deployment configuration. Generated JMeter JTL and HTML report outputs remain local to the Tester and are Git-ignored. The foundation work is in [draft PR #1](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1); it has not been merged.
+The QA Lab remains separate from [qualitypeople-app](https://github.com/Floodzie2/qualitypeople-app): it contains QA tooling and runbooks, not application source or deployment configuration. The Docker container packages the test runner and browser dependencies only; the application remains deployed to Cloudflare Pages and is not containerised by this workflow. Generated reports remain local to the Tester and are Git-ignored.
 
+The foundation work is in [draft PR #1](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1). The follow-on [Docker runner change is in draft PR #2](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/2), stacked on PR #1. Neither pull request has been merged.
 ## Local AI-assisted development: M4 Ollama and remote QA
 
 The distributed workstation now uses the M4 Mac mini as a local AI inference host while the QualityPeople QA Lab workspace remains on the independent Kubuntu Tester. VS Code runs on the MacBook Pro and opens the Tester project through Remote SSH.

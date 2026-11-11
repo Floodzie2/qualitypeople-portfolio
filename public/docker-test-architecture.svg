@@ -1,1 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc"><title id="title">Dockerised test environment architecture</title><desc id="desc">Illustrative architecture showing a Playwright runner container testing an application container over an isolated Docker network.</desc><rect width="1440" height="820" rx="22" fill="#10151d"/><rect width="1440" height="78" rx="22" fill="#1b2430"/><rect y="56" width="1440" height="22" fill="#1b2430"/><circle cx="35" cy="39" r="7" fill="#ff6259"/><circle cx="60" cy="39" r="7" fill="#ffc044"/><circle cx="85" cy="39" r="7" fill="#45c96a"/><text x="120" y="46" fill="#dce5ef" font-family="Arial,sans-serif" font-size="22" font-weight="700">QUALITYPEOPLE / CONTAINER LAB</text><rect x="1160" y="23" width="235" height="32" rx="6" fill="#263444" stroke="#4a647c"/><text x="1277" y="44" fill="#a8c7e8" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1">ARCHITECTURE VIEW</text><text x="58" y="135" fill="#8b9aaa" font-family="Arial,sans-serif" font-size="14" letter-spacing="2">REPEATABLE QA ENVIRONMENT</text><text x="58" y="184" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="34" font-weight="700">Isolate the test runner. Control the target.</text><text x="58" y="218" fill="#9eabb9" font-family="Arial,sans-serif" font-size="16">Illustrative Docker setup for consistent browser regression across local and CI runs</text><rect x="58" y="260" width="1322" height="450" rx="16" fill="#141c26" stroke="#496176" stroke-width="2" stroke-dasharray="9 8"/><rect x="84" y="282" width="215" height="34" rx="6" fill="#263444"/><text x="191" y="304" fill="#a8c7e8" font-family="Arial,sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1">DOCKER NETWORK</text><rect x="100" y="350" width="440" height="280" rx="12" fill="#1b2835" stroke="#49769a" stroke-width="2"/><rect x="100" y="350" width="440" height="54" rx="12" fill="#23394b"/><rect x="100" y="390" width="440" height="14" fill="#23394b"/><text x="128" y="383" fill="#b9d8f2" font-family="Arial,sans-serif" font-size="18" font-weight="700">playwright-runner</text><text x="128" y="441" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="24" font-weight="700">Browser tests</text><text x="128" y="475" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• Playwright + TypeScript</text><text x="128" y="505" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• Chromium browser</text><text x="128" y="535" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• Trace / screenshot artifacts</text><text x="128" y="585" fill="#7eaccd" font-family="monospace" font-size="14">npm run test:e2e</text><rect x="900" y="350" width="440" height="280" rx="12" fill="#1d2b24" stroke="#5a8b66" stroke-width="2"/><rect x="900" y="350" width="440" height="54" rx="12" fill="#263e30"/><rect x="900" y="390" width="440" height="14" fill="#263e30"/><text x="928" y="383" fill="#b7f56a" font-family="Arial,sans-serif" font-size="18" font-weight="700">application-under-test</text><text x="928" y="441" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="24" font-weight="700">Web app + API</text><text x="928" y="475" fill="#b5c4b8" font-family="Arial,sans-serif" font-size="15">• Vite / application build</text><text x="928" y="505" fill="#b5c4b8" font-family="Arial,sans-serif" font-size="15">• Pages Functions routes</text><text x="928" y="535" fill="#b5c4b8" font-family="Arial,sans-serif" font-size="15">• Controlled test configuration</text><text x="928" y="585" fill="#b7f56a" font-family="monospace" font-size="14">http://app:4173</text><path d="M550 478 H885" fill="none" stroke="#b7f56a" stroke-width="3"/><path d="M870 466 L885 478 L870 490" fill="none" stroke="#b7f56a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="718" y="455" fill="#b7f56a" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">HTTP / assertions</text><rect x="100" y="650" width="1240" height="35" rx="6" fill="#202a35"/><text x="720" y="673" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">Same image and commands locally and in CI · predictable dependencies · disposable test environment</text><text x="58" y="758" fill="#7f8d9c" font-family="Arial,sans-serif" font-size="13">Conceptual architecture visual — not a capture of a running Docker Desktop session.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+<title id="title">QualityPeople independent Docker QA runner architecture</title>
+<desc id="desc">The 2012 Kubuntu Tester runs a pinned Playwright Docker container. It tests the deployed QualityPeople SIT application on Cloudflare Pages over HTTPS. Reports persist in the host workspace. The application is outside Docker and is not containerised in this workflow.</desc>
+<rect width="1440" height="820" rx="22" fill="#10151d"/>
+<rect width="1440" height="78" rx="22" fill="#1b2430"/><rect y="56" width="1440" height="22" fill="#1b2430"/>
+<circle cx="35" cy="39" r="7" fill="#ff6259"/><circle cx="60" cy="39" r="7" fill="#ffc044"/><circle cx="85" cy="39" r="7" fill="#45c96a"/>
+<text x="120" y="46" fill="#dce5ef" font-family="Arial,sans-serif" font-size="22" font-weight="700">QUALITYPEOPLE / INDEPENDENT QA ARCHITECTURE</text>
+<text x="58" y="135" fill="#8b9aaa" font-family="Arial,sans-serif" font-size="14" letter-spacing="2">CONTAINERISE THE TEST RUNNER — NOT THE DEPLOYED APPLICATION</text>
+<text x="58" y="184" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="34" font-weight="700">Isolated browser execution. Real deployed SIT target.</text>
+<text x="58" y="218" fill="#9eabb9" font-family="Arial,sans-serif" font-size="16">The QA container is disposable; test reports remain on the Kubuntu host.</text>
+
+<rect x="58" y="260" width="790" height="450" rx="16" fill="#141c26" stroke="#496176" stroke-width="2" stroke-dasharray="9 8"/>
+<rect x="84" y="282" width="330" height="34" rx="6" fill="#263444"/>
+<text x="249" y="304" fill="#a8c7e8" font-family="Arial,sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1">2012 MAC MINI · KUBUNTU TESTER</text>
+
+<rect x="100" y="350" width="390" height="270" rx="12" fill="#1b2835" stroke="#49769a" stroke-width="2"/>
+<rect x="100" y="350" width="390" height="54" rx="12" fill="#23394b"/><rect x="100" y="390" width="390" height="14" fill="#23394b"/>
+<text x="128" y="383" fill="#b9d8f2" font-family="Arial,sans-serif" font-size="18" font-weight="700">Docker · Playwright runner</text>
+<text x="128" y="445" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="24" font-weight="700">Browser test container</text>
+<text x="128" y="482" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• Microsoft image v1.64.1-noble</text>
+<text x="128" y="514" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• Playwright + Chromium</text>
+<text x="128" y="546" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• npm ci + 10 SIT tests</text>
+<text x="128" y="588" fill="#7eaccd" font-family="monospace" font-size="14">docker compose run --rm playwright</text>
+
+<rect x="530" y="350" width="280" height="270" rx="12" fill="#202a35" stroke="#6d7784" stroke-width="2"/>
+<rect x="530" y="350" width="280" height="54" rx="12" fill="#303c49"/><rect x="530" y="390" width="280" height="14" fill="#303c49"/>
+<text x="558" y="383" fill="#dce5ef" font-family="Arial,sans-serif" font-size="18" font-weight="700">Host workspace</text>
+<text x="558" y="445" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="22" font-weight="700">Persistent evidence</text>
+<text x="558" y="482" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• playwright-report/</text>
+<text x="558" y="514" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• test-results/</text>
+<text x="558" y="546" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="15">• Git-ignored node_modules/</text>
+<text x="558" y="588" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="13">Workspace bind-mounted at /work</text>
+
+<path d="M492 480 H520" fill="none" stroke="#7eaccd" stroke-width="3"/>
+<path d="M510 470 L520 480 L510 490" fill="none" stroke="#7eaccd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+<rect x="940" y="350" width="400" height="270" rx="12" fill="#1d2b24" stroke="#5a8b66" stroke-width="2"/>
+<rect x="940" y="350" width="400" height="54" rx="12" fill="#263e30"/><rect x="940" y="390" width="400" height="14" fill="#263e30"/>
+<text x="968" y="383" fill="#b7f56a" font-family="Arial,sans-serif" font-size="18" font-weight="700">Cloudflare Pages · SIT</text>
+<text x="968" y="445" fill="#f4f7fb" font-family="Arial,sans-serif" font-size="24" font-weight="700">Deployed application</text>
+<text x="968" y="482" fill="#b5c4b8" font-family="Arial,sans-serif" font-size="15">• QualityPeople frontend</text>
+<text x="968" y="514" fill="#b5c4b8" font-family="Arial,sans-serif" font-size="15">• Pages Functions API</text>
+<text x="968" y="546" fill="#b5c4b8" font-family="Arial,sans-serif" font-size="15">• Outside the Docker host</text>
+<text x="968" y="588" fill="#b7f56a" font-family="monospace" font-size="14">qualitypeople-sit.pages.dev</text>
+
+<path d="M850 480 H925" fill="none" stroke="#b7f56a" stroke-width="3"/>
+<path d="M910 468 L925 480 L910 492" fill="none" stroke="#b7f56a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="888" y="455" fill="#b7f56a" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">HTTPS</text>
+
+<rect x="100" y="650" width="1240" height="35" rx="6" fill="#202a35"/>
+<text x="720" y="673" fill="#a9b7c5" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">Test runner container only · application stays on Cloudflare Pages · reports persist on Kubuntu</text>
+<text x="58" y="758" fill="#7f8d9c" font-family="Arial,sans-serif" font-size="13">Architecture reflects the verified QA Lab setup. Future application containerisation on the M4 is a separate, deferred development task.</text>
+</svg>

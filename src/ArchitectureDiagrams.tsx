@@ -150,9 +150,9 @@ export function ArchitectureDiagrams() {
           <div className="qa-support-card">
             <span className="diagram-node-eyebrow">ENVIRONMENT ISOLATION</span>
             <strong>Repeatable execution</strong>
-            <p>Docker already provides a repeatable Playwright browser-test environment in CI. A separate Linux QA host is a future extension.</p>
-            <span className="diagram-status diagram-status-implemented">DOCKER IN CI</span>
-            <span className="diagram-status diagram-status-planned">LINUX HOST PLANNED</span>
+            <p>The independent Kubuntu Tester now runs the Playwright suite in a pinned Docker image against deployed Cloudflare Pages SIT. Reports persist on the host. The application itself is not containerised by this workflow.</p>
+            <span className="diagram-status diagram-status-implemented">DOCKER PLAYWRIGHT ON KUBUNTU</span>
+            <span className="diagram-status diagram-status-implemented">DEPLOYED APP OUTSIDE CONTAINER</span>
           </div>
           <div className="qa-support-card">
             <span className="diagram-node-eyebrow">AI QUALITY</span>
