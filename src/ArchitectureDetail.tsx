@@ -97,12 +97,12 @@ export function ArchitectureDetail() {
 
         <div className="delivery-future">
           <div className="future-heading">
-            <span className="branch-label">PLANNED EXTENSION</span>
-            <h3>Expand the QA capability</h3>
+            <span className="branch-label">CURRENT CAPABILITY &amp; NEXT ITERATIONS</span>
+            <h3>Expand the independent QA capability</h3>
           </div>
           <div className="future-items">
-            <div><strong>Linux QA host</strong><span>Separate execution environment</span></div>
-            <div><strong>Apache JMeter</strong><span>Scheduled load tests and baselines</span></div>
+            <div><strong>Docker Playwright runner</strong><span>In use on the Kubuntu Tester</span></div>
+            <div><strong>Apache JMeter</strong><span>SIT smoke in use; scheduled load planned</span></div>
             <div><strong>AI-assisted analysis</strong><span>Interpret results for human review</span></div>
           </div>
         </div>
@@ -120,12 +120,13 @@ export function ArchitectureDetail() {
         </article>
         <article className="architecture-note">
           <span className="eyebrow">CONTAINERS &amp; PERFORMANCE</span>
-          <h3>Build on the existing Docker workflow.</h3>
+          <h3>Containerise the tester, not the deployed app.</h3>
           <p>
-            Docker is already used in CI to package and run the Playwright
-            browser-test environment. The separate Linux QA host, scheduled
-            JMeter runs, retained performance results and AI-assisted analysis
-            are planned next steps, not yet operational capabilities.
+            The independent Kubuntu Tester now runs Playwright in a pinned
+            Docker image against the deployed Cloudflare Pages SIT application.
+            Reports persist on the host. The application itself is not in this
+            container; a separate app-container workflow on the M4 remains a
+            future development task.
           </p>
         </article>
       </div>
