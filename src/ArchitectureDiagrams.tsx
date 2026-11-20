@@ -47,14 +47,6 @@ export function ArchitectureDiagrams() {
           </div>
         </div>
 
-        <div className="blueprint-lane ai-capability-lane">
-          <div className="blueprint-lane-label"><span>AI</span><strong>LOCAL AI CAPABILITY</strong></div>
-          <div className="diagram-node-grid">
-            <DiagramNode eyebrow="LOCAL MODEL RUNTIME · M4 MAC MINI" title="Ollama" detail="Available locally and used to support development work. Intended next use: analyse JMeter results and performance trends without making the hosted application depend on a remote AI service." status="implemented" />
-          </div>
-          <p className="ai-capability-note">Development use: in place · Performance-result analysis: planned</p>
-        </div>
-
         <DiagramArrow label="Git branches · pull requests · reviewed changes" />
 
         <div className="blueprint-lane">
@@ -143,9 +135,9 @@ export function ArchitectureDiagrams() {
           <div className="qa-support-card">
             <span className="diagram-node-eyebrow">PERFORMANCE TESTING</span>
             <strong>Smoke now · load later</strong>
-            <p>The CI JMeter test checks ten read-only version endpoint requests. Ollama is already installed on the M4 and used for development; using it to interpret JMeter results and compare performance trends is the next planned step. Scheduled load profiles and trend history are also planned.</p>
-            <span className="diagram-status diagram-status-implemented">JMeter SMOKE + LOCAL OLLAMA</span>
-            <span className="diagram-status diagram-status-planned">LOAD + AI ANALYSIS PLANNED</span>
+            <p>The CI JMeter test checks ten read-only version endpoint requests. Scheduled load profiles and trend history are future work; any later AI-assisted interpretation would be optional and subject to human review.</p>
+            <span className="diagram-status diagram-status-implemented">JMeter SMOKE TEST</span>
+            <span className="diagram-status diagram-status-planned">LOAD + TREND ANALYSIS PLANNED</span>
           </div>
           <div className="qa-support-card">
             <span className="diagram-node-eyebrow">ENVIRONMENT ISOLATION</span>
