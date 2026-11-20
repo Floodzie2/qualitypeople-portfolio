@@ -48,9 +48,9 @@ export function ArchitectureDiagrams() {
         </div>
 
         <div className="blueprint-lane ai-capability-lane">
-          <div className="blueprint-lane-label"><span>AI</span><strong>LOCAL AI CAPABILITY</strong></div>
+          <div className="blueprint-lane-label"><span>AI</span><strong>AI-ASSISTED DEVELOPMENT</strong></div>
           <div className="diagram-node-grid">
-            <DiagramNode eyebrow="LOCAL MODEL RUNTIME · M4 MAC MINI" title="Ollama" detail="Available locally and used to support development work. Intended next use: analyse JMeter results and performance trends without making the hosted application depend on a remote AI service." status="implemented" />
+            <DiagramNode eyebrow="AI-ASSISTED DEVELOPMENT · M4 MAC MINI" title="Magnitude" detail="Used to support development work. Intended next use: analyse JMeter results and performance trends without making the hosted application depend on an AI service." status="implemented" />
           </div>
           <p className="ai-capability-note">Development use: in place · Performance-result analysis: planned</p>
         </div>
@@ -143,8 +143,8 @@ export function ArchitectureDiagrams() {
           <div className="qa-support-card">
             <span className="diagram-node-eyebrow">PERFORMANCE TESTING</span>
             <strong>Smoke now · load later</strong>
-            <p>The CI JMeter test checks ten read-only version endpoint requests. Ollama is already installed on the M4 and used for development; using it to interpret JMeter results and compare performance trends is the next planned step. Scheduled load profiles and trend history are also planned.</p>
-            <span className="diagram-status diagram-status-implemented">JMeter SMOKE + LOCAL OLLAMA</span>
+            <p>The CI JMeter test checks ten read-only version endpoint requests. Magnitude is used for development; using it to interpret JMeter results and compare performance trends is the next planned step. Scheduled load profiles and trend history are also planned.</p>
+            <span className="diagram-status diagram-status-implemented">JMeter SMOKE + MAGNITUDE</span>
             <span className="diagram-status diagram-status-planned">LOAD + AI ANALYSIS PLANNED</span>
           </div>
           <div className="qa-support-card">

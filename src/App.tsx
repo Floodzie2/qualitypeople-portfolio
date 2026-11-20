@@ -46,7 +46,7 @@ const systems = [
   {
     name: 'Developer',
     device: 'M4 Mac mini',
-    detail: 'Git · Node.js 24.22 · Playwright · Ollama AI inference',
+    detail: 'Git · Node.js 24.22 · Playwright · Magnitude AI-assisted development',
     status: 'IN USE',
   },
   {
@@ -474,27 +474,26 @@ function App() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">03 / LOCAL AI-ASSISTED DEVELOPMENT</span>
-              <h2>AI inference on the M4. Independent testing on Kubuntu.</h2>
+              <h2>AI-assisted development on the M4. Independent testing on Kubuntu.</h2>
             </div>
             <p>
               VS Code remains the control surface on the MacBook Pro, with the
               QualityPeople QA Lab workspace open on the 2012 Kubuntu Tester over
-              Remote SSH. Ollama runs on the M4 Mac mini, keeping model inference
-              on the machine with the stronger compute resources while the Tester
-              remains responsible for independent test execution.
+              Remote SSH. Magnitude is now the AI-assisted engineering tool used
+              during development, while the Tester remains responsible for
+              independent test execution.
             </p>
           </div>
 
           <div className="architecture-support-grid">
             <article className="architecture-note">
-              <span className="eyebrow">M4 AI HOST</span>
-              <h3>Two local Ollama models available.</h3>
+              <span className="eyebrow">M4 DEVELOPMENT WORKSTATION</span>
+              <h3>Magnitude supports AI-assisted development.</h3>
               <p>
-                <code>qwen3.5:4b</code> (approximately 4.0 GB) provides general
-                assistance, while <code>qwen2.5-coder:7b</code> (approximately
-                4.7 GB) is the coding-focused option. Both models are installed
-                and served by Ollama on the M4 Mac mini; they are not duplicated
-                on the Kubuntu Tester.
+                Magnitude is used to support implementation, investigation and
+                test development. Its suggestions remain subject to code review,
+                automated checks and human judgement; the QA Lab does not depend
+                on an AI service to execute its tests.
               </p>
             </article>
             <article className="architecture-note">
@@ -502,37 +501,31 @@ function App() {
               <h3>Remote project, local agent harness.</h3>
               <p>
                 The MacBook Pro connects to the Kubuntu QA Lab workspace using
-                VS Code Remote SSH. The Ollama extension is enabled in the SSH
-                environment, while VS Code's local agent harness is used for
-                BYOK model sessions because remote GitHub Copilot sessions do
-                not support BYOK models. GitHub Copilot remains available as a
-                separate option.
+                VS Code Remote SSH. Magnitude is used for AI-assisted engineering
+                alongside the normal editor workflow, while GitHub Copilot
+                remains available as a separate option.
               </p>
             </article>
             <article className="architecture-note">
               <span className="eyebrow">PRIVATE CONNECTIVITY</span>
-              <h3>Tailscale plus SSH port forwarding.</h3>
+              <h3>Private connectivity for independent testing.</h3>
               <p>
-                Tailscale connects the three machines across networks. An SSH
-                local-forward maps port <code>11434</code> on Kubuntu to the
-                M4's Ollama API at <code>127.0.0.1:11434</code>, without exposing
-                Ollama's API directly to the wider network. A request to
-                <code> /api/tags </code> from Kubuntu confirmed that both models
-                were reachable through the tunnel.
+                Tailscale connects the three machines across networks, while SSH
+                provides the remote workspace connection. Magnitude is used for
+                development assistance; it is separate from the independent
+                Playwright and JMeter execution path.
               </p>
             </article>
           </div>
 
           <div className="architecture-note evidence-panel">
             <span className="eyebrow">WHY THIS SEPARATION MATTERS</span>
-            <h3>Keep inference and test execution on the right machines.</h3>
+            <h3>Keep AI assistance and test execution separate.</h3>
             <p>
-              Model inference runs on the M4; source control and test execution
-              remain independently available on the Kubuntu Tester. This gives
-              the QA workflow access to local AI assistance without making the
-              test machine responsible for hosting or loading the models. The
-              connection was verified end to end using Tailscale, SSH and the
-              Ollama model-list API.
+              Magnitude supports development work, while source control and test
+              execution remain independently available on the Kubuntu Tester.
+              This keeps AI-assisted implementation separate from the evidence
+              produced by the Playwright and JMeter test paths.
             </p>
           </div>
         </section>
@@ -552,11 +545,10 @@ function App() {
               CI workflow checks a locally served build, while the independent QA
               Lab run executes against deployed SIT from the Kubuntu Tester machine.
               Both are small endpoint smoke checks, not load or capacity tests.
-              Ollama is available locally on the M4 Mac mini for development
-              support. Using it to interpret JMeter results and compare performance
-              trends is planned; the hosted application does not depend on a remote
-              AI service. Scheduled load testing and AI-assisted performance analysis
-              remain planned enhancements.
+              Magnitude is available for development support. Using it to interpret
+              JMeter results and compare performance trends is planned; the hosted
+              application does not depend on an AI service. Scheduled load testing
+              and AI-assisted performance analysis remain planned enhancements.
             </p>
           </div>
 
@@ -654,7 +646,7 @@ function App() {
             <div className="performance-next-grid">
               <article><span className="card-index">01</span><h3>Repeatable baselines</h3><p>Compare response-time and error trends across builds instead of judging one run in isolation.</p></article>
               <article><span className="card-index">02</span><h3>Scheduled load runs</h3><p>Extend beyond a smoke check to planned nightly performance runs with controlled test data and load profiles.</p></article>
-              <article><span className="card-index">03</span><h3>AI-assisted analysis</h3><p>Use local Ollama to explore summarising JMeter results, flagging unusual changes and suggesting investigations—with human review and evidence-backed conclusions.</p></article>
+              <article><span className="card-index">03</span><h3>AI-assisted analysis</h3><p>Use Magnitude to explore summarising JMeter results, flagging unusual changes and suggesting investigations—with human review and evidence-backed conclusions.</p></article>
             </div>
           </div>
         </section>
