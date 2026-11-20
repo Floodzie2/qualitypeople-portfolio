@@ -46,7 +46,7 @@ const systems = [
   {
     name: 'Developer',
     device: 'M4 Mac mini',
-    detail: 'Git · Node.js 24.22 · Playwright · Ollama AI inference',
+    detail: 'Git · Node.js 24.22 · TypeScript · Playwright',
     status: 'IN USE',
   },
   {
@@ -78,7 +78,7 @@ function App() {
           <a href="#highlights">Evidence</a>
           <a href="#qe-strategy">QE strategy</a>
           <a href="#architecture">Architecture</a>
-          <a href="#ai-workstation">AI workstation</a>
+          <a href="#development-setup">Home lab</a>
           <a href="#engineering">Engineering</a>
           <a href="#developer-playwright">Reusable test toolkit</a>
           <a href="#performance">JMeter performance</a>
@@ -114,7 +114,7 @@ function App() {
           <option value="highlights">Evidence</option>
           <option value="qe-strategy">QE strategy</option>
           <option value="architecture">Architecture</option>
-          <option value="ai-workstation">AI workstation</option>
+          <option value="development-setup">Home lab</option>
           <option value="engineering">Engineering</option>
           <option value="developer-playwright">Reusable Playwright toolkit</option>
           <option value="performance">JMeter performance</option>
@@ -470,69 +470,63 @@ function App() {
           </div>
         </section>
 
-<section className="content-section" id="ai-workstation">
+<section className="content-section" id="development-setup">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">03 / LOCAL AI-ASSISTED DEVELOPMENT</span>
-              <h2>AI inference on the M4. Independent testing on Kubuntu.</h2>
+              <span className="eyebrow">03 / HOME LAB &amp; DEVELOPMENT WORKFLOW</span>
+              <h2>Distributed development. Independent testing.</h2>
             </div>
             <p>
-              VS Code remains the control surface on the MacBook Pro, with the
-              QualityPeople QA Lab workspace open on the 2012 Kubuntu Tester over
-              Remote SSH. Ollama runs on the M4 Mac mini, keeping model inference
-              on the machine with the stronger compute resources while the Tester
-              remains responsible for independent test execution.
+              The MacBook Pro is the control centre for a three-machine
+              engineering setup. VS Code connects over Tailscale and Remote SSH
+              to the M4 Mac mini for development and the Kubuntu mini for
+              independent QA execution. The test workflow does not depend on a
+              locally hosted language model.
             </p>
           </div>
 
           <div className="architecture-support-grid">
             <article className="architecture-note">
-              <span className="eyebrow">M4 AI HOST</span>
-              <h3>Two local Ollama models available.</h3>
+              <span className="eyebrow">DEVELOPMENT HOST</span>
+              <h3>M4 Mac mini.</h3>
               <p>
-                <code>qwen3.5:4b</code> (approximately 4.0 GB) provides general
-                assistance, while <code>qwen2.5-coder:7b</code> (approximately
-                4.7 GB) is the coding-focused option. Both models are installed
-                and served by Ollama on the M4 Mac mini; they are not duplicated
-                on the Kubuntu Tester.
+                The M4 is the development machine for Git, Node.js, TypeScript,
+                application builds and local test runs. It is separate from the
+                Kubuntu machine used for independent test execution.
               </p>
             </article>
             <article className="architecture-note">
               <span className="eyebrow">VS CODE WORKFLOW</span>
-              <h3>Remote project, local agent harness.</h3>
+              <h3>One control centre, two remote workspaces.</h3>
               <p>
-                The MacBook Pro connects to the Kubuntu QA Lab workspace using
-                VS Code Remote SSH. The Ollama extension is enabled in the SSH
-                environment, while VS Code's local agent harness is used for
-                BYOK model sessions because remote GitHub Copilot sessions do
-                not support BYOK models. GitHub Copilot remains available as a
-                separate option.
+                VS Code runs on the MacBook Pro and uses Remote SSH to access
+                the M4 development environment and the Kubuntu QA Lab workspace.
+                This keeps editing and orchestration convenient while allowing
+                development and independent testing to remain separate.
               </p>
             </article>
             <article className="architecture-note">
               <span className="eyebrow">PRIVATE CONNECTIVITY</span>
-              <h3>Tailscale plus SSH port forwarding.</h3>
+              <h3>Tailscale and SSH.</h3>
               <p>
-                Tailscale connects the three machines across networks. An SSH
-                local-forward maps port <code>11434</code> on Kubuntu to the
-                M4's Ollama API at <code>127.0.0.1:11434</code>, without exposing
-                Ollama's API directly to the wider network. A request to
-                <code> /api/tags </code> from Kubuntu confirmed that both models
-                were reachable through the tunnel.
+                Tailscale provides private connectivity between the three
+                machines across networks. SSH provides authenticated remote
+                access without exposing development or test services directly
+                to the public internet.
               </p>
             </article>
           </div>
 
           <div className="architecture-note evidence-panel">
             <span className="eyebrow">WHY THIS SEPARATION MATTERS</span>
-            <h3>Keep inference and test execution on the right machines.</h3>
+            <h3>Keep development and independent test execution distinct.</h3>
             <p>
-              Model inference runs on the M4; source control and test execution
-              remain independently available on the Kubuntu Tester. This gives
-              the QA workflow access to local AI assistance without making the
-              test machine responsible for hosting or loading the models. The
-              connection was verified end to end using Tailscale, SSH and the
-              Ollama model-list API.
+              Application development and local checks happen on the M4, while
+              the Kubuntu Tester provides a separate environment for running
+              Playwright and JMeter against the deployed SIT application. This
+              reduces reliance on a single machine and provides more credible
+              evidence that the test tooling works independently of the
+              development environment.
             </p>
           </div>
         </section>
@@ -552,11 +546,10 @@ function App() {
               CI workflow checks a locally served build, while the independent QA
               Lab run executes against deployed SIT from the Kubuntu Tester machine.
               Both are small endpoint smoke checks, not load or capacity tests.
-              Ollama is available locally on the M4 Mac mini for development
-              support. Using it to interpret JMeter results and compare performance
-              trends is planned; the hosted application does not depend on a remote
-              AI service. Scheduled load testing and AI-assisted performance analysis
-              remain planned enhancements.
+              Scheduled load testing, historical trend comparison and optional AI-assisted
+              performance analysis remain possible future enhancements. Any
+              interpretation of test results should remain traceable to the raw
+              measurements and subject to human review.
             </p>
           </div>
 
@@ -654,7 +647,7 @@ function App() {
             <div className="performance-next-grid">
               <article><span className="card-index">01</span><h3>Repeatable baselines</h3><p>Compare response-time and error trends across builds instead of judging one run in isolation.</p></article>
               <article><span className="card-index">02</span><h3>Scheduled load runs</h3><p>Extend beyond a smoke check to planned nightly performance runs with controlled test data and load profiles.</p></article>
-              <article><span className="card-index">03</span><h3>AI-assisted analysis</h3><p>Use local Ollama to explore summarising JMeter results, flagging unusual changes and suggesting investigations—with human review and evidence-backed conclusions.</p></article>
+              <article><span className="card-index">03</span><h3>AI-assisted analysis</h3><p>Explore AI-assisted summaries of JMeter results, flag unusual changes and suggest investigations—with human review and evidence-backed conclusions.</p></article>
             </div>
           </div>
         </section>
