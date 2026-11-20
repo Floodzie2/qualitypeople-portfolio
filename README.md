@@ -46,10 +46,10 @@ My approach to Quality Engineering combines enterprise QA leadership with hands-
 
 ## What it covers
 
-- **Distributed development:** a MacBook Pro acts as the VS Code control centre; an M4 Mac mini is the Developer and Ollama inference host; and a 2012 Mac mini running Kubuntu 26.04 is the independent Tester machine. VS Code Remote SSH connects to both over Tailscale.
+- **Distributed development:** a MacBook Pro acts as the VS Code control centre; an M4 Mac mini is the development host; and a 2012 Mac mini running Kubuntu 26.04 is the independent Tester machine. VS Code Remote SSH connects to both over Tailscale.
 - **Quality engineering:** TypeScript, Playwright browser automation, API checks, regression strategy and manual system-integration testing.
 - **Delivery:** separate GitHub repositories and Cloudflare Pages destinations for the application and portfolio.
-- **Performance engineering:** Apache JMeter 5.6.3 runs in application CI and independently from the Kubuntu QA Lab Tester against deployed SIT. Both are deliberately small smoke checks; broader load testing and AI-assisted interpretation remain planned.
+- **Performance engineering:** Apache JMeter 5.6.3 runs in application CI and independently from the Kubuntu QA Lab Tester against deployed SIT. Both are deliberately small smoke checks; broader load testing and optional AI-assisted interpretation remain future possibilities.
 - **AI quality engineering:** a protected, evaluation-only enquiry-triage endpoint tested against 12 synthetic cases, including ambiguity, conflicting dates and prompt injection.
 
 
@@ -73,21 +73,6 @@ The Playwright suite covers homepage response, deployment version identity, navi
 The QA Lab remains separate from [qualitypeople-app](https://github.com/Floodzie2/qualitypeople-app): it contains QA tooling and runbooks, not application source or deployment configuration. The Docker container packages the test runner and browser dependencies only; the application remains deployed to Cloudflare Pages and is not containerised by this workflow. Generated reports remain local to the Tester and are Git-ignored.
 
 The foundation work is in [draft PR #1](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/1). The follow-on [Docker runner change is in draft PR #2](https://github.com/Floodzie2/qualitypeople-qa-lab/pull/2), stacked on PR #1. Neither pull request has been merged.
-## Local AI-assisted development: M4 Ollama and remote QA
-
-The distributed workstation now uses the M4 Mac mini as a local AI inference host while the QualityPeople QA Lab workspace remains on the independent Kubuntu Tester. VS Code runs on the MacBook Pro and opens the Tester project through Remote SSH.
-
-- **Inference host:** Ollama runs on the M4 Mac mini.
-- **Available models:** `qwen3.5:4b` (approximately 4.0 GB) for general assistance and `qwen2.5-coder:7b` (approximately 4.7 GB) for coding-focused work.
-- **Editor and workspace:** VS Code on the MacBook Pro connects to the Kubuntu QA Lab workspace over Remote SSH. The Ollama extension is enabled in the SSH environment.
-- **Agent compatibility:** BYOK models are not supported in remote GitHub Copilot sessions. The working configuration uses VS Code's local agent harness for Ollama/BYOK sessions; GitHub Copilot remains available separately.
-- **Private network:** Tailscale provides connectivity between the machines, including when they are on different networks.
-- **API forwarding:** an SSH local port forward makes the M4's Ollama API available as `http://127.0.0.1:11434` on Kubuntu. Ollama remains bound to the M4's loopback interface rather than being exposed directly to the wider network.
-
-The connection was verified from Kubuntu by requesting `/api/tags` through the tunnel and receiving both installed model entries. This confirms that the Tester can reach the M4-hosted Ollama service; inference itself takes place on the M4. The SSH forwarding session must be active when this route is used.
-
-This is a development-assistance path, not part of the automated test execution path. Playwright and JMeter continue to run on their designated machines, and AI-generated suggestions remain subject to normal review and test evidence.
-
 ## JMeter smoke-test evidence
 
 A focused application pull request adds Apache JMeter 5.6.3 to CI. The test starts the built application locally and sends ten read-only requests to `GET /version.json` with one virtual user. It checks for HTTP 200 and a `commitSha` field, fails the workflow if any sample fails, and uploads the generated HTML dashboard and raw JTL results as a 14-day GitHub Actions artifact.
@@ -116,7 +101,7 @@ The HTML dashboard and raw JTL results were generated on Kubuntu, then the dashb
 
 *The image is a labelled reconstruction of the actual JMeter summary, not a literal screenshot. The run is a small endpoint smoke check—not a load, stress or capacity test. Ten samples are insufficient for a stable performance baseline, and the reported throughput must not be interpreted as system capacity.*
 
-This is currently a smoke test for endpoint availability and basic response behaviour—not a load, stress or capacity test. Scheduled load profiles, historical trend comparisons and AI-assisted result analysis are future work. Any AI analysis should be evaluated against the raw results and human-reviewed before conclusions are accepted.
+This is currently a smoke test for endpoint availability and basic response behaviour—not a load, stress or capacity test. Scheduled load profiles and historical trend comparisons are future work. Any future AI-assisted interpretation should be evaluated against the raw results and human-reviewed before conclusions are accepted.
 
 ## What the AI evaluation metrics mean
 
